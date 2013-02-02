@@ -1,0 +1,120 @@
+---
+layout: page
+url: submit.html
+permalink: submit.html
+title: Submit Report
+idd: submit
+---
+
+<!-- Element: Map -->
+	<div class="map-holder">
+	    <div id="map">
+	    
+	    	<div class="introduction message">
+	    		<h2>To file a report first click or tap on the map to mark it's location.</h2>
+	    	</div>
+	    
+		    <div class="thankyou message">
+		    		<h2>Thank you for your report. It has been logged in our database and will appear on our map in a few moments.<span><a href="index.html">View the map</a></span></h2>
+		    </div>
+	    
+	    </div>
+    </div>
+    
+	<div class="sub-menu clearfix">
+		<div class="frame">  
+			<ul>
+				<li><a href="#" id='geolocate'>Find me</a></li>
+				<li></li>
+		    </ul>
+		</div>
+	</div>
+
+    <div class="section submit-map">
+
+      <iframe name='hidden_iframe' id='hidden_iframe' style='display:none;' onload='if(submitted)
+      {window.location="confirm.html";
+      }'>
+      </iframe>
+		              
+      <form method='post' target='hidden_iframe' class='well span6' id='ss-form'>
+			
+		<div class="errorbox-good">
+			<div class="ss-item  ss-text">
+				<div class="ss-form-entry"><label class="ss-q-title" for="entry_7">What happened?
+		</label>
+		
+					<label class="ss-q-help" for="entry_7"></label>				
+					<input type="text" name="entry.7.single" value="" class="ss-q-short" id="entry_7">
+				</div>
+			</div>
+		</div>
+	
+		<div class="input-wrapper clearfix">
+
+            <div class='errorbox-good datetime'>
+              <div class='ss-item ss-item-required ss-text'>
+                <div class='ss-form-entry'>
+                  <label class='ss-q-title' for='entry_0'>When did it happen?
+                  <span class='ss-required-asterisk'>*</span>
+                  </label>
+                  <label class='ss-q-help' for='entry_0'></label>
+                  <input type='text' name='entry.0.single' value='' class='ss-q-short' id='entry_0' />
+                </div>
+              </div>
+            </div>
+	
+		</div><!-- /input-wrapper -->
+
+		<div class='errorbox-good'>
+		  <div class='ss-item  ss-paragraph-text'>
+		    <div class='ss-form-entry'>
+		      <label class='ss-q-title' for='entry_2'>Description</label>
+		      <label class='ss-q-help' for='entry_2'></label>
+		      <textarea name='entry.2.single' rows='8' cols='75' id='entry_2'></textarea>
+		    </div>
+		  </div>
+		</div>
+		
+		<div class="col">
+        
+        <div class='errorbox-good'>
+          <div class='ss-item ss-item-required ss-text'>
+            <div class='ss-form-entry'>
+              <label class='ss-q-title' for='entry_4'>Latitude
+               <span class='ss-required-asterisk'>*</span></label>
+              <label class='ss-q-help' for='entry_4'></label>
+              <input type='text' name='entry.4.single' value='' class='ss-q-short' id='entry_4' placeholder='Click on the map' />
+            </div>
+          </div>
+        </div>
+        
+        </div>
+        
+        <div class="col last">
+        
+        <div class='errorbox-good'>
+          <div class='ss-item ss-item-required ss-text'>
+            <div class='ss-form-entry'>
+              <label class='ss-q-title' for='entry_6'>Longitude
+                <span class='ss-required-asterisk'>*</span>
+              </label>
+              <label class='ss-q-help' for='entry_6'></label>
+              <input type='text' name='entry.6.single' value='' class='ss-q-short' id='entry_6' placeholder='Click on the map' />
+            </div>
+          </div>
+        </div>
+        
+        </div>
+        
+        <input type='hidden' name='pageNumber' value='0' />
+        <input type='hidden' name='backupCache' value='' />
+        <div class='ss-item ss-navigate'>
+          <div class='ss-form-entry'>
+            <input id="sendthis" type='submit' name='submit' value='Submit' />
+          </div>
+          
+        </div>
+      </form>
+    
+    </div><!-- /submit-map -->
