@@ -284,6 +284,7 @@ header {
 /* MAP */
 
 .map-holder {
+	overflow:hidden;
 	position:relative;
 	height: 600px;
 }
@@ -295,6 +296,14 @@ header {
   top:0px;
   left:0;
   width:100%;
+ }
+ 
+ @media handheld and (max-width: 480px), 
+ screen and (max-device-width: 480px), 
+ screen and (max-width: 600px)  {
+ 	.map-holder {
+ 		height: 400px;
+ 	}
  }
  
  .map-attribution {
@@ -661,9 +670,15 @@ input[type=submit] {
 	@media handheld and (max-width: 480px), 
 	screen and (max-device-width: 480px), 
 	screen and (max-width: 600px)  {
+
+		.message {
+			top: auto;
+		}
+
 		.introduction {
-			top: 0;
+			top: 1em;
 			left: 0;
+			position:relative;
 			width: auto;
 		}
 	}
