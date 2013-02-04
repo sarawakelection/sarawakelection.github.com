@@ -135,6 +135,10 @@ $(function () {
            
       var geolocate = document.getElementById('geolocate');
     
+    // Create an empty markers layer
+     var markerLayer = mapbox.markers.layer();
+     m.addLayer(markerLayer);	
+    
       // This uses the HTML5 geolocation API, which is available on
       // most mobile browsers and modern browsers, but not in Internet Explorer
       //
@@ -150,7 +154,7 @@ $(function () {
               function(position) {
                   // Once we've got a position, zoom and center the map
                   // on it, add ad a single feature
-                  m.zoom(11).center({
+                  m.zoom(15).center({
                       lat: position.coords.latitude,
                       lon: position.coords.longitude
                   });
@@ -165,6 +169,11 @@ $(function () {
                           'marker-symbol': 'star-stroked',
                       }
                   });
+                  
+                  // Copy location to the lat/lon fields
+                  $('#entry_4').attr('value', position.coords.latitude.toFixed(5));
+                  $('#entry_6').attr('value', position.coords.longitude	.toFixed(5));
+                  
                   // And hide the geolocation button
                   geolocate.parentNode.removeChild(geolocate);
               },
