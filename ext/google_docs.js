@@ -26,7 +26,7 @@ function mmg_google_docs_spreadsheet_1(id, callback) {
                 lonfield = f;              
             }
         }
-
+        
         for (var i = 0; i < x.feed.entry.length; i++) {                             
             var entry = x.feed.entry[i];
             var feature = {
@@ -35,8 +35,10 @@ function mmg_google_docs_spreadsheet_1(id, callback) {
                     coordinates: []
                 },
                 properties: {
-                    'marker-color':'#fff',
+                    "marker-size": "small",
+                    'marker-color':'#222',
                     'description': entry['gsx$description'].$t,  
+                    'link': entry['gsx$link'].$t,  
                     'date': 'Date: ' + entry['gsx$date'].$t,
                     'hour': 'Hour: ' + entry['gsx$time'].$t
                 }

@@ -72,6 +72,46 @@
 	
 	{% endif %}
     
+    {% if page.idd == 'touch' %}
+    
+    <script src='ext/jquery.validate.min.js'></script>
+    
+    <script type="text/javascript">
+	$(function(){
+	    $("#contact").validate({
+	    	rules: {
+	    		"subject": {
+	    			required:true,
+	    			minlength:5
+	    		},
+	    		"email": {
+	    			required: true,
+	    			email: true
+	    		},
+	    		"message": {
+	    			required: true,
+	    			minlength:10
+	    		}		
+	    	},
+	    	messages: {
+	    		"subject":'What are you contacting us about?',
+	    		"email":'Enter a valid email address',
+	    		"message":'Please enter your message'
+	    	},
+	    	submitHandler: function() {
+	    		
+	    		$('#contact input:submit').attr('value','Sending');
+	    		$('#contact input:submit').attr("disabled", true);
+	       		
+	    		form.submit();
+	    		
+	    	}
+	    });
+	 });	
+     </script>
+    
+    {% endif %}    
+    
     <script type="text/javascript">
     
       var _gaq = _gaq || [];

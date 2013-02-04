@@ -11,30 +11,34 @@ idd: touch
     
   	<div class="col-holder clearfix">
   	
+  		<h1 class="page-title">Get in touch</h1>
+  		
   		<div class="col">
   	  
-	  			<form action="http://getsimpleform.com/messages?form_api_token=05cf079ab6197f51a2ce4f5cf0b93984" method="post">
-	  			<!-- the redirect_to is optional, the form will redirect to the referrer on submission -->
-	  			<input type='hidden' name='redirect_to' value='<the complete return url e.g. http://fooey.com/thank-you.html>' />
+  			<form action="http://getsimpleform.com/messages?form_api_token=05cf079ab6197f51a2ce4f5cf0b93984" method="post" id="contact">
+	  			<input type='hidden' name='redirect_to' value='http://election.sarawakreport.org/thankyou' />
 	  
-	  			<label>Telephone</label>
-	  			<input name='message' type='text' />
+	  			<p><label>Subject:</label>
+	  			<input name='subject' type='text' /></p>
 	  
-	  			<label>Email</label>			
-	  			<input name='content' type='email' />
+	  			<p><label>Telephone:</label>
+	  			<input name='telephone' type='text' /></p>
 	  
-	  			<label>Message</label>
-	  			<textarea name="message"></textarea>
+	  			<p><label>Email:</label>			
+	  			<input name='email' type='email' /></p>
+	  
+	  			<p><label>Message:</label>
+	  			<textarea name="message"></textarea></p>
 	  			
-	  			<input type='text' name='test' />
-	  			
-	  			<input type='submit' value='Send' />
-	  			</form>
+	  			<p><input type='submit' value='Send' /></p>
+  			
+  			</form>
   	  
 		</div>
 		
 		<div class="col last">
-  
+	
+			  
 
   
 		 </div>

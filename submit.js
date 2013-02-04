@@ -9,6 +9,7 @@ $(function () {
 
     m.ui.attribution.add().content('<a href="http://mapbox.com/about/maps">Terms &amp; Feedback</a>');
     m.ui.zoomer.add();
+    // Default center zoom on Sarawak
     m.centerzoom({
         lat: 2.371,
         lon: 113.347
@@ -106,7 +107,7 @@ $(function () {
                     'coordinates': [l.lon, l.lat]
             },
                 'properties': {
-                'image': './img/feedback-point.png'
+                	'image': './img/feedback-point.png'
             }
         }]).factory(function (f) {
             var mark = document.createElement('div');

@@ -41,11 +41,15 @@ $("#ss-form").validate({
 		},
 		"entry.4.single": {
 			required: true			
+		},
+		"entry.8.single": {
+			url: true
 		}		
 	},
 	messages: {
 		"entry.7.single":'Please tell us what you saw',
 		"entry.4.single":'Mark the location on the Map',
+		"entry.8.single":'Please check the website link',
 		"entry.0.single":'We need a date'
 	},
 	submitHandler: function() {

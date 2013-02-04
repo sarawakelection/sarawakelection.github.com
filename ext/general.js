@@ -41,13 +41,12 @@ $(function(){
 		    lon: 113.44588
 		}).zoom(8).optimal();
 	});	
-		
-	
+			
 	$('.message li a').click(function(){
 		var parent = $(this).parent();
         siblings = parent.siblings(),
         isOn = parent.toggleClass('active').hasClass('active');
     	siblings.toggleClass('active', !isOn);	
     });
-		
+    		
 });
