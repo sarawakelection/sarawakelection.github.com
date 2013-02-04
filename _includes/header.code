@@ -14,9 +14,8 @@
 	<link rel='stylesheet' href='css/screen.css' />
 	
 	<link href='css/socialcount.min.css' rel='stylesheet' />	
-	<link href='css/socialcount-with-icons.min.css' rel='stylesheet' />
-    
-    <script src="/d/_/js/libs/modernizr-custom.js"></script>
+	<link href='css/socialcount-with-icons.min.css' rel='stylesheet' />    
+    <script src="/ext/modernizr-custom.js"></script>
     
     <script>
       var submitted=false;

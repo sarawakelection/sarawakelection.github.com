@@ -14,6 +14,7 @@ map.centerzoom({
 }, 8);
 map.setZoomRange(8, 15);
 map.ui.attribution.add().content('<a href="http://mapbox.com/about/maps">Terms &amp; Feedback</a>');
+map.ui.hash.add();
 
 // Build map
 function mapData(f) {

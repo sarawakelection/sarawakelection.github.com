@@ -36,7 +36,7 @@ function mmg_google_docs_spreadsheet_1(id, callback) {
                 },
                 properties: {
                     "marker-size": "small",
-                    'marker-color':'#222',
+                    'marker-color':'#fff',
                     'description': entry['gsx$description'].$t,  
                     'link': entry['gsx$link'].$t,  
                     'date': 'Date: ' + entry['gsx$date'].$t,

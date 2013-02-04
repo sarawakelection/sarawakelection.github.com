@@ -5,7 +5,7 @@ $(function(){
     $('#entry_0').datepicker({
         dateFormat: 'dd/mm/yy', // formato de fecha que se usa en España
         dayNames: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'], // días de la semana
-        dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'], // días de la semana (versión super-corta)
+        dayNamesMin: ['M', 'T', 'W', 'T', 'F', 'S', 'S'], // días de la semana (versión super-corta)
         dayNamesShort: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sut'], // días de la semana (versión corta)
         firstDay: 1, // primer día de la semana (Lunes)
         maxDate: new Date(), // fecha máxima
@@ -29,7 +29,6 @@ $(function(){
         
 });
 
-// User registration validation
 $("#ss-form").validate({
 	rules: {
 		"entry.7.single": {
@@ -54,9 +53,6 @@ $("#ss-form").validate({
 	},
 	submitHandler: function() {
 
-		
-		//$('.thankyou').toggleClass('on');
-		// Submit the form
 		$('#ss-form input:submit').attr('value','Submitting data');
 		$('#ss-form input:submit').attr("disabled", true);
 
