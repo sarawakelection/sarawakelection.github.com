@@ -297,13 +297,15 @@ header {
   top:0px;
   left:0;
   width:100%;
+  
  }
  
  @media handheld and (max-width: 480px), 
  screen and (max-device-width: 480px), 
  screen and (max-width: 600px)  {
  	.map-holder {
- 		height: 400px;
+		margin: 0 1em;
+/* 		height: 400px;*/
  	}
  }
  
@@ -682,6 +684,10 @@ input[type=submit] {
 		.message {
 			top: auto;
 		}
+		
+			.message ul {
+				display:none
+			}
 
 		.introduction {
 			top: 1em;

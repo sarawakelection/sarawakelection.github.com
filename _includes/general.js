@@ -1,9 +1,9 @@
 $(function(){
 
-	$('#kuching').click(function(){
+	$('#betong').click(function(){
 		map.ease.location({
-		    lat: 1.54683,
-		    lon: 110.34876
+		    lat: 1.440,
+		    lon: 111.599
 		}).zoom(11).optimal();
 	});
 	
@@ -14,12 +14,41 @@ $(function(){
 		}).zoom(11).optimal();
 	});
 	
-	$('#miri').click(function(){
+	$('#kapit').click(function(){
+		map.ease.location({
+		    lat: 1.966,
+		    lon: 113.634
+		}).zoom(11).optimal();
+	});
+
+	$('#kuching').click(function(){
+		map.ease.location({
+		    lat: 1.54683,
+		    lon: 110.34876
+		}).zoom(11).optimal();
+	});
+	
+	$('#limbang').click(function(){
+		map.ease.location({
+		    lat: 4.386,
+		    lon: 115.183
+		}).zoom(11).optimal();
+	});
+
+ 	$('#miri').click(function(){
 		map.ease.location({
 		    lat: 4.36976,
 		    lon: 113.98284
 		}).zoom(11).optimal();
 	});	
+	
+	$('#mukah').click(function(){
+		map.ease.location({
+		    lat: 2.547,
+		    lon: 112.320
+		}).zoom(11).optimal();
+	});	
+	
 
 	$('#sibu').click(function(){
 		map.ease.location({
@@ -28,13 +57,13 @@ $(function(){
 		}).zoom(11).optimal();
 	});	
 
-	$('#sematan').click(function(){
+	$('#sriaman').click(function(){
 		map.ease.location({
-		    lat: 1.8056,
-		    lon: 109.7763
+		    lat: 1.269,
+		    lon: 111.467
 		}).zoom(11).optimal();
 	});	
-
+	
 	$('#overview').click(function(){
 		map.ease.location({
 		    lat: 2.55759,
