@@ -77,5 +77,5 @@ $(function(){
         isOn = parent.toggleClass('active').hasClass('active');
     	siblings.toggleClass('active', !isOn);	
     });
-    		
+       		
 });

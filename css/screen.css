@@ -439,17 +439,25 @@ section#content {
 	border-top:1px solid #333;
 	border-bottom: 1px solid #333;
 	padding: 2em 0;
+	text-align:center;
+}
+
+.banners ul {
+	margin: 0;
 }
 
 .banners li:first-of-type a{
 /*	margin-left: 0;*/
 }
 
+.banners li {
+	display: inline-block;
+}
+
 .banners li a {
-	display:block;
-	float: left;
+	display:inline-block;
 	text-indent:-999em;
-	margin-right: 2em;
+	margin: 0 1em;
 	background-color: rgba(255,255,255,0.5);
 }
 
@@ -469,14 +477,12 @@ section#content {
 		width: 160px;
 		height: 50px;		
 		background:url(../a/mapbox-1x.png) no-repeat center center;
-		float: right;
 	}
 	
 	.banners li a[href*="goodcaesar"] {
 		width: 60px;
 		height: 50px;
 		background:url(../a/gc-1x.png) no-repeat center center;
-		float: right;
 
 	}
 
@@ -484,7 +490,6 @@ section#content {
 		width: 113px;
 		height: 50px;
 		background:url(../a/github-1x.png) no-repeat center center;
-		float: right;
 	}
 
 	@media handheld and (max-width: 480px), 
@@ -727,35 +732,70 @@ screen and (max-width: 600px)  {
 		.message.list {
 			width: auto;
 			right: 0;
-			
 		}
 }
 
-/* Thank You */	
+/* Contact */
 
-section.page {
-	margin: 3em 0;
+form#contact {
+	width: 35em;
+	margin: 4em auto 1em auto;
 }
 
-.menu {
-	background:#35a0d0;
+	form#contact input,
+	form#contact textarea {
+		width: 100%;
+	}
+
+	form#contact p {
+
+	}
+
+/* Newsletter Subscription Form */
+
+.newsletter {
+	border-top: 1px solid #333;
+	padding-bottom: 1em;
 }
-	.menu ul {
+
+.newsletter h3 {
+	font-weight:normal;
+	text-align:center;
+	color: #fff;
+	margin: 0.5em 0 1em 0;
+	font-size: 1.8em;
+	text-align:center;
+}
+
+	.newsletter form {
+		width: 35em;
+		margin: 0 auto;
+		vertical-align:top;
+		
+	}
+	
+	.newsletter form input {
+		float: left;
+		line-height:1;
+		vertical-align:top;
 		margin: 0;
 	}
 
-	.menu ul li a {
-		float: left;
-		color: #fff;
-		padding:0.4em 0.5em;
+	.newsletter form input[type='text'] {
+		padding:0.6em;
+		font-size: 1.3em;
+		width: 20em;
 		display:block;
 	}
-		
-		.menu ul li a:hover {
-			color: #222;
-			background:rgba(255,255,255,0.5);
-		}
-		
+	
+	.newsletter form input[type='submit'] {
+		margin-left: 0.5em;
+		display:block;
+		vertical-align:top;		
+		margin-top: 0;
+		line-height:normal;
+	}	
+
 /* Footer */			
 		
 footer {
