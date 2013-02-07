@@ -1,5 +1,5 @@
 pygments: true
-main_title: Sarawak Report, Election Monitor
+main_title: Sarawak Report Election Bribe Watch
 include: [a, c, j]
 auto: true
 navigation:
@@ -9,9 +9,6 @@ navigation:
 - text: Submit Report
   url: submit.html
   idd: submit
-- text: About
-  url: about.html
-  idd: about
 - text: Get in touch
   url: touch.html
   idd: touch

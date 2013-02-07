@@ -1,4 +1,4 @@
-# Election Monitor by Sarawak Report
+# Sarawak Report's Federal Election Bribe Watch 2013
 
 ### Map election fraud incidents on this interactive map
 
@@ -8,9 +8,9 @@ Created to keep track of election fraud incidents leading up and during the upco
 
 - Maps powered by MapBox
 - Website built in Jekyll
-- Hosted on GitHub pages
+- Hosted on GitHub
 
-**2.0.1**
+**2**
 - Compete rebuild for the upcoming General Election
  
 **1.0**
@@ -18,4 +18,4 @@ Created to keep track of election fraud incidents leading up and during the upco
 
 For suggestions/improvement and bug reports please file an issue or email us at mapping@sarawakreport.org
 
-Updated: 4 February 2013
+Updated: 7 February 2013

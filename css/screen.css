@@ -430,8 +430,13 @@ ul.socialcount {
 
 /* Content pages */	
 section#content {
+	margin: 2em 0;
 }
 
+	section#content .frame {
+		max-width: 60em;
+		color: #fff;
+	}
 
 /* Banners */	
 
