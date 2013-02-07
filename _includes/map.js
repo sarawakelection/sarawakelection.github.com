@@ -12,7 +12,7 @@ map.centerzoom({
     lat: 2.371,
     lon: 113.347
 }, 8);
-map.setZoomRange(8, 15);
+map.setZoomRange(7, 15);
 map.ui.attribution.add().content('<a href="http://mapbox.com/about/maps">Terms &amp; Feedback</a>');
 map.ui.hash.add();
 

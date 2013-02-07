@@ -25,7 +25,11 @@ $(function(){
     $("#entry_4").attr('readonly',  'readonly');
     $("#entry_6").attr('readonly',  'readonly');
     
-    setTimeout(function(){ $('#map .introduction').fadeOut('fast'); }, 5000);	    
+    $('span.help a').click(function() {
+    	$('#map .introduction').slideToggle('fast');
+    });
+    
+    setTimeout(function(){ $('#map .introduction').fadeOut('fast'); }, 10000);	    
         
 });
 
