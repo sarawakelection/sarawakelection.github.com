@@ -132,13 +132,18 @@ a {
 	screen and (max-device-width: 480px), 
 	screen and (max-width: 600px)  {
 		
-		.col {
-			width: auto;
+		.frame { 
 			margin: 0 0.5em;
 		}
 		
+		.col {
+			float: none;
+			width:auto;
+			margin: 0;
+		}
+		
 		.col.last {
-			margin-left: 0.5em;
+			margin: 0;
 		}
 	
 	}
@@ -184,7 +189,6 @@ header {
 	
 		h1.site-name a span {
 			color:#94c9dc;
-			display:none;
 		}
 		
 		h1.site-name a {
@@ -194,7 +198,8 @@ header {
 		}	
 		
 			h1.site-name a:hover span {
-				display:inline;
+				color:#35a0d0;
+				
 			}
 		
 		hgroup h2 {
@@ -254,8 +259,12 @@ header {
 	screen and (max-device-width: 480px), 
 	screen and (max-width: 600px)  {
 		
+		h1.site-name a span {
+			display:none;
+		}
+		
 		header {
-			position:relative;
+/*			position:relative;*/
 		}
 		
 		header hgroup {
@@ -392,8 +401,10 @@ header {
 	screen and (max-width: 600px)  {
 		
 		.submit-map {
+			height: auto;
 			position:relative;
 			top: auto;
+			right: auto;
 			left: auto;
 			width: auto;
 		}		
@@ -443,6 +454,9 @@ section#content {
 		margin: 0.5em 0 0.4em 0;
 		font-size: 1.6em;
 	}
+	
+	
+	
 
 /* Banners */	
 
@@ -594,30 +608,35 @@ input[type=email] {
   background:#fff;
   color:#000;
   padding:0.8em;
+  -webkit-border-radius:0;
+  -webkit-appearance:none;
   }
+
 textarea {
-	width: 30em;
+/*	width: 30em;*/
   resize:none;
   height:100px;
+  -webkit-border-radius:0;
+  -webkit-appearance:none;
   }
 input[type=button],
 input[type=submit] {
-  background:#35a0d0;
-  text-decoration:none!important;
-  color:#fff;
-  display:inline-block;
-  vertical-align:middle;
-  padding:0.9em;
-  font-size:110%;
-  line-height:1.2;
-  font-weight:bold;
-  border:0;
-  -webkit-appearance: none;
-  text-align: center;
-  cursor:pointer;
-  margin:20px 0 0 0;
-  -webkit-border-radius:2px;
-          border-radius:2px;
+	background:#35a0d0;
+	text-decoration:none!important;
+	color:#fff;
+	display:inline-block;
+	vertical-align:middle;
+	padding:0.9em;
+	font-size:110%;
+	line-height:1.2;
+	font-weight:bold;
+	border:0;
+	-webkit-appearance: none;
+	text-align: center;
+	cursor:pointer;
+	margin:20px 0 0 0;
+	-webkit-border-radius:2px;
+			border-radius:2px;
   }
   input[type=button]:hover,
   input[type=submit]:hover {
@@ -641,6 +660,18 @@ input[type=submit] {
 	.datetime:first-child {
 		margin-right:2em;
 	}
+
+@media handheld and (max-width: 480px), 
+screen and (max-device-width: 480px), 
+screen and (max-width: 600px)  {
+	input[type=text],
+	input[type=email],
+	textarea {
+		width: 100%;
+		height: auto;
+	}
+}	
+	
 
 /* Submit */
 
@@ -722,11 +753,14 @@ input[type=submit] {
 			top: auto;
 		}
 		
-			.message ul {
+		
+				
+			.message.list {
 				display:none
 			}
 
 		.introduction {
+			display: none;
 			top: 1em;
 			left: 0;
 			position:relative;
@@ -827,6 +861,25 @@ form#contact {
 		margin-top: 0;
 		line-height:normal;
 	}	
+
+	/*layouts smaller than 600px, iPhone and mobiles*/
+	@media handheld and (max-width: 480px), 
+	screen and (max-device-width: 480px), 
+	screen and (max-width: 600px)  {
+				
+		form#contact,
+		.newsletter form {
+			width: auto;
+		}
+	
+		.newsletter form input[type='text'],
+		.newsletter form input[type='submit'] {
+			width: auto;
+			margin: 0 0.5em;
+		}
+		
+	}	
+	
 
 /* Footer */			
 		
