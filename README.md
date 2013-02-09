@@ -19,9 +19,8 @@ Created to keep track of election fraud and bribing incidents leading up and dur
 ## Planned improvements
 
 - At the moment you can't place a marker on iOS. This needs to be fixed
-- Optimize JS
-- 
+- Minify everything automatically
 
 For suggestions/improvement and bug reports please file an issue or email us at mapping@sarawakreport.org
 
-Updated: 7 February 2013
+Updated: 9 February 2013
