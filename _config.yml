@@ -6,7 +6,7 @@ navigation:
 - text: Map
   url: index.html
   idd: view
-- text: Submit Report
+- text: Submit Bribe
   url: submit.html
   idd: submit
 - text: Get in touch

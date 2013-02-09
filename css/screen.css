@@ -240,25 +240,50 @@ header {
 			header nav li a#touch {
 				font-weight:normal;
 				font-weight:100;
-				color: #999;
 			}
 		
 			header nav li a.active {
 				color: #5abac8;
 			}
 		
-/*			header nav li.unfocus.active a {
-				color: #86b2e4;
-			}*/
-	
-			#nav-toggle-list a {
-				color: #222;
+			#nav-toggle-list {
+				display:none;
+				margin: 0.5em 0.5em 0 0;
+				float: right;
+				text-transform:uppercase;
 			}
 	
+			#nav-toggle-list a {
+				color: #fff;
+				background:#35a0d0;
+				padding:0.5em;
+			}
+			
+			ul.top-menu.snl {
+				position:absolute;
+				top: 2.2em;
+				right: 0.5em;
+			}
+			
+			ul.top-menu.snl li {
+				display:block;
+				float: none;
+		
+			}
+			
+				ul.top-menu.snl li a {
+					padding:0.3em;
+					display:block;
+					background:#35a0d0;
+					color: #fff;
+					float: none;
+				}
+	
+		
 	@media handheld and (max-width: 480px), 
 	screen and (max-device-width: 480px), 
 	screen and (max-width: 600px)  {
-		
+				
 		h1.site-name a span {
 			display:none;
 		}
@@ -388,10 +413,10 @@ header {
   
 .submit-map {
 	position:absolute;
-	width: 23em;
+	width: 20em;
 	top: 4em;
 	right: 0.5em;
-	background: rgba(0,0,0,0.8);
+	background:#fff;
 	padding: 0.5em;
 	border-radius:0.2em;
  } 
@@ -417,7 +442,6 @@ ul.socialcount {
 	margin: 1em auto;
 	text-align:center;
 }
-
 
 /* Submenu */	
 
@@ -454,9 +478,6 @@ section#content {
 		margin: 0.5em 0 0.4em 0;
 		font-size: 1.6em;
 	}
-	
-	
-	
 
 /* Banners */	
 
@@ -574,10 +595,14 @@ label {
   display:block;
   font-weight:bold;
   margin:5px 0 0;
-  color: #fff;
+  color: #222;
   white-space:nowrap;
   }
   
+  form#contact label {
+  	color: #fff;
+  }
+    
 label.error{
 	font-size: 90%;
 	color: #ff0000;
@@ -598,7 +623,7 @@ textarea {
      -moz-box-sizing:border-box;
           box-sizing:border-box;
   padding:4px 10px;
-  width:30em;
+  width:26em;
   }  
   
 input[type=text],
@@ -613,9 +638,9 @@ input[type=email] {
   }
 
 textarea {
-/*	width: 30em;*/
   resize:none;
   height:100px;
+
   -webkit-border-radius:0;
   -webkit-appearance:none;
   }
@@ -672,7 +697,6 @@ screen and (max-width: 600px)  {
 	}
 }	
 	
-
 /* Submit */
 
 .message {
@@ -686,7 +710,7 @@ screen and (max-width: 600px)  {
 	top: 4em;
 	border-radius:0.2em;
 	z-index:100;
-	background:rgba(0,0,0,0.8);
+	background:#fff;
 }
 
 	.message.list {
@@ -695,8 +719,8 @@ screen and (max-width: 600px)  {
 
 	.message h3 {
 		padding: 0.3rem;
-		color: #ccc;
-		border-bottom: 1px solid #333;
+		color: #222;
+		border-bottom: 1px solid #ccc;
 	}
 
 	.message ul {
@@ -705,24 +729,24 @@ screen and (max-width: 600px)  {
 
 	.message ul li a {
 		display:block;
-		color: #fff;
+		color: #222;
 		padding:0.5em 0.4em;
 	}
 	
 	.message ul li a#overview {
-		border-top: 1px solid #333;
+		border-top: 1px solid #ccc;
 	}
 	
 	.message ul li a:hover,
 	.message ul li.active a  {
-		background:#000;
+		background:#efefef;
 	}
 
 	.introduction {
-		right: 360px;
+		right: 320px;
 		top: 4em;
-		color: #fff;
-		background:#222;
+		color: #222;
+		background:#fff;
 	}
 	
 	span.close {
@@ -741,8 +765,8 @@ screen and (max-width: 600px)  {
 	}	
 
 		span.help a {
-			margin: 0 0 0 3em;
-			color: #ccc;
+			margin: 0 0 0 1em;
+			color: #666;
 		}
 
 	@media handheld and (max-width: 480px), 
@@ -752,8 +776,6 @@ screen and (max-width: 600px)  {
 		.message {
 			top: auto;
 		}
-		
-		
 				
 			.message.list {
 				display:none
@@ -879,7 +901,6 @@ form#contact {
 		}
 		
 	}	
-	
 
 /* Footer */			
 		

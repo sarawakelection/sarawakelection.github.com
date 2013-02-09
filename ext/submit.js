@@ -4,3 +4,4 @@
 {% include underscore.min.js %}
 {% include form.js %}
 {% include submit.js %}
+{% include mobile.js %}
