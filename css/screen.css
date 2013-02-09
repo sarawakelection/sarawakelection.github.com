@@ -267,12 +267,11 @@ header {
 			
 			ul.top-menu.snl li {
 				display:block;
-				float: none;
-		
+				float: none;	
 			}
 			
 				ul.top-menu.snl li a {
-					padding:0.3em;
+					padding:0.2em 0.4em;
 					display:block;
 					background:#35a0d0;
 					color: #fff;
@@ -338,6 +337,7 @@ header {
  screen and (max-device-width: 480px), 
  screen and (max-width: 600px)  {
  	.map-holder {
+ 		background:#fff;
 		margin: 0 1em;
 /* 		height: 400px;*/
  	}
@@ -897,7 +897,7 @@ form#contact {
 		.newsletter form input[type='text'],
 		.newsletter form input[type='submit'] {
 			width: auto;
-			margin: 0 0.5em;
+			margin: 0 0.5em 1em 0.5em;
 		}
 		
 	}	
