@@ -5,16 +5,28 @@ var data_id = '0AsL-qFOSUlaOdDktQ0JlZU9RaHNZbmJOOFk4T2kwSkE',
     features_summary,
     interaction,
     layer = mapbox.layer().id(map_id),
-    map = mapbox.map('map', layer, null, [easey_handlers.DragHandler()]);
+    //map = mapbox.map('map', layer, null, [easey_handlers.DragHandler()]);
+
+	map = mapbox.map('map', layer, null, [
+	    easey_handlers.DoubleClickHandler(),
+	    easey_handlers.DragHandler(),
+	    easey_handlers.TouchHandler()
+	]);
 
 mmg_google_docs_spreadsheet_1(data_id, mapData);
 map.centerzoom({
     lat: 2.371,
     lon: 113.347
 }, 8);
+
 map.setZoomRange(7, 15);
 map.ui.attribution.add().content('<a href="http://mapbox.com/about/maps">Terms &amp; Feedback</a>');
 map.ui.hash.add();
+
+//MM.addEvent(map.parent, 'click', function(e) {
+//       var px = MM.getMousePoint(e, map);
+//       click.innerHTML = 'Lat/Lon ' + map.pointLocation(px).toString();
+//});
 
 // Build map
 function mapData(f) {

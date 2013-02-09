@@ -1,4 +1,23 @@
 $(function () {
+
+//	var map_id = 'goodcaesar.map-vwfp7lw5',
+//
+//	    layer = mapbox.layer().id(map_id),
+//	    
+//	    _d, // Down Event
+//	    tol = 4, // Touch Tolerance
+//	    _downLock = false,
+//	    _clickTimeout = false,
+//	    init = true,
+//	    
+	    //map = mapbox.map('map', layer, null, [easey_handlers.DragHandler()]);
+//	
+//		m = mapbox.map('map', layer, null, [
+//		    easey_handlers.DoubleClickHandler(),
+//		    easey_handlers.DragHandler(),
+//		    easey_handlers.TouchHandler()
+//		]);
+	
     var m = mapbox.map('map', mapbox.layer().id('goodcaesar.map-vwfp7lw5')),
         point,
         _d, // Down Event
@@ -104,7 +123,7 @@ $(function () {
         point = mapbox.markers.layer().features([{
             'geometry': {
                 'type': 'Point',
-                    'coordinates': [l.lon, l.lat]
+                'coordinates': [l.lon, l.lat]
             },
                 'properties': {
                 	'image': './img/feedback-point.png'
@@ -139,11 +158,8 @@ $(function () {
      var markerLayer = mapbox.markers.layer();
      m.addLayer(markerLayer);	
     
-      // This uses the HTML5 geolocation API, which is available on
-      // most mobile browsers and modern browsers, but not in Internet Explorer
-      //
-      // See this chart of compatibility for details:
-      // http://caniuse.com/#feat=geolocation
+
+		// Adding find me functionality
       if (!navigator.geolocation) {
           geolocate.innerHTML = 'geolocation is not available';
       } else {
@@ -165,8 +181,9 @@ $(function () {
                               position.coords.latitude]
                       },
                       properties: {
-                          'marker-color': '#000',
-                          'marker-symbol': 'star-stroked',
+                      		'image': './img/feedback-point.png'
+//                          'marker-color': '#000',
+//                          'marker-symbol': 'star-stroked',
                       }
                   });
                   
