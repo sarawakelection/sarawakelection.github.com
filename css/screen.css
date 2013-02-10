@@ -340,14 +340,14 @@ header {
 .zoomin,
 .zoomer {
 	position:absolute;
-	top: 4em;
+	top: 4.5em;
 	left:0.5em;
 	-webkit-border-radius:0;
 	border-radius:0;
 }
 
   .zoomout {
-    top:6.5em;
+    top:7em;
   }
   
 .marker {
@@ -422,6 +422,7 @@ ul.socialcount {
 
 /* Content pages */	
 section#content {
+	padding-top: 0.2em;
 	margin: 2em 0;
 }
 
