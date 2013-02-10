@@ -4,7 +4,7 @@
 
 Created to keep track of election fraud and bribing incidents leading up and during the upcoming Malaysian General Election. 
 
-## Tools:
+### Technology
 
 - Maps powered by <a href="http://mapbox.com">MapBox</a>
 - Website built in Jekyll
@@ -16,11 +16,11 @@ Created to keep track of election fraud and bribing incidents leading up and dur
 **1.0**
 - Launched as a Drupal website during the 2010 state Election.
 
-## Planned improvements
+### Planned improvements
 
 - At the moment you can't place a marker on iOS. This needs to be fixed
 - Minify everything automatically
 
 For suggestions/improvement and bug reports please file an issue or email us at mapping@sarawakreport.org
 
-Updated: 9 February 2013
+Updated: 10 February 2013

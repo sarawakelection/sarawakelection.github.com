@@ -77,5 +77,28 @@ $(function(){
         isOn = parent.toggleClass('active').hasClass('active');
     	siblings.toggleClass('active', !isOn);	
     });
+    
+    $("#subForm").validate({
+		errorContainer: ".error", 
+		errorLabelContainer: ".error", 
+		errorElement: "p",
+    	rules: {
+    		"cm-jtyuiii-jtyuiii": {
+				required:true,
+				email:true
+    		}		
+    	},
+    	messages: {
+    		"cm-jtyuiii-jtyuiii":'We need a proper email address'
+    	},
+    	submitHandler: function() {
+    
+    		$('#subForm input:submit').attr('value','Sending');
+    		$('#subForm input:submit').attr("disabled", true);
+        		
+    		form.submit();
+    		
+    	}
+    });
        		
 });

@@ -863,6 +863,14 @@ form#contact {
 		margin-top: 0;
 		line-height:normal;
 	}	
+	
+	.newsletter p.error {
+		color: #fff;
+		text-align:center;
+		padding:0.5em 0;
+		display:block;
+		margin: 1em;
+	}
 
 	/*layouts smaller than 600px, iPhone and mobiles*/
 	@media handheld and (max-width: 480px), 

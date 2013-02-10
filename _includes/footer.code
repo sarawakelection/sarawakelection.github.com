@@ -3,6 +3,11 @@
 		<form class="clearfix" action="http://goodcaesar.createsend.com/t/r/s/jtyuiii/" method="post" id="subForm">
 		<input placeholder="Enter your email" type="text" name="cm-jtyuiii-jtyuiii" id="jtyuiii-jtyuiii" />		
 		<input type="submit" value="Sign Me Up" />
+		
+		<div class="error">
+			<p></p>
+		</div>
+
 		</form>	
 	</div>
 
@@ -31,11 +36,10 @@
 	</footer>
 	
 	<script src='http://api.tiles.mapbox.com/mapbox.js/v0.6.7/mapbox.js'></script>	
-
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 	<script>window.jQuery || document.write('/ext/jquery-1.8.2.min.js"><\/script>')</script>
-
     <script src='ext/socialcount.min.js'></script>
+    <script src='http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/jquery.validate.min.js'></script>        
                         
     {% if page.idd == 'submit' %}
     
@@ -65,7 +69,6 @@
     </script>
       
     <script src='http://code.jquery.com/ui/1.9.0/jquery-ui.js'></script>    
-    <script src='ext/jquery.validate.min.js'></script>
     <script src='ext/submit.js'></script>
     
     {% endif %}
@@ -78,9 +81,7 @@
 	{% endif %}
     
     {% if page.idd == 'touch' %}
-        
-    <script src='ext/jquery.validate.min.js'></script>
-    
+            
     <script>       
            
 	$(function(){

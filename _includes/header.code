@@ -32,7 +32,7 @@
 			{% for post in site.navigation %}
 			
 				<li> 
-				    <a id="{{ post.idd }}" {% if post.url == page.url %}class="active"{% endif %} href="{{ post.url }}"><span></span>{{ post.text }}</a>
+				    <a id="{{ post.idd }}" {% if post.url == page.url %}class="active"{% endif %} href="{{ post.url }}">{{ post.text }}</a>
 				</li>
 			
 			{% endfor %}
