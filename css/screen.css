@@ -225,6 +225,7 @@ header {
 			line-height:1.2;			
 			display:block;
 			float: left;
+			margin: ;
 		}
 					
 			header nav li a {		
@@ -719,18 +720,38 @@ screen and (max-width: 600px)  {
 			cursor:pointer;
 		}
 		
+	input#sendthis {
+		float: left;
+		margin: 0.5em 0 0;
+	}
+		
 	span.help {
-		text-align:right;
+		margin-top: 0.5em;
+		float:right;
+		display: block;
 	}	
 
 		span.help a {
+			border-radius:0.2em;
+			display:block;
+			background:#666;
+			color: #fff;
+			padding:1em;
 			margin: 0 0 0 1em;
-			color: #666;
 		}
 
 	@media handheld and (max-width: 480px), 
 	screen and (max-device-width: 480px), 
 	screen and (max-width: 600px)  {
+
+	input#sendthis {
+		float: none;
+	}
+
+		span.help {
+			width: auto;
+			float: none;
+		}
 
 		.message {
 			top: auto;
