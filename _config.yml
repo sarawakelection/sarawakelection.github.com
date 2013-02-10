@@ -3,12 +3,9 @@ main_title: Sarawak Report Election Bribe Watch
 include: [a, c, j]
 auto: true
 navigation:
-- text: Map
+- text: See Bribes
   url: index.html
   idd: view
-- text: Submit Bribe
+- text: Add Bribe
   url: submit.html
   idd: submit
-- text: Get in touch
-  url: touch.html
-  idd: touch
