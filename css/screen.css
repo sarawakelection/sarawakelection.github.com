@@ -750,12 +750,16 @@ screen and (max-width: 600px)  {
 
 	input#sendthis {
 		float: none;
+		width: 100%;
 	}
 
 		span.help {
 			width: auto;
 			float: none;
 		}
+			span.help a {
+				margin: 0;
+			}
 
 		.message {
 			top: auto;
@@ -795,7 +799,6 @@ screen and (max-device-width: 480px),
 screen and (max-width: 600px)  {
 
 	.message {
-
 		border-radius:0;
 		width: auto;
 		position:relative;
@@ -885,11 +888,17 @@ form#contact {
 		.newsletter form {
 			width: auto;
 		}
+		
+		.newsletter {
+			margin: 0 0.5em;
+		}
 	
-		.newsletter form input[type='text'],
-		.newsletter form input[type='submit'] {
-			width: auto;
-			margin: 0 0.5em 1em 0.5em;
+		.newsletter form input[type="text"],
+		.newsletter form input[type="submit"] {
+			width: 100%;
+			display: block;
+			float: none;
+			margin: 1em 0;
 		}
 		
 	}	
