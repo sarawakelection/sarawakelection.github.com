@@ -385,8 +385,7 @@ header {
 	screen and (max-width: 600px)  {
 		
 		 .marker-popup {
-		 	width: 80%;
-		 	padding:0.3em;
+		 	width: 90%;
 		 }
 		
 		.submit-map {
