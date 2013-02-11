@@ -29,7 +29,7 @@ $(function(){
     	$('#map .introduction').slideToggle('fast');
     });
     
-    setTimeout(function(){ $('#map .introduction').fadeOut('fast'); }, 10000);	    
+    setTimeout(function(){ $('#map .introduction').fadeOut('fast'); }, 5000);	    
         
 });
 

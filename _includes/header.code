@@ -11,10 +11,7 @@
     
     <link href='http://api.tiles.mapbox.com/mapbox.js/v0.6.7/mapbox.css' rel='stylesheet' />
     <link rel='stylesheet' href='http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css' />
-	<link rel='stylesheet' href='css/screen.css' />
-	
-	<link href='css/socialcount.min.css' rel='stylesheet' />	
-	<link href='css/socialcount-with-icons.min.css' rel='stylesheet' />    
+	<link rel='stylesheet' href='css/screen.css' />	
     <script src="/ext/modernizr-custom.js"></script>
     
     <script>

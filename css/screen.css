@@ -64,7 +64,7 @@ Details: http: //perishablepress.com/press/2009/12/06/new-clearfix-hack*/
 ---------------------------------------------*/
 body {
 	background:#222;
-	color:#404040;
+	color:#fff;
 	font-size: 90%;
 	line-height:1.4;
 	-webkit-font-smoothing:antialiased;
@@ -401,6 +401,16 @@ header {
 	}
 
 /* Counters */	
+
+.social {
+	padding-top: 1em;
+	text-align: center;
+	color: #fff;
+}
+
+	.social iframe {
+		color: #fff;
+	}
 
 ul.socialcount {
 	margin: 1em auto;

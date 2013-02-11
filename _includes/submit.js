@@ -126,7 +126,7 @@ $(function () {
                 'coordinates': [l.lon, l.lat]
             },
                 'properties': {
-                	'image': './img/feedback-point.png'
+                	'image': './a/bribe-marker.png'
             }
         }]).factory(function (f) {
             var mark = document.createElement('div');
