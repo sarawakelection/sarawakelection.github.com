@@ -234,11 +234,12 @@ header {
 				float: left;
 				padding:0.9em 1.2em;
 				color: #fff;
-				background: #666;
+				background: #333;
 			}
 					
-			header nav li a.active {
-				background-color: #333;
+			header nav li a.active,
+			header nav li a:hover {
+				background-color: #35a0d0;
 			}
 				
 	@media handheld and (max-width: 480px), 
@@ -893,8 +894,8 @@ form#contact {
 			margin: 0 0.5em;
 		}
 	
-		.newsletter form input[type="text"],
-		.newsletter form input[type="submit"] {
+		.newsletter form input[type='text'],
+		.newsletter form input[type='submit'] {
 			width: 100%;
 			display: block;
 			float: none;
