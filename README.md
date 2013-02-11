@@ -4,6 +4,8 @@
 
 Created to keep track of election fraud and bribing incidents leading up and during the upcoming Malaysian General Election. 
 
+View the site here: <a href="http://election.sarawakreport.org">http://election.sarawakreport.org</a>
+
 ### Technology
 
 - Maps powered by <a href="http://mapbox.com">MapBox</a>
