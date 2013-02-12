@@ -342,10 +342,14 @@ header {
 .zoomin,
 .zoomer {
 	position:absolute;
-	top: 4.5em;
+	top: 4.7em;
 	left:0.5em;
+	width: 2em;
+	height: 2em;
 	-webkit-border-radius:0;
 	border-radius:0;
+	-webkit-appearance:none;
+	border: none;
 }
 
   .zoomout {
