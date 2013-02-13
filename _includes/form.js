@@ -17,7 +17,7 @@ $(function(){
 
     //Add href and disable some fields
     //$('.header a').attr('href','https://docs.google.com/spreadsheet/pub?key=0AhfXukqwpMbidDdTU3M0dE5raElpb3M2Y09ZaEJVSmc&output=xls');
-    $('form').attr('action','https://docs.google.com/a/goodcaesar.com/spreadsheet/formResponse?formkey=dDktQ0JlZU9RaHNZbmJOOFk4T2kwSkE6MQ&amp;ifq');
+    $('#ss-form').attr('action','https://docs.google.com/a/goodcaesar.com/spreadsheet/formResponse?formkey=dDktQ0JlZU9RaHNZbmJOOFk4T2kwSkE6MQ&amp;ifq');
     
     $("#entry_0").attr('readonly',  'readonly');
     $("#entry_1").attr('readonly',  'readonly');

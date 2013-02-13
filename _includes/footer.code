@@ -1,5 +1,6 @@
 	<div class="newsletter clearfix">
 		<h3>Sign up to keep up to date, and lend your voice where it's needed.</h3>
+
 		<form class="clearfix" action="http://goodcaesar.createsend.com/t/r/s/jtyuiii/" method="post" id="subForm">
 		<input placeholder="Enter your email" type="text" name="cm-jtyuiii-jtyuiii" id="jtyuiii-jtyuiii" />		
 		<input type="submit" value="Sign Me Up" />
