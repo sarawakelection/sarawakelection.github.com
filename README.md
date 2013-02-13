@@ -13,7 +13,7 @@ View the site here: <a href="http://election.sarawakreport.org">http://election.
 - Hosted on GitHub
 
 **2**
-- Compete rebuild for GE13
+- Complete rebuild for GE13
  
 **1.0**
 - Launched as a Drupal website during the 2010 state Election.
