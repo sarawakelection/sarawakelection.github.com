@@ -203,3 +203,80 @@ $(function () {
       }     
             
 });
+
+// Typeahead functionality for location
+$(function() {
+    var sarawakLocations = [
+		"Asajaya",
+		"Baram",
+		"Bahagian Miri",
+		"Balingian",
+		"Bau",
+		"Belaga",
+		"Belawai",
+		"Beluru",
+		"Betong",
+		"Bintulu",
+		"Budu",
+		"Dalat",
+		"Daro",
+		"Debak",
+		"Engkilili",
+		"Julau",
+		"Kabong",
+		"Kanowit",
+		"Kapit",
+		"Kuching",
+		"Lawas",
+		"Limbang",
+		"Lingga",
+		"Lubok Antu",
+		"Lundu",
+		"Maludam",
+		"Marudi",
+		"Matu",
+		"Murum",
+		"Meradong",
+		"Miri",
+		"Mukah",
+		"Nanga Medamit",
+		"Nanga Merit",
+		"Niah Suai",
+		"Oya",
+		"Padawan",
+		"Pakan",
+		"Pantu",
+		"Pendam",
+		"Pusa",
+		"Roban",
+		"Samarahan",
+		"Saratok",
+		"Sarikei",
+		"Sebuyao",
+		"Sematan",
+		"Serian",
+		"Sibu",
+		"Siburan",
+		"Sibuti",
+		"Simunjan",
+		"Song",
+		"Spaoh",
+		"Sri Aman",
+		"Sundar",
+		"Tatau",
+		"Tebedu",
+		"Trusan",
+		"Besut",
+		"Dungun",
+		"Hulu Terengganu",
+		"Kemaman",
+		"Kuala Terengganu",
+		"Marang",
+		"Setiu"
+    ];
+    
+    $( "#entry_9" ).autocomplete({
+      source: sarawakLocations
+    });
+    
+});
