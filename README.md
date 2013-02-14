@@ -22,6 +22,8 @@ View the site here: <a href="http://election.sarawakreport.org">http://election.
 
 - At the moment you can't place a marker on iOS. This needs to be fixed
 - Minify everything automatically
+- Search
+- Auto assign LAT/LON to pre-selected cities
 
 For suggestions/improvement and bug reports please file an issue or email us at mapping@sarawakreport.org
 
