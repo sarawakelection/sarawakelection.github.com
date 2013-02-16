@@ -8,6 +8,13 @@
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="geo.position"  content="2.371;113.347">
+	<meta name="geo.region"    content="Sarawak">
+	<meta name="revisit-after" content="1 day">
+	    
+    <meta property="og:image" content="http://election.sarawakreport.org/a/og-image.jpg"/>
+    <meta property="og:title" content="{{site.main_title}}" />
+    <meta property="og:description" content="Mapping election corruption Sarawak for the upcoming Malaysian General Election. Add your bribe report today!" />
     
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     
