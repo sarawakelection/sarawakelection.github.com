@@ -11,10 +11,10 @@
 	<meta name="geo.position"  content="2.371;113.347">
 	<meta name="geo.region"    content="Sarawak">
 	<meta name="revisit-after" content="1 day">
-	    
-    <meta property="og:image" content="http://election.sarawakreport.org/a/og-image.jpg"/>
+	        
+    <meta property="og:image" content="http://election.sarawakreport.org/a/og-image.jpg" />
     <meta property="og:title" content="{{site.main_title}}" />
-    <meta property="og:description" content="Mapping election corruption Sarawak for the upcoming Malaysian General Election. Add your bribe report today!" />
+    <meta property="og:description" content="Mapping election corruption in Sarawak for the upcoming Malaysian General Election. Add your bribe report today!" />
     
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     
@@ -57,7 +57,7 @@
 		
 		<hgroup>
 			<h1 class="site-name"><a href="index.html">S<span>arawak</span> R<span>eport</span></a></h1>
-		  	<h2>Election Bribe Watch</h2>
+		  	<h2>Election Bribe Map</h2>
 		</hgroup>
 
 	</header>
