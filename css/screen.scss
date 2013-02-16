@@ -1,6 +1,3 @@
-/* @override 
-	http://election.localhost/css/screen.css */
-
 /* ------------------------------------------
   Reset ♥
   http://meyerweb.com/eric/tools/css/reset/
@@ -38,7 +35,7 @@ table { border-collapse: collapse; border-spacing:0; }
   width:15px;
   }
 *::-webkit-scrollbar-thumb {
-  background:#ccc;
+  background:#ccc;	
   border-radius:15px;
   border:5px #fff solid;
   }
@@ -170,6 +167,16 @@ header {
 		margin: 0;
 		padding:0;
 		float: right;
+		
+		h2 {
+			font-family:"freight-sans-pro",helvetica,arial,sans-serif;				
+			display:block;
+			float: left;
+			color: #222;
+			text-transform:uppercase;
+			margin: 0.7em 0.5em 0 1em;
+			white-space: nowrap;
+		}
 	}
 
  	h1.site-name {
@@ -197,17 +204,7 @@ header {
 				color:#35a0d0;
 				
 			}
-		
-		hgroup h2 {
-			font-family:"freight-sans-pro",helvetica,arial,sans-serif;					
-			display:block;
-			float: left;
-			color: #222;
-			text-transform:uppercase;
-			margin: 0.8em 0.5em 0 1em;
-			white-space: nowrap;
-		}
-		
+				
 	header nav {
 		float: left;
 	}	
@@ -261,18 +258,70 @@ header {
 		
 		header nav {
 			float: none;
-		}
-
-		header nav li {
-			margin: 0;
 			
-			a {
-				padding:1em 0.5em;			
+			li {
+				margin: 0;
+			
+				a {
+					padding:1em 0.5em;			
+				}
+			
 			}
 			
 		}
 		
 	}
+	
+	
+/* Content pages */	
+section#content {
+	margin: 0;
+	padding: 0;
+	background: #222;
+	position:relative;
+}
+	
+	#content .frame {
+		margin: 1em auto;
+		width: 41em;
+		
+		h2 {	
+			margin-bottom: 0.5em;
+			font-weight:normal;
+			font-size: 1.8em;
+		}
+	}
+	
+	section#content.thanks {
+		background: url(../a/thank-you-bg.jpg) no-repeat center center;
+		height: 550px;
+		position:relative;
+	}
+		
+	#content hgroup {
+		top: 9em;
+		margin: 0;
+		padding:0 0 0 0;
+		text-align:center;
+		position:relative;
+		z-index:100;
+		
+		h2 {
+			padding:0;
+			margin: 0 0 0.5em 0;
+			color: #222;
+			position:relative;
+			text-align:center;
+			font-size: 3em;
+			line-height:1.5;
+			z-index:100;
+		}
+		
+		h3 {
+			color: #222;
+			font-size: 2em;
+		}
+	}	
 		
 /* MAP */
 
@@ -280,7 +329,7 @@ header {
 	margin-top: 55px;
 	overflow:hidden;
 	position:relative;
-	height: 600px;
+	height: 550px;
 }
 
 #map {
@@ -296,6 +345,11 @@ header {
  @media handheld and (max-width: 480px), 
  screen and (max-device-width: 480px), 
  screen and (max-width: 600px)  {
+
+	#content .frame {
+		width: auto;
+		margin: 0 0.5em;
+	}
 
 
  	.map-holder {
@@ -409,6 +463,7 @@ header {
 /* Counters */	
 
 .social {
+	vertical-align:top;
 	padding-top: 1em;
 	text-align: center;
 	color: #fff;
@@ -447,24 +502,6 @@ ul.socialcount {
 		}
 	
 	}
-	
-/* Content pages */	
-section#content {
-	padding-top: 0.2em;
-	margin: 2em 0;
-}
-
-	section#content .frame {
-		max-width: 40.5em;
-		color: #fff;
-	}
-	
-	section#content h2 {
-		font-weight:normal;
-		color: #fff;
-		margin: 0.5em 0 0.4em 0;
-		font-size: 1.6em;
-	}
 
 /* Banners */	
 
@@ -473,25 +510,23 @@ section#content {
 	border-bottom: 1px solid #333;
 	padding: 2em 0;
 	text-align:center;
-}
 
-.banners ul {
-	margin: 0;
-}
+	ul {
+		margin: 0;
+		
+		li {
+			display: inline-block;
+			
+			a {
+				display:inline-block;
+				text-indent:-999em;
+				margin: 0 1em;
+				background-color: rgba(255,255,255,0.5);
+			}
+		}
+		
+	}
 
-.banners li:first-of-type a{
-/*	margin-left: 0;*/
-}
-
-.banners li {
-	display: inline-block;
-}
-
-.banners li a {
-	display:inline-block;
-	text-indent:-999em;
-	margin: 0 1em;
-	background-color: rgba(255,255,255,0.5);
 }
 
 	.banners li a[href*="radiofreesarawak"] {
@@ -583,7 +618,7 @@ label {
   font-weight:bold;
   margin:5px 0 0;
   color: #222;
-  white-space:nowrap;
+  white-space:nowrap;  
   }
   
   form#contact label {
@@ -694,7 +729,7 @@ screen and (max-width: 600px)  {
 	padding:0.5em;
 	position:absolute;
 	right: 0.5em;
-	top: 4.5em;
+	top: 0.5em;
 	border-radius:0.2em;
 	z-index:100;
 	background:#fff;
@@ -801,14 +836,15 @@ screen and (max-width: 600px)  {
 		}
 	}
 
-	.thankyou {
+	.thankyou {	
+		display:none;
+		top: 10%;	
+		left: 43%;
 		background:#fff;
 		color: #222;	
-		display:none;
 	}
 	
 		.thankyou span {
-			margin: 0.5em 0 0 0;
 			text-align:center;
 			display:block;
 		}
