@@ -259,21 +259,25 @@ header {
 		header nav {
 			float: none;
 			
-			li {
-				margin: 0;
+			ul {
 			
-				a {
-					padding:1em 0.5em;			
+				li {
+					margin: 0;
+					font-size:1.3em;
+				
+					a {
+						padding:1em 0.5em;			
+					}
+				
 				}
-			
 			}
 			
 		}
 		
 	}
 	
-	
 /* Content pages */	
+
 section#content {
 	margin: 0;
 	padding: 0;
@@ -286,8 +290,9 @@ section#content {
 		width: 41em;
 		
 		h2 {	
-			margin-bottom: 0.5em;
+			margin:0.5em 0;
 			font-weight:normal;
+			line-height:1.5;
 			font-size: 1.8em;
 		}
 	}
@@ -564,7 +569,7 @@ ul.socialcount {
 	screen and (max-device-width: 480px), 
 	screen and (max-width: 600px)  {
 		
-		.banners li a {
+		.banners ul li a {
 			float: none;
 			display:block;
 			margin: 1em;
