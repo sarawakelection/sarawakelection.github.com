@@ -295,17 +295,13 @@ header {
 		header nav {
 			float: none;
 			
-			ul {
+			li {
+				margin: 0;
 			
-				li {
-					margin: 0;
-					font-size:1.3em;
-				
-					a {
-						padding:1em 0.5em;			
-					}
-				
+				a {
+					padding:1em 0.5em;			
 				}
+			
 			}
 			
 		}
@@ -313,7 +309,6 @@ header {
 	}
 	
 /* Content pages */	
-
 section#content {
 	margin: 0;
 	padding: 0;
@@ -326,9 +321,8 @@ section#content {
 		width: 41em;
 		
 		h2 {	
-			margin:0.5em 0;
+			margin-bottom: 0.5em;
 			font-weight:normal;
-			line-height:1.5;
 			font-size: 1.8em;
 		}
 	}
@@ -605,7 +599,7 @@ ul.socialcount {
 	screen and (max-device-width: 480px), 
 	screen and (max-width: 600px)  {
 		
-		.banners ul li a {
+		.banners li a {
 			float: none;
 			display:block;
 			margin: 1em;
