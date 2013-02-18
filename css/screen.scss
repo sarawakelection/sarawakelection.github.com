@@ -174,14 +174,14 @@ header {
 			float: left;
 			color: #222;
 			text-transform:uppercase;
-			margin: 0.7em 0.5em 0 1em;
+			margin: 0.5em 0.5em 0 1em;
 			white-space: nowrap;
 		}
 	}
 
  	h1.site-name {
  		z-index:100;
-		margin: 0.2em 0 0 0;
+		margin: 0.1em 0 0 0;
 		float: left;
 		font-size: 2.5em;
 		line-height:1;
@@ -215,7 +215,7 @@ header {
 		li {
 			text-transform:uppercase;
 			font-family:"freight-sans-pro",helvetica,arial,sans-serif;					
-			font-size: 1.3em;
+			font-size: 1.2em;
 			line-height:1.2;			
 			display:block;
 			float: left;
@@ -225,7 +225,7 @@ header {
 				display:block;
 				border-right: 1px solid #fff;
 				float: left;
-				padding:0.9em 1em;
+				padding:0.9em 0.7em;
 				color: #fff;
 				background: #333;
 				
@@ -239,13 +239,49 @@ header {
 			}
 		}			
 	}
+	
+	a#view {
+		background: #333 url(../a/see-bribes-icon-1x.png) no-repeat 3% center;
+		padding:0.7em 0.3em 0.7em 1.5em;
+	}
+	
+	a#submit {
+		background: #333 url(../a/add-bribe-icon-1x.png) no-repeat 3% center;
+		padding:0.7em 0.3em 0.7em 1.5em;
+	}
+	
+	a#view.active,
+	a#submit.active,
+	header nav ul li a:hover {
+		background-color: #35a0d0;
+	}
+	
+	@media 
+		only screen and (-webkit-min-device-pixel-ratio : 2),
+		only screen and (min-device-pixel-ratio : 2) {
+	   
+			a#view {
+				background-image: url(../a/see-bribes-icon-2x.png);
+				background-size: 20px 20px;
+				-webkit-background-size: 20px 20px;
+				-moz-background-size: 20px 20px;
+			}
+	   
+	   
+		   	a#submit {
+			   	background-image: url(../a/add-bribe-icon-2x.png);
+			   	background-size: 20px 20px;
+			   	-webkit-background-size: 20px 20px;
+			   	-moz-background-size: 20px 20px;
+		   	}	   
+	}
 										
 	@media handheld and (max-width: 480px), 
 	screen and (max-device-width: 480px), 
 	screen and (max-width: 600px)  {
 		
 		h1.site-name {
-			margin: 0.25em 0.5em 0 0;
+			margin: 0.15em 0.5em 0 0;
 		}
 				
 		h1.site-name a span {
@@ -331,7 +367,7 @@ section#content {
 /* MAP */
 
 .map-holder {
-	margin-top: 55px;
+	margin-top: 45px;
 	overflow:hidden;
 	position:relative;
 	height: 550px;
