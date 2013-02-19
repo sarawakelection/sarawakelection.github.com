@@ -1,23 +1,5 @@
 $(function () {
 
-//	var map_id = 'goodcaesar.map-vwfp7lw5',
-//
-//	    layer = mapbox.layer().id(map_id),
-//	    
-//	    _d, // Down Event
-//	    tol = 4, // Touch Tolerance
-//	    _downLock = false,
-//	    _clickTimeout = false,
-//	    init = true,
-//	    
-	    //map = mapbox.map('map', layer, null, [easey_handlers.DragHandler()]);
-//	
-//		m = mapbox.map('map', layer, null, [
-//		    easey_handlers.DoubleClickHandler(),
-//		    easey_handlers.DragHandler(),
-//		    easey_handlers.TouchHandler()
-//		]);
-	
     var m = mapbox.map('map', mapbox.layer().id('goodcaesar.map-vwfp7lw5')),
         point,
         _d, // Down Event
@@ -114,11 +96,11 @@ $(function () {
         }
         return onUp;
     }
-
-    function addMarker(e) {
+	
+	function addMarker(e) {
         var pos = MM.getMousePoint(e, m);
         var l = m.pointLocation(pos);
-        
+                
         // Create and add marker layer
         point = mapbox.markers.layer().features([{
             'geometry': {
