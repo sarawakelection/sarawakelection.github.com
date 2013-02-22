@@ -158,7 +158,7 @@ header {
 	left: 0;
 	position:fixed;
 	width: 100%;
-	z-index:100;
+	z-index:200;
 	background: #fff;
 	border-bottom: 1px solid #fff;
 }
@@ -327,6 +327,10 @@ section#content {
 		}
 	}
 	
+	section#content.about {
+		margin-top:5em;
+	}
+	
 	section#content.thanks {
 		background: url(../a/thank-you-bg.jpg) no-repeat center center;
 		height: 550px;
@@ -377,23 +381,6 @@ section#content {
   
  }
  
- @media handheld and (max-width: 480px), 
- screen and (max-device-width: 480px), 
- screen and (max-width: 600px)  {
-
-	#content .frame {
-		width: auto;
-		margin: 0 0.5em;
-	}
-
-
- 	.map-holder {
-		margin-right:10px;
- 		background:#fff;
-/* 		height: 400px;*/
- 	}
- }
- 
  .map-attribution {
    left:0;
    }
@@ -414,6 +401,27 @@ section#content {
      margin:0 0 0.3em;
      font-size: 90%;
      }
+  
+   @media handheld and (max-width: 480px), 
+   screen and (max-device-width: 480px), 
+   screen and (max-width: 600px)  {
+  
+		.marker-popup {
+			width:90%;
+		}
+  
+		#content .frame {
+			width: auto;
+			margin: 0 0.5em;
+		}
+  
+  
+		.map-holder {
+			margin-right:10px;
+			background:#fff;
+		}
+   }
+     
  
  #indicate_menu {
    background:white;
@@ -495,29 +503,11 @@ section#content {
 		
 	}
 
-/* Counters */	
-
-.social {
-	vertical-align:top;
-	padding-top: 1em;
-	text-align: center;
-	color: #fff;
-}
-
-	.social iframe {
-		color: #fff;
-	}
-
-ul.socialcount {
-	margin: 1em auto;
-	text-align:center;
-}
 
 /* Submenu */	
 
 .sub-menu {
 	background:#333;
-
 	border-bottom: 1px solid #333;
 }
 
@@ -537,6 +527,74 @@ ul.socialcount {
 		}
 	
 	}
+
+/* Browsable Bribe List */
+
+#bribes-list {
+	margin:1em 0.5em 1em 0.5em;
+}
+
+	.bribe {
+		width:14em;
+		height:19em;
+		overflow:hidden;
+		color:#fff;
+		float:left;
+		margin: 0 1em 1em 0;
+		padding-bottom: 0.5em;
+		border-bottom:1px solid #333;
+		overflow: hidden;
+		
+		.bribe h4 {
+			line-height:1.1;
+		}
+		
+		p {
+			font-size:80%;
+			margin:0 0 0.4em 0;
+		
+			small {
+				font-weight:bold;
+			}
+			
+			a {
+				color:#ab711d;
+				
+				&:hover {
+					color:#5abac8;
+				}
+			}
+		
+		}
+			
+	}
+	
+	.bribe:nth-child(5n) {
+		margin-right: 0;
+	}
+	
+	@media handheld and (max-width: 480px), 
+	screen and (max-device-width: 480px), 
+	screen and (max-width: 600px)  {
+	
+		.bribe,
+		.bribe:nth-child(5n) {
+			width: auto;
+			margin:0;
+			height: auto;
+		}
+	
+	}
+	
+
+
+
+/* Social */	
+
+.social {
+	margin:1em auto;
+	text-align:center;
+}
 
 /* Banners */	
 

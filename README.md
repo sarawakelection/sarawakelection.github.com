@@ -1,4 +1,4 @@
-# Sarawak Report's Federal Election Bribe Watch 2013
+# Sarawak Report's Federal Election Bribe Map 2013
 
 ### Map election fraud and bribing incidents on this interactive map
 
@@ -22,9 +22,13 @@ View the site here: <a href="http://election.sarawakreport.org">http://election.
 
 - At the moment you can't place a marker on iOS. This needs to be fixed
 - Minify everything automatically
-- Search
+- Add Search
 - Auto assign LAT/LON to pre-selected cities
+- Display number of bribes per area
+- Display bribes as a browsable list
 
 For suggestions/improvement and bug reports please file an issue or email us at mapping@sarawakreport.org
 
-Updated: 10 February 2013
+Created by <a href="http://goodcaesar.com">Good Caesar</a>
+
+Updated: 22 February 2013

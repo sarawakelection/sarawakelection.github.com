@@ -78,6 +78,14 @@ $(function(){
     	siblings.toggleClass('active', !isOn);	
     });
     
+//    $('.bribe p.desc').expander({
+//      slicePoint: 100,
+//      preserveWords: true,
+//      widow: 2,
+//      expandEffect: 'show',
+//      userCollapseText: '[^]'
+//    });
+    
     $("#subForm").validate({
 		errorContainer: ".error", 
 		errorLabelContainer: ".error", 

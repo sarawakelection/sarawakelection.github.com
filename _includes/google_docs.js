@@ -1,3 +1,18 @@
+$.fn.textlimit = function() { 
+	return this.each(function(){
+	    var $elem = $(this);            // Adding this allows u to apply this anywhere
+	    var $limit = 22;                // The number of characters to show
+	    var $str = $elem.text();        // Getting the text
+	    var $strtemp = $str.substr(0,$limit);   // Get the visible part of the string
+	    $str = $strtemp + '<span class="hide">' + $str.substr($limit,$str.length) + '</span> ...';  
+	    $elem.html($str);
+    })
+};
+
+function jsonEscape(str)  {
+    return str.replace("\\n", "\\\\n").replace("\\r", "\\\\r").replace("\\t", "\\\\t");
+}
+
 function mmg_google_docs_spreadsheet_1(id, callback) {
     if (typeof reqwest === 'undefined'){
         throw 'CSV: reqwest required for mmg_csv_url';
@@ -27,9 +42,9 @@ function mmg_google_docs_spreadsheet_1(id, callback) {
             }
         }
         
-        //console.log(x.feed.entry.length
+        //console.log(x.feed.entry.length);
         
-        $('#count').html(x.feed.entry.length +' counts of bribery reported');
+        //$('#count').html(x.feed.entry.length +' counts of bribery reported');
         
         for (var i = 0; i < x.feed.entry.length; i++) {                             
             var entry = x.feed.entry[i];
@@ -47,6 +62,37 @@ function mmg_google_docs_spreadsheet_1(id, callback) {
                     'hour': 'Hour: ' + entry['gsx$time'].$t
                 }
             };
+            
+            if(entry['gsx$link'].$t) {
+            	websitelink = '<p><a href="' + entry['gsx$link'].$t + '">Visit link</a></p>';
+            } else {
+            	websitelink = '';
+            }
+            
+            var description = entry['gsx$description'].$t
+            
+			
+		    var shortdesc = jQuery.trim(description).substring(0, 400).split(" ").slice(0, -1).join(" ") + "...";        
+		   
+		   //shortdesc = entry['gsx$description'].$t;
+		   
+		   //console.log(jsonEscape(description));
+		   
+		   
+		   	//console.log(shortdesc);
+		   
+		   //textdescription = entry['gsx$description'].$t;     
+		    
+		    //$(textdescription).textlimit();
+		    		            
+			// Output this as a browsable list
+			content = '<div class="bribe"><h4>' + entry['gsx$title'].$t + '</h4>'+ '<p>' + '<p><small>' + entry['gsx$date'].$t + '</small></p><p class="desc">'+ shortdesc + '</p>' + websitelink + '</div>';
+            
+            //console.log(content);
+
+			$(content).appendTo('#bribes-list').hide().fadeIn(500);
+
+			//$(content).appendTo("#bribes-list");
 
             for (var y in entry) {
                 if (y === latfield) feature.geometry.coordinates[1] = parseFloat(entry[y].$t);
