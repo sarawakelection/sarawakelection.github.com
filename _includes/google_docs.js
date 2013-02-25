@@ -1,13 +1,32 @@
-$.fn.textlimit = function() { 
-	return this.each(function(){
-	    var $elem = $(this);            // Adding this allows u to apply this anywhere
-	    var $limit = 22;                // The number of characters to show
-	    var $str = $elem.text();        // Getting the text
-	    var $strtemp = $str.substr(0,$limit);   // Get the visible part of the string
-	    $str = $strtemp + '<span class="hide">' + $str.substr($limit,$str.length) + '</span> ...';  
-	    $elem.html($str);
-    })
-};
+// fmonth is function that, creating a dinamics dates, in the view
+function fmonth(f) {
+
+    //array aMonth for take moths from JSON
+    var aMonth = [];
+    // array de que se genera de la fecha
+    var aDate = [];
+    var parent = document.getElementById('months');
+
+    //take only month from date in googlespretsheet dd/MM/yyyy
+    _.each(f, function (value, key) {
+        aDate = f[key].properties.date.split("/");
+        aMonth.push(aDate[1]); //push month in array aMoth
+    });
+
+    aMonth = _.chain(aMonth)
+                .uniq()
+                .compact()
+                .value();
+
+    aMonth = aMonth.sort();
+
+    //create a tag "li" and  "a" with "id=aMonth[i]" for menu month in the view
+    for (var i = 0; i < aMonth.length; i++) {
+        var new_li = document.createElement('li');
+        new_li.innerHTML = '<a href= \'#\'  id=\'' + aMonth[i] + '\' > ' + monthNames[aMonth[i] - 1] + '</a>';
+        parent.appendChild(new_li);
+    }
+}
 
 function jsonEscape(str)  {
     return str.replace("\\n", "\\\\n").replace("\\r", "\\\\r").replace("\\t", "\\\\t");
@@ -63,30 +82,20 @@ function mmg_google_docs_spreadsheet_1(id, callback) {
                 }
             };
             
+            dater = entry['gsx$date'].$t;            
+            //console.log(dater.sort());
+            
             if(entry['gsx$link'].$t) {
             	websitelink = '<p><a href="' + entry['gsx$link'].$t + '">Visit link</a></p>';
             } else {
             	websitelink = '';
             }
             
-            var description = entry['gsx$description'].$t
-            
-			
-		    var shortdesc = jQuery.trim(description).substring(0, 400).split(" ").slice(0, -1).join(" ") + "...";        
-		   
-		   //shortdesc = entry['gsx$description'].$t;
-		   
-		   //console.log(jsonEscape(description));
-		   
-		   
-		   	//console.log(shortdesc);
-		   
-		   //textdescription = entry['gsx$description'].$t;     
-		    
-		    //$(textdescription).textlimit();
-		    		            
+            var description = entry['gsx$description'].$t            
+           	//var shortdesc = jQuery.trim(description).substring(0, 400).split(" ").slice(0, -1).join(" ") + "...";        
+		   		    		            
 			// Output this as a browsable list
-			content = '<div class="bribe"><h4>' + entry['gsx$title'].$t + '</h4>'+ '<p>' + '<p><small>' + entry['gsx$date'].$t + '</small></p><p class="desc">'+ shortdesc + '</p>' + websitelink + '</div>';
+			content = '<div class="bribe"><h4>' + entry['gsx$title'].$t + '</h4>'+ '<p>' + '<p><small>' + entry['gsx$date'].$t + '</small></p><p class="desc">'+ description + '</p>' + websitelink + '</div>';
             
             //console.log(content);
 
