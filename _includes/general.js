@@ -78,6 +78,12 @@ $(function(){
     	siblings.toggleClass('active', !isOn);	
     });
     
+    $('span.close').click(function(){
+		$(this).parent().slideToggle(50);
+		//$('.introduction').slideToggle(50);
+		return false;
+    });
+    
 //    $('.bribe p.desc').expander({
 //      slicePoint: 100,
 //      preserveWords: true,

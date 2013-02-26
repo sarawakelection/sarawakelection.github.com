@@ -161,6 +161,10 @@ header {
 	z-index:200;
 	background: #fff;
 	border-bottom: 1px solid #fff;
+	
+	-webkit-box-shadow:0 2px 6px rgba(0,0,0,0.25);
+	        box-shadow:0 2px 6px rgba(0,0,0,0.25);
+
 }
 
 	header hgroup {
@@ -482,6 +486,10 @@ section#content {
 	background:#fff;
 	padding: 0.5em;
 	border-radius:0.2em;
+
+	-webkit-box-shadow:0 2px 6px rgba(0,0,0,0.25);
+	        box-shadow:0 2px 6px rgba(0,0,0,0.25);
+	        
  } 
 
 	@media handheld and (max-width: 480px), 
@@ -531,21 +539,22 @@ section#content {
 /* Browsable Bribe List */
 
 #bribes-list {
+	width:100%;
 	margin:1em 0.5em 1em 0.5em;
 }
 
 	.bribe {
 		width:14em;
-		height:19em;
+		height:21em;
 		overflow:hidden;
 		color:#fff;
-		float:left;
 		margin: 0 1em 1em 0;
-		padding-bottom: 0.5em;
-		border-bottom:1px solid #333;
-		overflow: hidden;
-		
-		.bribe h4 {
+		padding-bottom: 0.6em;
+		display:block;
+		float:left;
+		text-overflow: ellipsis;
+
+		h4 {
 			line-height:1.1;
 		}
 		
@@ -858,6 +867,8 @@ screen and (max-width: 600px)  {
 	}
 
 	.introduction {
+		z-index:100;
+		position:relative;
 		left: 30%;
 		top: 4.5em;
 		color: #222;
@@ -865,10 +876,23 @@ screen and (max-width: 600px)  {
 	}
 	
 	span.close {
+		top:0.5em;		
+		float:right;
+		text-align:center;
+		vertical-align:top;
+		line-height:1;
+		color:#666;
+		width:0.7em;
+		height:0.7em;
 		display:block;	
 		font-size: 1.6em;
 		margin: 0;
 		padding:0;
+	}
+	
+	span.close:hover {
+		color:#333;
+		cursor:pointer;
 	}
 	
 		span.help:hover {
@@ -960,6 +984,19 @@ screen and (max-width: 600px)  {
 			width: auto;
 			right: 0;
 		}
+}
+
+/* stats */
+
+.stats {
+	padding:1em 0;
+	text-align:center;
+	
+	h2 {
+		font-size:6em;
+		line-height:1;
+		color:#333;
+	}
 }
 
 /* Contact */

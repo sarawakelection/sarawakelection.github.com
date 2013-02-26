@@ -63,7 +63,7 @@ function mmg_google_docs_spreadsheet_1(id, callback) {
         
         //console.log(x.feed.entry.length);
         
-        //$('#count').html(x.feed.entry.length +' counts of bribery reported');
+        $('#count').html(x.feed.entry.length + ' reports received');
         
         for (var i = 0; i < x.feed.entry.length; i++) {                             
             var entry = x.feed.entry[i];
@@ -126,4 +126,5 @@ function mmg_google_docs_spreadsheet_1(id, callback) {
      
         return callback(features);
     }
+
 }

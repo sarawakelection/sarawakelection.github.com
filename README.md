@@ -25,10 +25,10 @@ View the site here: <a href="http://election.sarawakreport.org">http://election.
 - Add Search
 - Auto assign LAT/LON to pre-selected cities
 - Display number of bribes per area
-- Display bribes as a browsable list
+- Better display of bribes as a list.
 
 For suggestions/improvement and bug reports please file an issue or email us at mapping@sarawakreport.org
 
 Created by <a href="http://goodcaesar.com">Good Caesar</a>
 
-Updated: 22 February 2013
+Updated: 26 February 2013
