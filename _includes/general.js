@@ -80,18 +80,9 @@ $(function(){
     
     $('span.close').click(function(){
 		$(this).parent().slideToggle(50);
-		//$('.introduction').slideToggle(50);
 		return false;
     });
-    
-//    $('.bribe p.desc').expander({
-//      slicePoint: 100,
-//      preserveWords: true,
-//      widow: 2,
-//      expandEffect: 'show',
-//      userCollapseText: '[^]'
-//    });
-    
+                        
     $("#subForm").validate({
 		errorContainer: ".error", 
 		errorLabelContainer: ".error", 
@@ -114,5 +105,9 @@ $(function(){
     		
     	}
     });
-       		
+      
+    $('.bribe').live("click", function () {    	
+    	$(this).find('.inside').toggleClass('unfold');
+    });
+            		
 });

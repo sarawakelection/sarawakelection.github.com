@@ -543,19 +543,41 @@ section#content {
 	margin:1em 0.5em 1em 0.5em;
 }
 
-	.bribe {
+	.bribe {	
+		position:relative;
 		width:14em;
-		height:21em;
-		overflow:hidden;
+		padding:0.5em;
 		color:#fff;
 		margin: 0 1em 1em 0;
 		padding-bottom: 0.6em;
 		display:block;
 		float:left;
-		text-overflow: ellipsis;
-
+		
+		.inside {
+			text-overflow: ellipsis;
+			overflow:hidden;
+			position:relative;
+			height:11.5em;
+		}
+		
 		h4 {
 			line-height:1.1;
+		}
+		
+		&:hover {
+			cursor:pointer;
+			background:#333;
+		}		
+				
+		.unfold {
+			top:0;
+			left:0;
+			z-index:100;
+			padding:0.5em;
+			position:absolute;
+			background:#333;
+			height:auto;
+			overflow:visible;
 		}
 		
 		p {
