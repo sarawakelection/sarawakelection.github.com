@@ -4,15 +4,21 @@ var data_id = '0AsL-qFOSUlaOdDktQ0JlZU9RaHNZbmJOOFk4T2kwSkE',
     features,
     features_summary,
     interaction,
-    layer = mapbox.layer().id(map_id),
-    //map = mapbox.map('map', layer, null, [easey_handlers.DragHandler()]);
-
+        
+    layer = mapbox.layer().id(map_id),    
+	    point,
+	    _d, // Down Event
+	    tol = 4, // Touch Tolerance
+	    _downLock = false,
+	    _clickTimeout = false,
+	    init = true,
+    
 	map = mapbox.map('map', layer, null, [
 	    easey_handlers.DoubleClickHandler(),
 	    easey_handlers.DragHandler(),
 	    easey_handlers.TouchHandler()
 	]);
-
+	
 mmg_google_docs_spreadsheet_1(data_id, mapData);
 map.centerzoom({
     lat: 2.371,
@@ -22,11 +28,6 @@ map.centerzoom({
 map.setZoomRange(7, 15);
 map.ui.attribution.add().content('<a href="http://mapbox.com/about/maps">Terms &amp; Feedback</a>');
 map.ui.hash.add();
-
-//MM.addEvent(map.parent, 'click', function(e) {
-//       var px = MM.getMousePoint(e, map);
-//       click.innerHTML = 'Lat/Lon ' + map.pointLocation(px).toString();
-//});
 
 // Build map
 function mapData(f) {
@@ -39,12 +40,12 @@ function mapData(f) {
         var elem = mapbox.markers.simplestyle_factory(m);
         // Add function that centers marker on click
                
-        MM.addEvent(elem, 'click', function (e) {
-            map.ease.location({
-                lat: m.geometry.coordinates[1],
-                lon: m.geometry.coordinates[0]
-            }).zoom(map.zoom()).optimal();
-        });
+//        MM.addEvent(elem, 'click', function (e) {
+//            map.ease.location({
+//                lat: m.geometry.coordinates[1],
+//                lon: m.geometry.coordinates[0]
+//            }).zoom(map.zoom()).optimal();
+//        });
         return elem;
     });
 
@@ -85,13 +86,179 @@ function newMarker() {
     }
 }
 
-//call the  fuction from  google chart API,  for create main statistic box
-google.load('visualization', '1', {
-    packages: ['corechart']
-});
-
 //function for put href  for download data
 function download_data() {
     $('#download_csv').attr('href', 'https://docs.google.com/a/developmentseed.org/spreadsheet/pub?key=' + data_id + '&output=csv');
     $('#download_josn').attr('href', 'https://spreadsheets.google.com/feeds/list/' + data_id + '/od6/public/values?alt=json-in-script');
 }
+
+$(function () {
+
+    var markerEvents = {
+        touchstart: onDown,
+        mousedown: onDown
+    };
+
+    var touchEnds = {
+        touchend: onUp,
+        touchmove: onUp,
+        touchcancel: touchCancel
+    };
+
+    // Set up events
+    $(map.parent).on(markerEvents);
+    $(map.parent).on('touchstart', onDown);
+
+    // Clear the double-click timeout to prevent double-clicks from triggering popups.
+    function killTimeout() {
+        if (_clickTimeout) {
+            window.clearTimeout(_clickTimeout);
+            _clickTimeout = null;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    // A handler for 'down' events - which means `mousedown` and `touchstart`
+    function onDown(e) {
+        // Ignore double-clicks by ignoring clicks within 300ms of each other.
+        if (killTimeout()) {
+            return;
+        }
+
+        // Prevent interaction offset calculations happening while the user is dragging the map.
+        // Store this event so that we can compare it to the up event
+        _downLock = true;
+        _d = new MM.Point(e.clientX, e.clientY);
+
+        if (e.type === 'mousedown') {
+            $(document.body).on('click', onUp);
+
+            // Only track single-touches. Double-touches will not affect this control
+        } else if (e.type === 'touchstart' && e.touches.length === 1) {
+            // Touch moves invalidate touches
+            $(map.parent).on(touchEnds);
+        }
+    }
+
+    function touchCancel() {
+        $(map.parent).off(touchEnds);
+        _downLock = false;
+    }
+
+    function onUp(e) {
+        var evt = {},
+            pos = new MM.Point(e.clientX, e.clientY);
+
+        _downLock = false;
+        for (var key in e) {
+            evt[key] = e[key];
+        }
+
+        $(document.body).off('click', onUp);
+        $(map.parent).off(touchEnds);
+
+        if (e.type === 'touchend') {
+            // If this was a touch and it survived, there's no need to avoid a double-tap
+            markerInteraction(e);
+        } else if (Math.round(pos.y / tol) === Math.round(_d.y / tol) && Math.round(pos.x / tol) === Math.round(_d.x / tol)) {
+            // Contain the event data in a closure.
+            _clickTimeout = window.setTimeout(
+
+            function () {
+                _clickTimeout = null;
+                map.removeLayer(point);
+                addMarker(e);
+            }, 300);
+        }
+        return onUp;
+    }
+	
+	function addMarker(e) {
+        var pos = MM.getMousePoint(e, map);
+        var l = map.pointLocation(pos);
+                
+        // Create and add marker layer
+        point = mapbox.markers.layer().features([{
+            'geometry': {
+                'type': 'Point',
+                'coordinates': [l.lon, l.lat]
+            },
+                'properties': {
+                	'image': './a/bribe-marker.png'
+            }
+        }]).factory(function (f) {
+            var mark = document.createElement('div');
+            mark.className = 'marker';
+            var img = document.createElement('img');
+            img.className = 'marker-point';
+            img.setAttribute('src', f.properties.image);
+            mark.appendChild(img)
+
+            // center the map on where it was selected.
+            map.ease.location({
+                lat: l.lat,
+                lon: l.lon
+            }).zoom(map.zoom()).optimal();
+
+            return mark;
+        });
+
+        map.addLayer(point);
+
+        // Here put the coordinates in field Latitud dan Longitud
+        $('#entry_4').attr('value', l.lat.toFixed(5));
+        $('#entry_6').attr('value', l.lon.toFixed(5));
+    }
+           
+     var geolocate = document.getElementById('geolocate');
+    
+    // Create an empty markers layer
+     var markerLayer = mapbox.markers.layer();
+     map.addLayer(markerLayer);	
+    
+
+		// Adding find me functionality
+      if (!navigator.geolocation) {
+          geolocate.innerHTML = 'geolocation is not available';
+      } else {
+          geolocate.onclick = function(e) {
+              e.preventDefault();
+              e.stopPropagation();
+              navigator.geolocation.getCurrentPosition(
+              function(position) {
+                  // Once we've got a position, zoom and center the map
+                  // on it, add ad a single feature
+                  m.zoom(15).center({
+                      lat: position.coords.latitude,
+                      lon: position.coords.longitude
+                  });
+                  markerLayer.add_feature({
+                      geometry: {
+                          coordinates: [
+                              position.coords.longitude,
+                              position.coords.latitude]
+                      },
+                      properties: {
+                      		'image': './a/bribe-marker.png'
+//                          'marker-color': '#000',
+//                          'marker-symbol': 'star-stroked',
+                      }
+                  });
+                  
+                  // Copy location to the lat/lon fields
+                  $('#entry_4').attr('value', position.coords.latitude.toFixed(5));
+                  $('#entry_6').attr('value', position.coords.longitude	.toFixed(5));
+                  
+                  // And hide the geolocation button
+                  geolocate.parentNode.removeChild(geolocate);
+              },
+              function(err) {
+                  // If the user chooses not to allow their location
+                  // to be shared, display an error message.
+                  geolocate.innerHTML = 'position could not be found';
+              });
+          };
+      }     
+});

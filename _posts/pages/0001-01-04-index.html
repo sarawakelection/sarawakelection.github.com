@@ -9,24 +9,118 @@ idd: view
 
 	<div class="map-holder">
 	
-		<div class="message list">
-			<h3>Jump to:</h3>
-			
-			<ul>
-				<li><a href="#" id="kuching">Kuching</a></li>
-				<li><a href="#" id="bintulu">Bintulu</a></li>
-				<li><a href="#" id="kapit">Kapit</a></li>
-				<li><a href="#" id="limbang">Limbang</a></li>
-				<li><a href="#" id="miri">Miri</a></li>
-				<li><a href="#" id="mukah">Mukah</a></li>
-				<li><a href="#" id="sibu">Sibu</a></li>
-				<li><a href="#" id="sriaman">Sri Aman</a></li>			
-				<li><a href="#" id="overview">Overview</a></li>				
-			</ul>
-		
-		</div>
-	
 	    <div id="map"></div>
+	    
+	        <div class="section submit-map">
+	    
+	          <iframe name='hidden_iframe' id='hidden_iframe' style='display:none;' onload='if(submitted)
+	          {window.location="confirm.html";
+	          }'>
+	          </iframe>
+	    		              
+	          <form method='post' target='hidden_iframe' class='well span6' id='ss-form'>
+	    			
+	    		<div class="errorbox-good">
+	    			<div class="ss-item  ss-text">
+	    				<div class="ss-form-entry"><label class="ss-q-title" for="entry_7">What happened?
+	    				<span class='ss-required-asterisk'>*</span>
+	    				</label>
+	    		
+	    		
+	    					<label class="ss-q-help" for="entry_7"></label>				
+	    					<input type="text" name="entry.7.single" value="" class="ss-q-short" id="entry_7">
+	    				</div>
+	    			</div>
+	    		</div>
+	    		
+	    		<div class="errorbox-good">
+	    			<div class="ss-item  ss-text">
+	    				<div class="ss-form-entry">
+	    				
+	    				<label class="ss-q-title" for="entry_9">Where? (or click on the map)</label>
+	    				
+	    				<input type="text" name="entry.9.single" value="" placeholder="Type the location or click on the map" class="ss-q-short" id="entry_9">
+	    
+	    				</div>
+	    			</div>
+	    		</div>
+	    	
+	            <div class='errorbox-good datetime'>
+	              <div class='ss-item ss-item-required ss-text'>
+	                <div class='ss-form-entry'>
+	                  <label class='ss-q-title' for='entry_0'>When did it happen?
+	                  <span class='ss-required-asterisk'>*</span>
+	                  </label>
+	                  <label class='ss-q-help' for='entry_0'></label>
+	                  <input type='text' name='entry.0.single' value='' class='ss-q-short' id='entry_0' />
+	                </div>
+	              </div>
+	            </div>
+	    
+	    		<div class='errorbox-good'>
+	    		  <div class='ss-item  ss-paragraph-text'>
+	    		    <div class='ss-form-entry'>
+	    		      <label class='ss-q-title' for='entry_8'>Website link <span>(Optional)</span></label>
+	    		      <label class='ss-q-help' for='entry_8'></label>
+	    		      <input type="text" name="entry.8.single" value="" class="ss-q-short" id="entry_8">
+	    		    </div>
+	    		  </div>
+	    		</div>
+	    
+	    		<div class='errorbox-good'>
+	    		  <div class='ss-item  ss-paragraph-text'>
+	    		    <div class='ss-form-entry'>
+	    		      <label class='ss-q-title' for='entry_2'>Description</label>
+	    		      <label class='ss-q-help' for='entry_2'></label>
+	    		      <textarea name='entry.2.single' id='entry_2'></textarea>
+	    		    </div>
+	    		  </div>
+	    		</div>
+	    		
+	    		<div class="col">
+	            
+	            <div class='errorbox-good'>
+	              <div class='ss-item ss-item-required ss-text'>
+	                <div class='ss-form-entry'>
+	                  <label class='ss-q-title' for='entry_4'>Latitude
+	                   <span class='ss-required-asterisk'>*</span></label>
+	                  <label class='ss-q-help' for='entry_4'></label>
+	                  <input type='text' name='entry.4.single' value='' class='ss-q-short' id='entry_4' placeholder='Click on the map' />
+	                </div>
+	              </div>
+	            </div>
+	            
+	            </div>
+	            
+	            <div class="col last">
+	            
+	            <div class='errorbox-good'>
+	              <div class='ss-item ss-item-required ss-text'>
+	                <div class='ss-form-entry'>
+	                  <label class='ss-q-title' for='entry_6'>Longitude
+	                    <span class='ss-required-asterisk'>*</span>
+	                  </label>
+	                  <label class='ss-q-help' for='entry_6'></label>
+	                  <input type='text' name='entry.6.single' value='' class='ss-q-short' id='entry_6' placeholder='Click on the map' />
+	                </div>
+	              </div>
+	            </div>
+	            
+	            </div>
+	            
+	            <input type='hidden' name='pageNumber' value='0' />
+	            <input type='hidden' name='backupCache' value='' />
+	            <div class='ss-item ss-navigate'>
+	              <div class='ss-form-entry'>
+	                <input id="sendthis" type='submit' name='submit' value='Submit' /> <span class="help"><a href="#">How does this work?</a></span>
+	              </div>
+	              
+	            </div>
+	          </form>
+	        
+	        </div><!-- /submit-map -->
+	    
+	    
    	</div>
    	
    	

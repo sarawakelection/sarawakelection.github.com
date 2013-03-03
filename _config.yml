@@ -6,6 +6,3 @@ navigation:
 - text: See Bribes
   url: index.html
   idd: view
-- text: Add Bribe
-  url: submit.html
-  idd: submit
