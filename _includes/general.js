@@ -80,6 +80,7 @@ $(function(){
     
     $('span.close').click(function(){
 		$(this).parent().slideToggle(50);
+		$('.tab-buttons li a').removeClass('one');
 		//$('.introduction').slideToggle(50);
 		return false;
     });
@@ -105,6 +106,57 @@ $(function(){
     		form.submit();
     		
     	}
+    });
+    
+    $("#contact").validate({
+    	rules: {
+    		"subject": {
+    			required:true,
+    			minlength:5
+    		},
+    		"email": {
+    			required: true,
+    			email: true
+    		},
+    		"message": {
+    			required: true,
+    			minlength:10
+    		}		
+    	},
+    	messages: {
+    		"subject":'What are you contacting us about?',
+    		"email":'Enter a valid email address',
+    		"message":'Please enter your message'
+    	},
+    	submitHandler: function() {	    		
+    		$('#contact input:submit').attr('value','Sending');
+    		$('#contact input:submit').attr("disabled", true);	       		
+    		form.submit();	    		
+    	}
+    });
+    
+	$('.bribe').live("click", function () {    	
+		$(this).find('.inside').toggleClass('unfold');
+	});
+	
+	$('.addbribe').click(function(){   
+		//$(this).hide(); 		
+		$('.submit-map').slideToggle(50);
+	});
+	
+	$('a.about-btn').click(function(){  
+		$(this).toggleClass('one'); 		
+		$('section.content.about').slideToggle(50);
+	});
+	
+	$('a.contact-btn').click(function(){  
+		$(this).toggleClass('one'); 		
+		$('section.content.contact').slideToggle(50);
+	});
+    
+    $('a.browse-btn').click(function(){  
+    	$(this).toggleClass('one'); 		
+    	$('section.content.bribes-list').slideToggle(50);
     });
     
     var sarawakLocations = [

@@ -59,7 +59,9 @@ $("#ss-form").validate({
 		$('#ss-form input:submit').attr('value','Submitting data');
 		$('#ss-form input:submit').attr("disabled", true);
 
-		$('.section.submit-map').fadeOut('slow');
+		//$('#map').map.interaction.refresh();
+
+		$('.submit-map').fadeOut('slow');
 		
 		$('.message.thankyou').addClass('on');
 		

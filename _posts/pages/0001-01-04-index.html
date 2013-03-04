@@ -6,134 +6,176 @@ idd: view
 ---
 
 {% include header.code %}
-
-	<div class="map-holder">
 	
-	    <div id="map"></div>
-	    
-	        <div class="section submit-map">
-	    
-	          <iframe name='hidden_iframe' id='hidden_iframe' style='display:none;' onload='if(submitted)
-	          {window.location="confirm.html";
-	          }'>
-	          </iframe>
-	    		              
-	          <form method='post' target='hidden_iframe' class='well span6' id='ss-form'>
-	    			
-	    		<div class="errorbox-good">
-	    			<div class="ss-item  ss-text">
-	    				<div class="ss-form-entry"><label class="ss-q-title" for="entry_7">What happened?
-	    				<span class='ss-required-asterisk'>*</span>
-	    				</label>
-	    		
-	    		
-	    					<label class="ss-q-help" for="entry_7"></label>				
-	    					<input type="text" name="entry.7.single" value="" class="ss-q-short" id="entry_7">
-	    				</div>
-	    			</div>
-	    		</div>
-	    		
-	    		<div class="errorbox-good">
-	    			<div class="ss-item  ss-text">
-	    				<div class="ss-form-entry">
-	    				
-	    				<label class="ss-q-title" for="entry_9">Where? (or click on the map)</label>
-	    				
-	    				<input type="text" name="entry.9.single" value="" placeholder="Type the location or click on the map" class="ss-q-short" id="entry_9">
-	    
-	    				</div>
-	    			</div>
-	    		</div>
-	    	
-	            <div class='errorbox-good datetime'>
-	              <div class='ss-item ss-item-required ss-text'>
-	                <div class='ss-form-entry'>
-	                  <label class='ss-q-title' for='entry_0'>When did it happen?
-	                  <span class='ss-required-asterisk'>*</span>
-	                  </label>
-	                  <label class='ss-q-help' for='entry_0'></label>
-	                  <input type='text' name='entry.0.single' value='' class='ss-q-short' id='entry_0' />
-	                </div>
-	              </div>
-	            </div>
-	    
-	    		<div class='errorbox-good'>
-	    		  <div class='ss-item  ss-paragraph-text'>
-	    		    <div class='ss-form-entry'>
-	    		      <label class='ss-q-title' for='entry_8'>Website link <span>(Optional)</span></label>
-	    		      <label class='ss-q-help' for='entry_8'></label>
-	    		      <input type="text" name="entry.8.single" value="" class="ss-q-short" id="entry_8">
-	    		    </div>
-	    		  </div>
-	    		</div>
-	    
-	    		<div class='errorbox-good'>
-	    		  <div class='ss-item  ss-paragraph-text'>
-	    		    <div class='ss-form-entry'>
-	    		      <label class='ss-q-title' for='entry_2'>Description</label>
-	    		      <label class='ss-q-help' for='entry_2'></label>
-	    		      <textarea name='entry.2.single' id='entry_2'></textarea>
-	    		    </div>
-	    		  </div>
-	    		</div>
-	    		
-	    		<div class="col">
-	            
-	            <div class='errorbox-good'>
-	              <div class='ss-item ss-item-required ss-text'>
-	                <div class='ss-form-entry'>
-	                  <label class='ss-q-title' for='entry_4'>Latitude
-	                   <span class='ss-required-asterisk'>*</span></label>
-	                  <label class='ss-q-help' for='entry_4'></label>
-	                  <input type='text' name='entry.4.single' value='' class='ss-q-short' id='entry_4' placeholder='Click on the map' />
-	                </div>
-	              </div>
-	            </div>
-	            
-	            </div>
-	            
-	            <div class="col last">
-	            
-	            <div class='errorbox-good'>
-	              <div class='ss-item ss-item-required ss-text'>
-	                <div class='ss-form-entry'>
-	                  <label class='ss-q-title' for='entry_6'>Longitude
-	                    <span class='ss-required-asterisk'>*</span>
-	                  </label>
-	                  <label class='ss-q-help' for='entry_6'></label>
-	                  <input type='text' name='entry.6.single' value='' class='ss-q-short' id='entry_6' placeholder='Click on the map' />
-	                </div>
-	              </div>
-	            </div>
-	            
-	            </div>
-	            
-	            <input type='hidden' name='pageNumber' value='0' />
-	            <input type='hidden' name='backupCache' value='' />
-	            <div class='ss-item ss-navigate'>
-	              <div class='ss-form-entry'>
-	                <input id="sendthis" type='submit' name='submit' value='Submit' /> <span class="help"><a href="#">How does this work?</a></span>
-	              </div>
-	              
-	            </div>
-	          </form>
-	        
-	        </div><!-- /submit-map -->
-	    
-	    
-   	</div>
-   	
-   	
-   	<div class="frame">
-	   	<div id="bribes-list" class="clearfix"></div>	   	
-   	</div>
-   	
-   	<div class="stats">
-   		<div class="frame">
-	   		<h2><span id="count"></span></h2>
-		</div>   		   	
-   	</div>
-   	
-<!--	<div id="count"></div>-->
-   	      	   	   	
+<div id="map"></div>
+
+<h2 id="count"></h2>	           
+
+<div class="submit-map">
+	
+	<span class="close">&times;</span>
+	
+      <iframe name='hidden_iframe' id='hidden_iframe' style='display:none;' onload='if(submitted)
+      {window.location="confirm.html";
+      }'>
+      </iframe>
+		              
+      <form method='post' target='hidden_iframe' class='well span6' id='ss-form'>
+			
+		<div class="errorbox-good">
+			<div class="ss-item  ss-text">
+				<div class="ss-form-entry"><label class="ss-q-title" for="entry_7">What happened?
+				<span class='ss-required-asterisk'>*</span>
+				</label>
+		
+		
+					<label class="ss-q-help" for="entry_7"></label>				
+					<input type="text" name="entry.7.single" value="" class="ss-q-short" id="entry_7">
+				</div>
+			</div>
+		</div>
+		
+		<div class="errorbox-good">
+			<div class="ss-item  ss-text">
+				<div class="ss-form-entry">
+				
+				<label class="ss-q-title" for="entry_9">Where? (Click on the map)</label>
+				
+				<input type="text" name="entry.9.single" value="" placeholder="Type the location or click on the map" class="ss-q-short" id="entry_9">
+
+				</div>
+			</div>
+		</div>
+	
+        <div class='errorbox-good datetime'>
+          <div class='ss-item ss-item-required ss-text'>
+            <div class='ss-form-entry'>
+              <label class='ss-q-title' for='entry_0'>When did it happen?
+              <span class='ss-required-asterisk'>*</span>
+              </label>
+              <label class='ss-q-help' for='entry_0'></label>
+              <input type='text' name='entry.0.single' value='' class='ss-q-short' id='entry_0' />
+            </div>
+          </div>
+        </div>
+
+		<div class='errorbox-good'>
+		  <div class='ss-item  ss-paragraph-text'>
+		    <div class='ss-form-entry'>
+		      <label class='ss-q-title' for='entry_8'>Website link <span>(Optional)</span></label>
+		      <label class='ss-q-help' for='entry_8'></label>
+		      <input type="text" name="entry.8.single" value="" class="ss-q-short" id="entry_8">
+		    </div>
+		  </div>
+		</div>
+
+		<div class='errorbox-good'>
+		  <div class='ss-item  ss-paragraph-text'>
+		    <div class='ss-form-entry'>
+		      <label class='ss-q-title' for='entry_2'>Description</label>
+		      <label class='ss-q-help' for='entry_2'></label>
+		      <textarea name='entry.2.single' id='entry_2'></textarea>
+		    </div>
+		  </div>
+		</div>
+		
+		<div class="col">
+        
+        <div class='errorbox-good hide'>
+          <div class='ss-item ss-item-required ss-text'>
+            <div class='ss-form-entry'>
+              <label class='ss-q-title' for='entry_4'>Latitude
+               <span class='ss-required-asterisk'>*</span></label>
+              <label class='ss-q-help' for='entry_4'></label>
+              <input type='text' name='entry.4.single' value='' class='ss-q-short' id='entry_4' placeholder='Click on the map' />
+            </div>
+          </div>
+        </div>
+        
+        </div>
+        
+        <div class="col last">
+        
+        <div class='errorbox-good hide'>
+          <div class='ss-item ss-item-required ss-text'>
+            <div class='ss-form-entry'>
+              <label class='ss-q-title' for='entry_6'>Longitude
+                <span class='ss-required-asterisk'>*</span>
+              </label>
+              <label class='ss-q-help' for='entry_6'></label>
+              <input type='text' name='entry.6.single' value='' class='ss-q-short' id='entry_6' placeholder='Click on the map' />
+            </div>
+          </div>
+        </div>
+        
+        </div>
+        
+        <input type='hidden' name='pageNumber' value='0' />
+        <input type='hidden' name='backupCache' value='' />
+        <div class='ss-item ss-navigate'>
+          <div class='ss-form-entry'>
+            <input id="sendthis" type='submit' name='submit' value='Submit' />
+          </div>
+          
+        </div>
+      </form>
+</div><!-- /submit-map -->	
+   	   	   	   	
+<div class="message thankyou">
+	<span class="close">&times;</span>
+	<h2>Thank you for your report. It has been logged in our database and will appear on our map in a few moments.</h2>
+</div>   	   	   	   	
+
+<section class="content bribes-list">
+<span class="close">&times;</span>
+</section> 
+
+<section class="content about">
+	<span class="close">&times;</span>
+	<div class="frame">
+
+	   <h2>Sarawak Report's Federal Election Bribe Watch</h2>
+	   
+	   <p>This time we are operating a fully interactive map that you can add your information to!  So, if for example you have seen BN candidates handing money around longhouses or were in Beluru and disgusted at the sight of James Masing forcing land owners to parade before the cameras holding cheques for dividends, as if they were receiving 'gifts' from BN, then mark the incident down on the map (we already have this time) as an example of election bribery and corruption.  This way we can register BN's election crimes over the next few weeks.</p>
+	
+	   	<p>Rightfully, one day these crimes will catch up with their perpetrators.</p>
+
+	</div>
+</section>
+
+<section class="content contact">
+	<span class="close">&times;</span>
+	<div class="frame"
+
+	<form action="http://getsimpleform.com/messages?form_api_token=5ab32b2d860fdb56dbaa05c6d7351585" method="post" id="contact">
+		<input type='hidden' name='redirect_to' value='http://election.sarawakreport.org/thankyou' />
+
+		<p><label>Subject:</label>
+		<input name='subject' type='text' /></p>
+
+		<p><label>Telephone:</label>
+		<input name='telephone' type='text' /></p>
+
+		<p><label>Email:</label>			
+		<input name='email' type='email' /></p>
+
+		<p><label>Message:</label>
+		<textarea name="message"></textarea></p>
+		
+		<p><input type='submit' value='Send' /></p>
+
+		<p>Alternatively you can email us at <a href="mailto:mapping@sarawakreport.org">mapping@sarawakreport.org</a>.</p>
+	
+	</form>
+	</div>
+</section>
+
+<div class="button-holder">
+	<ul class="tab-buttons">
+		<li><a class="browse-btn" href="#">Browse Reports</a></li>
+		<li><a class="about-btn" href="#">About</a></li>
+		<li><a class="contact-btn" href="#">Contact</a></li>
+	</ul>
+</div>   	   	   	      	   	   
+   	   	   	      	   	   	
 {% include footer.code %}

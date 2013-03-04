@@ -92,16 +92,13 @@ function mmg_google_docs_spreadsheet_1(id, callback) {
             }
             
             var description = entry['gsx$description'].$t            
-           	//var shortdesc = jQuery.trim(description).substring(0, 400).split(" ").slice(0, -1).join(" ") + "...";        
-		   		    		            
+
 			// Output this as a browsable list
-			content = '<div class="bribe"><h4>' + entry['gsx$title'].$t + '</h4>'+ '<p>' + '<p><small>' + entry['gsx$date'].$t + '</small></p><p class="desc">'+ description + '</p>' + websitelink + '</div>';
-            
+			content = '<div class="bribe"><div class="inside"><h4>' + entry['gsx$title'].$t + '</h4>'+ '<p>' + '<p><small>' + entry['gsx$date'].$t + '</small></p><p class="desc">'+ description + '</p>' + websitelink + '</div></div>';
+
             //console.log(content);
 
-			$(content).appendTo('#bribes-list').hide().fadeIn(500);
-
-			//$(content).appendTo("#bribes-list");
+			$(content).appendTo('.bribes-list').hide().fadeIn(500);
 
             for (var y in entry) {
                 if (y === latfield) feature.geometry.coordinates[1] = parseFloat(entry[y].$t);
@@ -121,8 +118,7 @@ function mmg_google_docs_spreadsheet_1(id, callback) {
                 if(feature.properties['title']=="Violencia Familiar") {feature.properties['marker-color']='#666535'}                         
                 if(feature.properties['title']=="Otros") {feature.properties['marker-color']='#222222'}  /*#20445C*/      
             });
-        }
-     
+        }     
      
         return callback(features);
     }
