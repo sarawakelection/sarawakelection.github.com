@@ -1,5 +1,8 @@
 $(function(){
 
+	// which mode we're in
+	window.addingBribe = false;
+
 	$('#betong').click(function(){
 		map.ease.location({
 		    lat: 1.440,
@@ -79,6 +82,9 @@ $(function(){
     });
     
     $('span.close').click(function(){
+    	window.addingBribe = false;
+    	$('.marker').fadeOut(250);
+    	
 		$(this).parent().slideToggle(50);
 		$('.tab-buttons li a').removeClass('one');
 		//$('.introduction').slideToggle(50);
@@ -140,7 +146,11 @@ $(function(){
 	});
 	
 	$('.addbribe').click(function(){   
-		//$(this).hide(); 		
+		//$(this).hide(); 
+		window.addingBribe = true;
+		// fade in an old marker if it's there
+		$('.marker').fadeIn(250);
+		
 		$('.submit-map').slideToggle(50);
 	});
 	

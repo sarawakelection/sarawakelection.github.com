@@ -122,6 +122,10 @@ $(function () {
 
     // A handler for 'down' events - which means `mousedown` and `touchstart`
     function onDown(e) {
+    	
+    	if(!window.addingBribe)
+    		return;
+    
         // Ignore double-clicks by ignoring clicks within 300ms of each other.
         if (killTimeout()) {
             return;
