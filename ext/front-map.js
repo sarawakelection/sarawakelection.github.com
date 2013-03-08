@@ -5,4 +5,5 @@
 {% include leaflet.js %}
 {% include form.js %}
 {% include map.js %}
+
 {% include general.js %}

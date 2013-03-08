@@ -1,3 +1,5 @@
+/* submit.js - test */
+
 $(function () {
 
     var m = mapbox.map('map', mapbox.layer().id('goodcaesar.map-vwfp7lw5')),
@@ -96,8 +98,9 @@ $(function () {
         }
         return onUp;
     }
-	
+
 	function addMarker(e) {
+	
         var pos = MM.getMousePoint(e, map);
         var l = map.pointLocation(pos);
                 

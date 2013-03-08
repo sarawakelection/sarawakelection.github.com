@@ -1,3 +1,5 @@
+/* google_docs.js */
+
 // fmonth is function that, creating a dinamics dates, in the view
 function fmonth(f) {
 
@@ -39,6 +41,7 @@ function mmg_google_docs_spreadsheet_1(id, callback) {
 
     var url = 'https://spreadsheets.google.com/feeds/list/' +
         id + '/od6/public/values?alt=json-in-script&callback=callback';
+        
     reqwest({
         url: url,
         type: 'jsonp',
@@ -46,7 +49,7 @@ function mmg_google_docs_spreadsheet_1(id, callback) {
         success: response,
         error: response
     }); 
-      
+
     function response(x) {
         var features = [],
             latfield = '',
@@ -119,7 +122,7 @@ function mmg_google_docs_spreadsheet_1(id, callback) {
                 if(feature.properties['title']=="Otros") {feature.properties['marker-color']='#222222'}  /*#20445C*/      
             });
         }     
-     
+
         return callback(features);
     }
 

@@ -1,7 +1,6 @@
-$(function(){
+/* general.js */
 
-	// which mode we're in
-	window.addingBribe = false;
+$(function(){
 
 	$('#betong').click(function(){
 		map.ease.location({
@@ -80,16 +79,6 @@ $(function(){
         isOn = parent.toggleClass('active').hasClass('active');
     	siblings.toggleClass('active', !isOn);	
     });
-    
-    $('span.close').click(function(){
-    	window.addingBribe = false;
-    	$('.marker').fadeOut(250);
-    	
-		$(this).parent().slideToggle(50);
-		$('.tab-buttons li a').removeClass('one');
-		//$('.introduction').slideToggle(50);
-		return false;
-    });
         
     $("#subForm").validate({
 		errorContainer: ".error", 
@@ -146,13 +135,25 @@ $(function(){
 	});
 	
 	$('.addbribe').click(function(){   
-		//$(this).hide(); 
-		window.addingBribe = true;
+		
+		listenForNewBribes();
+
 		// fade in an old marker if it's there
 		$('.marker').fadeIn(250);
 		
 		$('.submit-map').slideToggle(50);
 	});
+	
+    $('span.close').click(function(){
+
+    	$('.marker').fadeOut(250);
+    	stopListeningForNewBribes();
+    	
+		$(this).parent().slideToggle(50);
+		$('.tab-buttons li a').removeClass('one');
+		//$('.introduction').slideToggle(50);
+		return false;
+    });
 	
 	$('a.about-btn').click(function(){  
 		$(this).toggleClass('one'); 		
