@@ -476,8 +476,16 @@ section#content {
 		}
    }
    
- .cluster-no{
+ .clustercount{
  	position:absolute;
+ 	width:24px;
+ 	margin-left:-2px;
+ 	padding-top:3px;
+ 	height:30px;
+ 	color:#444;
+ 	text-align:center;
+ 	font-size:0.8em;
+ 	z-index:2;
  }
  
  #listenerDiv{
@@ -488,7 +496,22 @@ section#content {
 	height: 100%; 
 	margin: 0px; 
 	padding: 0px; 
-	z-index: 1;	
+	z-index: 5;	
+ }
+ 
+ .markerHolder{
+ 	position:absolute;
+ 	z-index:0;
+ 	margin:-25px 0 0 -10px;
+ 	opacity:0.95;
+ }
+ 
+	.cluster{
+		z-index:1;
+	}
+ 
+ .marker-tooltip{
+ 	margin-top:-20px;
  }
      
  #indicate_menu {

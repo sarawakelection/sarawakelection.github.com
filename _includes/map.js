@@ -4,6 +4,8 @@ var data_id = '0AsL-qFOSUlaOdDktQ0JlZU9RaHNZbmJOOFk4T2kwSkE',
     map_id = 'goodcaesar.map-vwfp7lw5',
     markerLayer,
     addMarkerLayer,
+    markers = [],
+    lastClusterZoomLevel,
     features,
     features_summary,
     interaction,
@@ -44,8 +46,12 @@ function mapData(f) {
 
     //center markers layer
     markerLayer.factory(function (m) {
-        var elem = mapbox.markers.simplestyle_factory(m); //= $('<div class="marker-holder">' +  + '</div>');
-        return elem;
+        var div = document.createElement('div'),
+        	img = mapbox.markers.simplestyle_factory(m);
+        div.className = 'markerHolder';
+        img.style.marginTop = img.style.marginLeft = 0;
+        div.appendChild(img);
+        return div;
     });
 
     interaction = mapbox.markers.interaction(markerLayer);
@@ -56,14 +62,15 @@ function mapData(f) {
 
 	// Formatting the popups
     interaction.formatter(function (feature) {
+    
+    	if(feature.iscluster) // no popups on clusters
+    		return;
         
         if(feature.properties.link) {
         	websitelink = '<p><a href="' + feature.properties.link + '">Visit link</a></p>';
         } else {
         	websitelink = '';
         }
-        
-        //alert(feature.properties.link);
         
         var o = '<h3>' + feature.properties.title + '</h3>' +
             '<p>' + feature.properties.description +                        
@@ -73,22 +80,21 @@ function mapData(f) {
 
     //out url for download  data
     download_data();
-
-
     
-    // set up clusters
-    cluster();
-    
-	// re-cluster markers on zoom
-    $('a.zoomer').click(function(){
-  		//console.log('zoom');
-  		cluster();
-    });
+    // "zoomed" event sometimes happens before markers are placed at high zoom levels. Use timeout
+	map.addCallback('zoomed', function(){
+		setTimeout(cluster, 300);
+	});
+	
+	
+	// initial clustering
+   	cluster();
     
     // marker for the "new bribe" marker
 	addMarkerLayer = mapbox.markers.layer();
 	map.addLayer(addMarkerLayer);
 }
+
 
 //function for put href  for download data
 function download_data() {
@@ -97,18 +103,32 @@ function download_data() {
 }
 
 // function for clustering markers on load or zoom
-
 function cluster(){
+
+	// this loop-heavy function can get called repeatedly by map events. Draw once per zoom level
+	if(lastClusterZoomLevel == map.zoom())
+		return;
 	
-	var ma = markerLayer.markers();
-	
-	$(ma).each(function(n,m){
-		m.point = map.locationPoint(m.location);
-		m.iscluster = false;
+	$('.clustercount').remove();
+	$('.markerHolder').removeClass('cluster');
+	//$('.marker-tooltip').hide();
+
+    var i = 0;
+    markers = [];
+    $(markerLayer.markers()).each(function(n, m){
+    	if(m.element.className !== 'markerHolder') return;
+    	m.point = map.locationPoint(m.location);
+    	if(isNaN(m.point.x)) return;
+
+    	// clear clusters
+    	$(m.element).data('map-index', i);
+		m.data.iscluster = false;
 		m.clusterdata = {};
 		$(m.element).show();
-		$(m.element).data('map-index', n);
-	});
+
+    	markers[i] = m;
+    	i++;
+    });
     
     var nearPoints = function(m1, m2){
     	if(isNaN(m1.point.x) || isNaN(m2.point.x))
@@ -117,14 +137,16 @@ function cluster(){
 	}
 	
 	// take potential cluster $c and compare to marker $m 
-	$(ma).each(function(n, c){
-		$(ma).each(function(i, m){
+	$(markers).each(function(n, c){
+		
+		$(markers).each(function(k, m){
+		
 			// if same marker or m is itself a cluster, continue
-			if((i == n) || m.iscluster) return;		
+			if((k == n) || m.data.iscluster) return;		
 			
 			if(nearPoints(m, c)){
-				if(!c.iscluster){
-					c.iscluster = true;
+				if(!c.data.iscluster){
+					c.data.iscluster = true;
 					c.clusterdata = {
 						count:2,
 						latmin: m.location.lat,
@@ -148,18 +170,28 @@ function cluster(){
 	
 	// zooming function
 	var clusterclick = function(){
-		var d = markerLayer.markers()[ $(this).data('map-index') ].clusterdata;
+		d = markers[ $(this).data('map-index') ].clusterdata;
 		map.setExtent(new MM.Extent(d.latmax, d.lonmin, d.latmin, d.lonmax));
-		cluster();
+		map.zoom(map.zoom()-1);
+		setTimeout(cluster, 500);	
 	}
 	
-	$(ma).each(function(n, m){
-		if(m.iscluster)
+	$(markers).each(function(n, m){
+		if(m.data.iscluster){
+			m.data.iscluster = true;
+			$(m.element).addClass('cluster');
+			$(m.element).append(
+				'<div class="clustercount">'+m.clusterdata.count+'</div>'
+			);
 			$(m.element).on('click.cluster', clusterclick);
-		else
+			$(m.element).on('touchstart.cluster', clusterclick);
+		}else{
 			$(m.element).off('click.cluster');
+			$(m.element).off('touchstart.cluster');			
+		}
 	});
 
+	lastClusterZoomLevel = map.zoom();
 }
 
 
@@ -259,7 +291,6 @@ function touchCancel(e) {
 	e.preventDefault();
    	if((e.type == 'mousemove') && !mouseIsDown)
    		return;
-    _downLock = false;
      window.clearTimeout(_clickTimeout);
     _clickTimeout = null;
 }
@@ -276,7 +307,7 @@ function fixTouch(e){
 	testIntent(e);
 }
 
-// Clear the double-click timeout to prevent double-clicks from triggering popups.
+// Clear the double-click timeout (we conserve double-clicks for zooming in)
 function killTimeout() {
     if (_clickTimeout) {
         window.clearTimeout(_clickTimeout);
