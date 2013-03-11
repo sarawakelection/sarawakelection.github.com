@@ -98,7 +98,7 @@ a {
   }
 
 .frame {
-	max-width: 65em;
+	max-width: 50em;
 	margin: 0 auto;
 	z-index:105;
 	position:relative;
@@ -356,7 +356,7 @@ section.content.bribes-list {
 }
 
 section.content.about {
-	padding:0 0 6em 0;
+	padding:1em 0 3em 0;
 }
 	
 /* Content pages */	
@@ -585,11 +585,16 @@ section#content {
 	screen and (max-device-width: 480px), 
 	screen and (max-width: 600px)  {
 		
+		#map {
+			margin-right:1em;
+		}
+		
 		 .marker-popup {
 		 	width: 90%;
 		 }
 		
 		.submit-map {
+			margin-right:2em;
 			height: auto;
 			position:relative;
 			top: auto;
@@ -675,25 +680,16 @@ section#content {
 	bottom:200px;
 	z-index:101;
 	width:100%;
-	margin:1em 0.5em 1em 0.5em;
 }
 
 	.bribe {	
+		margin:0.5em auto;
 		position:relative;
-		width:14em;
+		width:50%;
 		padding:0.5em;
 		color:#fff;
-		margin: 0 1em 1em 0;
 		padding-bottom: 0.6em;
 		display:block;
-		float:left;
-
-		.inside {
-			text-overflow: ellipsis;
-			overflow:hidden;
-			position:relative;
-			height:11.5em;
-		}
 
 		h4 {
 			line-height:1.1;
@@ -733,10 +729,6 @@ section#content {
 
 		}
 
-	}
-
-	.bribe:nth-child(4n) {
-		margin-right: 0;
 	}
 
 	@media handheld and (max-width: 480px), 
@@ -1010,7 +1002,11 @@ screen and (max-width: 600px)  {
 		color: #222;	
 		display:none;
 	}
-
+	
+	.message.thankyou.on {
+		display:block;
+	}
+	
 	.message.list {
 		width:10em;
 	}
@@ -1231,6 +1227,10 @@ form#contact {
 	@media handheld and (max-width: 480px), 
 	screen and (max-device-width: 480px), 
 	screen and (max-width: 600px)  {
+				
+		.newsletter {
+			display:none;
+		}		
 				
 		form#contact,
 		.newsletter form {

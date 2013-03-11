@@ -143,7 +143,6 @@ $(function () {
      var markerLayer = mapbox.markers.layer();
      m.addLayer(markerLayer);	
     
-
 		// Adding find me functionality
       if (!navigator.geolocation) {
           geolocate.innerHTML = 'geolocation is not available';

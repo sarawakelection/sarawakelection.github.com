@@ -128,11 +128,7 @@ $(function(){
     		$('#contact input:submit').attr("disabled", true);	       		
     		form.submit();	    		
     	}
-    });
-    
-	$('.bribe').live("click", function () {    	
-		$(this).find('.inside').toggleClass('unfold');
-	});
+    });    
 	
 	$('.addbribe').click(function(){   
 		

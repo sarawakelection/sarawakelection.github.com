@@ -14,6 +14,7 @@
   		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>  </li>
   		<li><div class="fb-like" data-href="http://election.sarawakreport.org" data-send="true" data-layout="button_count" data-width="450" data-show-faces="false" data-font="verdana"></div></li>
   		<li><a href="http://sarawakreport.org">Sarawak Report</a></li>
+  		<li><a href="mailto:info@sarawakreport.org">info@sarawakreport.org</a></li>
   		<li>All Rights Reserved &copy; 2013</li>
   	</ul>
   	

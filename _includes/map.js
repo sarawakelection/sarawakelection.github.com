@@ -318,5 +318,50 @@ function killTimeout() {
     }
 }    
 
+// Adding find me functionality
+if (!navigator.geolocation) {
+	geolocate.innerHTML = 'geolocation is not available';
+} else {
+  
+  geolocate.onclick = function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      navigator.geolocation.getCurrentPosition(
+      function(position) {
+          // Once we've got a position, zoom and center the map
+          // on it, add ad a single feature
+          map.zoom(15).center({
+              lat: position.coords.latitude,
+              lon: position.coords.longitude
+          });
+          markerLayer.add_feature({
+              geometry: {
+                  coordinates: [
+                      position.coords.longitude,
+                      position.coords.latitude]
+              },
+              properties: {
+              		'image': './img/feedback-point.png'
+//                          'marker-color': '#000',
+//                          'marker-symbol': 'star-stroked',
+              }
+          });
+          
+          // Copy location to the lat/lon fields
+          $('#entry_4').attr('value', position.coords.latitude.toFixed(5));
+          $('#entry_6').attr('value', position.coords.longitude	.toFixed(5));
+          
+          // And hide the geolocation button
+          geolocate.parentNode.removeChild(geolocate);
+      },
+      function(err) {
+          // If the user chooses not to allow their location
+          // to be shared, display an error message.
+          geolocate.innerHTML = 'position could not be found';
+      });
+  };
+}     
+
+
 
 

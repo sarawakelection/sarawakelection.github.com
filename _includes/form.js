@@ -62,7 +62,8 @@ $("#ss-form").validate({
 		$('#ss-form input:submit').attr("disabled", true);
 
 		//$('#map').map.interaction.refresh();
-
+			
+		stopListeningForNewBribes();
 		$('.submit-map').fadeOut('slow');
 		
 		$('.message.thankyou').addClass('on');
