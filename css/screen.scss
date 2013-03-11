@@ -253,8 +253,8 @@ header {
 		vertical-align:middle;
 		line-height:1.1;
 		text-align:center;
-		-webkit-border-radius:3em;
-		border-radius:3em;
+		-webkit-border-radius:4em;
+		border-radius:4em;
 		-webkit-box-shadow:0 2px 6px rgba(0,0,0,0.25);
 		        box-shadow:0 2px 6px rgba(0,0,0,0.25);
 		border:4px solid #333;       
@@ -299,6 +299,11 @@ header {
 	@media handheld and (max-width: 480px), 
 	screen and (max-device-width: 480px), 
 	screen and (max-width: 600px)  {
+		
+		.addbribe a {
+			border:none;
+			font-size:1.1em;
+		}
 		
 		h1.site-name {
 			margin: 0.15em 0.5em 0 0;
@@ -460,9 +465,30 @@ section#content {
    screen and (max-device-width: 480px), 
    screen and (max-width: 600px)  {
   
-		.marker-popup {
-			width:90%;
+  		section.content {
+  			position:relative;
+  			bottom:auto;
+  		}
+  
+		.marker-popup h3 {
+		   	line-height:1.1;
+		   	font-size:90%;
+			margin-bottom: 0.3em;
 		}
+  
+		.marker-popup p {
+			font-size: 70%;
+		}
+  
+  
+		.marker-popup {
+			width:70%;
+			padding:0.2em;
+			margin:0 1em;
+		}
+  
+	  	section.content.bribes-list {
+	  	}	  	
   
 		#content .frame {
 			width: auto;
@@ -586,7 +612,8 @@ section#content {
 	screen and (max-width: 600px)  {
 		
 		#map {
-			margin-right:1em;
+			position:relative;
+			height:300px;
 		}
 		
 		 .marker-popup {
@@ -594,8 +621,9 @@ section#content {
 		 }
 		
 		.submit-map {
-			margin-right:2em;
 			height: auto;
+			border-radius:none;
+			-webkit-border-radius:0;			
 			position:relative;
 			top: auto;
 			right: auto;
@@ -734,7 +762,17 @@ section#content {
 	@media handheld and (max-width: 480px), 
 	screen and (max-device-width: 480px), 
 	screen and (max-width: 600px)  {
-
+		
+		body {
+			margin-right:1em;
+		}
+		
+		.button-holder {
+			position:relative;
+			bottom:auto;
+			left:auto;
+		}
+	
 		.bribe,
 		.bribe:nth-child(5n) {
 			width: auto;
@@ -1227,6 +1265,10 @@ form#contact {
 	@media handheld and (max-width: 480px), 
 	screen and (max-device-width: 480px), 
 	screen and (max-width: 600px)  {
+			
+		#count {
+			display:none;
+		}	
 				
 		.newsletter {
 			display:none;
@@ -1276,3 +1318,14 @@ footer {
 	footer ul li:first-child {
 	
 	}
+	
+	
+@media handheld and (max-width: 480px), 
+screen and (max-device-width: 480px), 
+screen and (max-width: 600px)  {
+
+	footer {
+		position:relative;
+	}
+
+}	
