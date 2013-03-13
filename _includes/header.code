@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset='utf-8' />
-    <title>{% if page.title %}{{ page.title }}: {% endif %} {{site.main_title}}</title>
+    <title>{{site.main_title}}</title>
 
 	<script type="text/javascript" src="//use.typekit.net/naa0vdl.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
