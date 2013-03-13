@@ -1,51 +1,31 @@
+<footer>
+
 	<div class="newsletter clearfix">
-		<h3>Sign up to keep up to date, and lend your voice where it's needed.</h3>
-
 		<form class="clearfix" action="http://goodcaesar.createsend.com/t/r/s/jtyuiii/" method="post" id="subForm">
-		<input placeholder="Enter your email" type="text" name="cm-jtyuiii-jtyuiii" id="jtyuiii-jtyuiii" />		
+		<input placeholder="Sign up to keep up to date" type="text" name="cm-jtyuiii-jtyuiii" id="jtyuiii-jtyuiii" />		
 		<input type="submit" value="Sign Me Up" />
-		
-		<div class="error">
-			<p></p>
-		</div>
-
-		</form>	
-	</div>
-
-    <div class="banners clearfix">
-    	<div class="frame">
-    	<ul>
-    		<li><a href="http://radiofreesarawak.org" title="Radio Free Sarawak">Radio Free Sarawak</a></li>
-    		<li><a href="http://sarawakreport.org" title="Sarawak Report">Sarawak Report</a></li>
-			 <li><a href="http://github.com" title="Coded hosted on Github">GitHub</a></li>					
-			 <li><a href="http://mapbox.com" title="Maps hosted by MapBox">MapBox</a></li>			
-			<li><a href="http://goodcaesar.com" title="Created by Good Caesar for Sarawak Report">Good Caesar</a></li>
-    	</ul>
-    	</div>
-    </div>
-    
-    <div class="frame social">
-    
-    <div class="fb-like" data-href="http://election.sarawakreport.org" data-send="true" data-layout="button_count" data-width="450" data-show-faces="false" data-font="verdana"></div>
-        
-    <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://election.sarawakreport.org" data-via="sarawak_report">Tweet</a>
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>  
-    
-    </div>
-    
-	<footer class="clearfix">
-		<div class="frame">
-			<p>All Rights Reserved &copy; 2013 | <a href="http://sarawakreport.org">Sarawak Report</a> | <a href="about.html">About</a> | <a href="touch.html">Contact</a></p>	
-		</div>
-	</footer>
+		<div class="error"><p></p></div>
+		</form>			
+	</div><!-- /newsletter -->
+   
+  	<ul class="social">
+  		<li><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://election.sarawakreport.org" data-via="sarawak_report">Tweet</a>
+  		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>  </li>
+  		<li><div class="fb-like" data-href="http://election.sarawakreport.org" data-send="true" data-layout="button_count" data-width="450" data-show-faces="false" data-font="verdana"></div></li>
+  		<li><a href="http://sarawakreport.org">Sarawak Report</a></li>
+  		<li><a href="mailto:info@sarawakreport.org">info@sarawakreport.org</a></li>
+  		<li>All Rights Reserved &copy; 2013</li>
+  	</ul>
+  	
+</footer>
 	
 	<script src='http://api.tiles.mapbox.com/mapbox.js/v0.6.7/mapbox.js'></script>	
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 	<script>window.jQuery || document.write('/ext/jquery-1.8.2.min.js"><\/script>')</script>
     <script src='http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/jquery.validate.min.js'></script>        
-                                                                                    
-    {% if page.idd == 'submit' %}
-    
+                                
+    {% if page.idd == 'view' or page.idd == 'browse' %}
+        
     <script>			
       //script of form  from google
       (function() {
@@ -69,56 +49,14 @@
         }
       })();
 
-    </script>
-      
-    <script src='http://code.jquery.com/ui/1.9.0/jquery-ui.js'></script>    
-    <script src='ext/submit.js'></script>
-    
-    {% endif %}
-    
-    {% if page.idd == 'view' or page.idd == 'browse' %}
+    </script>    
         
     <script src='https://www.google.com/jsapi'></script>    	
-	<script src='ext/front-map.js'></script>	
-			
+    <script src='http://code.jquery.com/ui/1.9.0/jquery-ui.js'></script>    
+	<script src='ext/front-map.js'></script>
+	
 	{% endif %}
-    
-    {% if page.idd == 'touch' %}
-            
-    <script>       
-           
-	$(function(){
-	    $("#contact").validate({
-	    	rules: {
-	    		"subject": {
-	    			required:true,
-	    			minlength:5
-	    		},
-	    		"email": {
-	    			required: true,
-	    			email: true
-	    		},
-	    		"message": {
-	    			required: true,
-	    			minlength:10
-	    		}		
-	    	},
-	    	messages: {
-	    		"subject":'What are you contacting us about?',
-	    		"email":'Enter a valid email address',
-	    		"message":'Please enter your message'
-	    	},
-	    	submitHandler: function() {	    		
-	    		$('#contact input:submit').attr('value','Sending');
-	    		$('#contact input:submit').attr("disabled", true);	       		
-	    		form.submit();	    		
-	    	}
-	    });
-	 });	
-     </script>
-    
-    {% endif %}    
-    
+                
     <script type="text/javascript">
     
       var _gaq = _gaq || [];

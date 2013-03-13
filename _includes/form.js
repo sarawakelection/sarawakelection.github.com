@@ -1,3 +1,5 @@
+/* form.js */
+
 $(function(){
     //Set up date pickers
     var now = new Date();
@@ -59,7 +61,10 @@ $("#ss-form").validate({
 		$('#ss-form input:submit').attr('value','Submitting data');
 		$('#ss-form input:submit').attr("disabled", true);
 
-		$('.section.submit-map').fadeOut('slow');
+		//$('#map').map.interaction.refresh();
+			
+		stopListeningForNewBribes();
+		$('.submit-map').fadeOut('slow');
 		
 		$('.message.thankyou').addClass('on');
 		

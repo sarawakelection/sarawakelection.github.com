@@ -1,3 +1,5 @@
+/* submit.js - test */
+
 $(function () {
 
     var m = mapbox.map('map', mapbox.layer().id('goodcaesar.map-vwfp7lw5')),
@@ -96,10 +98,11 @@ $(function () {
         }
         return onUp;
     }
-	
+
 	function addMarker(e) {
-        var pos = MM.getMousePoint(e, m);
-        var l = m.pointLocation(pos);
+	
+        var pos = MM.getMousePoint(e, map);
+        var l = map.pointLocation(pos);
                 
         // Create and add marker layer
         point = mapbox.markers.layer().features([{
@@ -119,15 +122,15 @@ $(function () {
             mark.appendChild(img)
 
             // center the map on where it was selected.
-            m.ease.location({
+            map.ease.location({
                 lat: l.lat,
                 lon: l.lon
-            }).zoom(m.zoom()).optimal();
+            }).zoom(map.zoom()).optimal();
 
             return mark;
         });
 
-        m.addLayer(point);
+        map.addLayer(point);
 
         // Here put the coordinates in field Latitud dan Longitud
         $('#entry_4').attr('value', l.lat.toFixed(5));
@@ -140,7 +143,6 @@ $(function () {
      var markerLayer = mapbox.markers.layer();
      m.addLayer(markerLayer);	
     
-
 		// Adding find me functionality
       if (!navigator.geolocation) {
           geolocate.innerHTML = 'geolocation is not available';
@@ -152,7 +154,7 @@ $(function () {
               function(position) {
                   // Once we've got a position, zoom and center the map
                   // on it, add ad a single feature
-                  m.zoom(15).center({
+                  map.zoom(15).center({
                       lat: position.coords.latitude,
                       lon: position.coords.longitude
                   });

@@ -1,3 +1,5 @@
+/* general.js */
+
 $(function(){
 
 	$('#betong').click(function(){
@@ -77,12 +79,7 @@ $(function(){
         isOn = parent.toggleClass('active').hasClass('active');
     	siblings.toggleClass('active', !isOn);	
     });
-    
-    $('span.close').click(function(){
-		$(this).parent().slideToggle(50);
-		return false;
-    });
-                        
+        
     $("#subForm").validate({
 		errorContainer: ".error", 
 		errorLabelContainer: ".error", 
@@ -105,9 +102,141 @@ $(function(){
     		
     	}
     });
-      
-    $('.bribe').live("click", function () {    	
-    	$(this).find('.inside').toggleClass('unfold');
+    
+    $("#contact").validate({
+    	rules: {
+    		"subject": {
+    			required:true,
+    			minlength:5
+    		},
+    		"email": {
+    			required: true,
+    			email: true
+    		},
+    		"message": {
+    			required: true,
+    			minlength:10
+    		}		
+    	},
+    	messages: {
+    		"subject":'What are you contacting us about?',
+    		"email":'Enter a valid email address',
+    		"message":'Please enter your message'
+    	},
+    	submitHandler: function() {	    		
+    		$('#contact input:submit').attr('value','Sending');
+    		$('#contact input:submit').attr("disabled", true);	       		
+    		form.submit();	    		
+    	}
+    });    
+	
+	$('.addbribe').click(function(){   
+		
+		listenForNewBribes();
+
+		// fade in an old marker if it's there
+		$('.marker').fadeIn(250);
+		
+		$('.submit-map').slideToggle(50);
+	});
+	
+    $('span.close').click(function(){
+
+    	$('.marker').fadeOut(250);
+    	stopListeningForNewBribes();
+    	
+		$(this).parent().slideToggle(50);
+		$('.tab-buttons li a').removeClass('one');
+		//$('.introduction').slideToggle(50);
+		return false;
     });
-            		
+	
+	$('a.about-btn').click(function(){  
+		$(this).toggleClass('one'); 		
+		$('section.content.about').slideToggle(50);
+	});
+	
+	$('a.contact-btn').click(function(){  
+		$(this).toggleClass('one'); 		
+		$('section.content.contact').slideToggle(50);
+	});
+    
+    $('a.browse-btn').click(function(){  
+    	$(this).toggleClass('one'); 		
+    	$('section.content.bribes-list').slideToggle(50);
+    });
+    
+    var sarawakLocations = [
+    	"Asajaya",
+    	"Baram",
+    	"Bahagian Miri",
+    	"Balingian",
+    	"Bau",
+    	"Belaga",
+    	"Belawai",
+    	"Beluru",
+    	"Betong",
+    	"Bintulu",
+    	"Budu",
+    	"Dalat",
+    	"Daro",
+    	"Debak",
+    	"Engkilili",
+    	"Julau",
+    	"Kabong",
+    	"Kanowit",
+    	"Kapit",
+    	"Kuching",
+    	"Lawas",
+    	"Limbang",
+    	"Lingga",
+    	"Lubok Antu",
+    	"Lundu",
+    	"Maludam",
+    	"Marudi",
+    	"Matu",
+    	"Murum",
+    	"Meradong",
+    	"Miri",
+    	"Mukah",
+    	"Nanga Medamit",
+    	"Nanga Merit",
+    	"Niah Suai",
+    	"Oya",
+    	"Padawan",
+    	"Pakan",
+    	"Pantu",
+    	"Pendam",
+    	"Pusa",
+    	"Roban",
+    	"Samarahan",
+    	"Saratok",
+    	"Sarikei",
+    	"Sebuyao",
+    	"Sematan",
+    	"Serian",
+    	"Sibu",
+    	"Siburan",
+    	"Sibuti",
+    	"Simunjan",
+    	"Song",
+    	"Spaoh",
+    	"Sri Aman",
+    	"Sundar",
+    	"Tatau",
+    	"Tebedu",
+    	"Trusan",
+    	"Besut",
+    	"Dungun",
+    	"Hulu Terengganu",
+    	"Kemaman",
+    	"Kuala Terengganu",
+    	"Marang",
+    	"Setiu"
+    ];
+    
+    $( "#entry_9" ).autocomplete({
+      source: sarawakLocations
+    });
+       		
 });
