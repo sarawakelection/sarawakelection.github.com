@@ -55,6 +55,10 @@
 		  	<h2>Election Bribe &amp; Abuse Map</h2>
 		</hgroup>
 		
+		{% if page.idd == 'view' %}
+		
 		<div class="addbribe"><a href="#">Add report</a></div>
+		
+		{% endif %}
 
 	</header>
