@@ -633,7 +633,7 @@ section#content {
 			right: auto;
 			left: auto;
 			width: auto;
-		}		
+		}
 		
 	}
 	
@@ -648,13 +648,12 @@ section#content {
 .tab-buttons {
 	margin:0;
 	display:block;
-	text-align:center;
-}
+	float:left;
 
-	.tab-buttons li {
+	li {
 		vertical-align:bottom;
 		display:inline-block;
-		margin:0 0.5em 0 0;
+		margin:0 0.3em 0 0;
 		font-size:1.2em;
 		
 		a {
@@ -680,6 +679,49 @@ section#content {
 		}		
 		
 	}
+
+}
+
+#jumper {
+	float:left;
+	margin:0 0 0 3em; 
+	padding:0;
+	
+	li {
+		font-size:1.2em;
+		font-weight:bold;
+		color:#fff;
+		vertical-align:middle;
+		display:inline-block;
+	
+		a {
+			-webkit-border-top-left-radius: 0.3em;
+			-webkit-border-top-right-radius: 0.3em;
+			-moz-border-radius-topleft: 0.3em;
+			-moz-border-radius-topright: 0.3em;
+			border-top-left-radius: 0.3em;
+			border-top-right-radius: 0.3em;
+			vertical-align:bottom;
+			display:inline-block;
+			padding:0.4em;
+			background:#efefef;
+			color:#222;
+			
+			&:active,
+			.active  {
+
+			}
+		}
+
+	}
+
+	li.active a {
+		background:#333;
+		color:#fff;
+	}
+	
+}		
+	
 
 /* Submenu */	
 
@@ -766,11 +808,25 @@ section#content {
 	@media handheld and (max-width: 480px), 
 	screen and (max-device-width: 480px), 
 	screen and (max-width: 600px)  {
+		
+		.social {
+			background:#fff;
+		}
+	
+		.tab-buttons {
+			float:none;
+		}	
+						
+		#jumper {
+			display:none;
+		}		
 				
 		.button-holder {
 			position:relative;
 			bottom:auto;
 			left:auto;
+			width:auto;
+			height:auto;
 		}
 	
 		.bribe,
@@ -863,6 +919,15 @@ section#content {
 	@media handheld and (max-width: 480px), 
 	screen and (max-device-width: 480px), 
 	screen and (max-width: 600px)  {
+		
+		.social {
+			height:auto;
+			background:#222;
+		}			
+		
+		.tab-buttons {
+			margin:0;
+		}
 		
 		.banners li a {
 			float: none;
@@ -1168,6 +1233,17 @@ screen and (max-width: 600px)  {
 		display: block;
 	}
 
+a#geolocate {
+	background:#333;
+	color:#fff;
+	font-size:1.2em;
+	text-align:center;
+	padding:0.5em;
+	display:inline-block;
+	border-radius:0.2em;
+	margin-bottom:1em;
+}
+
 @media handheld and (max-width: 480px), 
 screen and (max-device-width: 480px), 
 screen and (max-width: 600px)  {
@@ -1328,6 +1404,7 @@ screen and (max-device-width: 480px),
 screen and (max-width: 600px)  {
 
 	footer {
+		margin:0;
 		position:relative;
 	}
 

@@ -79,7 +79,35 @@ $(function(){
         isOn = parent.toggleClass('active').hasClass('active');
     	siblings.toggleClass('active', !isOn);	
     });
+    
+    $('#jumper li a').click(function(){
+    	var parent = $(this).parent();
+        siblings = parent.siblings(),
+        isOn = parent.toggleClass('active').hasClass('active');
+    	siblings.toggleClass('active', !isOn);	
+    });
         
+    $('#sabah').click(function(){
+    	map.ease.location({
+    	    lat: 5.587287818739588,
+    	    lon: 117.13179003906242
+    	}).zoom(9).optimal();
+    });   
+    
+    $('#west').click(function(){
+    	map.ease.location({
+    	    lat: 4.006763448257865,
+    	    lon: 102.15791732084676
+    	}).zoom(8).optimal();
+    }); 
+    
+    $('#sarawak').click(function(){
+    	map.ease.location({
+    	    lat: 2.371,
+    	    lon: 113.347
+    	}).zoom(8).optimal();
+    });    
+            
     $("#subForm").validate({
 		errorContainer: ".error", 
 		errorLabelContainer: ".error", 

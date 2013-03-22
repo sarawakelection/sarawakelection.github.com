@@ -21,6 +21,8 @@ idd: view
       </iframe>
 		              
       <form method='post' target='hidden_iframe' class='well span6' id='ss-form'>
+		
+		<div class="button"><a href="#" id="geolocate">Use my location</a></div>
 			
 		<div class="errorbox-good">
 			<div class="ss-item  ss-text">
@@ -39,7 +41,7 @@ idd: view
 			<div class="ss-item  ss-text">
 				<div class="ss-form-entry">
 				
-				<label class="ss-q-title" for="entry_9">Where? (Click on the map) <a href="#" id="geolocate">Find me</a></label>
+				<label class="ss-q-title" for="entry_9">Where? (Click on the map)</label>
 				
 				<input type="text" name="entry.9.single" value="" placeholder="Type the location or click on the map" class="ss-q-short" id="entry_9">
 
@@ -159,6 +161,15 @@ idd: view
 		<li><a class="browse-btn" href="#">See Reports</a></li>
 		<li><a class="about-btn" href="#">About</a></li>
 	</ul>
+	
+	<ul id="jumper">
+		<li>Jump to</li>
+		<li><a id="west" href="#">West Malaysia</a></li>
+		<li class="active"><a id="sarawak" href="#">Sarawak</a></li>
+		<li><a id="sabah" href="#">Sabah</a></li>
+	
+	</ul>
+	
 </div>   	   	   	      	   	   
    	   	   	      	   	   	
 {% include footer.code %}
