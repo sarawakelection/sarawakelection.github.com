@@ -101,7 +101,7 @@ function mmg_google_docs_spreadsheet_1(id, callback) {
 
             //console.log(content);
 
-			$(content).appendTo('.bribes-list').hide().fadeIn(500);
+			$(content).appendTo('#browse').hide().fadeIn(500);
 
             for (var y in entry) {
                 if (y === latfield) feature.geometry.coordinates[1] = parseFloat(entry[y].$t);

@@ -66,9 +66,12 @@ $("#ss-form").validate({
 		stopListeningForNewBribes();
 		$('.submit-map').fadeOut('slow');
 		
-		$('.message.thankyou').addClass('on');
+		//$('#message-thankyou.content').show();
+		
 		
 		form.submit();
+
+		location.reload();
 		
 	}
 });

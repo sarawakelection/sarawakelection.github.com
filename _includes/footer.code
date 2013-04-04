@@ -1,20 +1,17 @@
 <footer>
 
-	<div class="newsletter clearfix">
-		<form class="clearfix" action="http://goodcaesar.createsend.com/t/r/s/jtyuiii/" method="post" id="subForm">
-		<input placeholder="Sign up to keep up to date" type="text" name="cm-jtyuiii-jtyuiii" id="jtyuiii-jtyuiii" />		
-		<input type="submit" value="Sign Me Up" />
-		<div class="error"><p></p></div>
-		</form>			
-	</div><!-- /newsletter -->
-   
-  	<ul class="social">
+  	<ul class="social buttons">
   		<li><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://election.sarawakreport.org" data-via="sarawak_report">Tweet</a>
   		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>  </li>
   		<li><div class="fb-like" data-href="http://election.sarawakreport.org" data-send="true" data-layout="button_count" data-width="450" data-show-faces="false" data-font="verdana"></div></li>
+
+		<li><a href="#about">About</a></li>
+		<li><a href="#browse">See all reports</a></li>
+
   		<li><a href="http://sarawakreport.org">Sarawak Report</a></li>
   		<li><a href="mailto:info@sarawakreport.org">info@sarawakreport.org</a></li>
-  		<li>All Rights Reserved &copy; 2013</li>
+  		<li>&copy; 2013</li>
+  		  		
   	</ul>
   	
 </footer>

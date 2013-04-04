@@ -179,19 +179,33 @@ $(function(){
 		return false;
     });
 	
-	$('a.about-btn').click(function(){  
-		$(this).toggleClass('one'); 		
-		$('section.content.about').slideToggle(50);
-	});
-	
-	$('a.contact-btn').click(function(){  
-		$(this).toggleClass('one'); 		
-		$('section.content.contact').slideToggle(50);
-	});
+//	$('a.about-btn').click(function(){  
+//		$(this).toggleClass('one'); 
+//		$('section#about').slideToggle(50);
+//	});
+//	
+//    $('a.browse-btn').click(function(){  
+//
+//		$(this).next('div:hidden').slideDown('fast')
+//		    .siblings('div:visible').slideUp('fast');
+//
+//
+//
+//		$('section.content').hide();
+//    	$(this).toggleClass('one'); 		
+//    	$('section#bribes-list').slideToggle(50);
+//    });
+//	
+//	$('a.contact-btn').click(function(){  
+//		$(this).toggleClass('one'); 		
+//		$('section.content.contact').slideToggle(50);
+//	});
+//    
     
-    $('a.browse-btn').click(function(){  
-    	$(this).toggleClass('one'); 		
-    	$('section.content.bribes-list').slideToggle(50);
+    $('.buttons a').click(function () {
+		$('.content').hide();
+		var target = $(this).attr("href");
+  		$(target).show();
     });
     
     var sarawakLocations = [

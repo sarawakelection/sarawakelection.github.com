@@ -122,54 +122,71 @@ idd: view
         </div>
       </form>
 </div><!-- /submit-map -->	
-   	   	   	   	
-<div class="message thankyou">
+
+<div class="buttons"><a class="question" href="#howto">?</a></div>
+
+<!--<div class="buttons"><a class="signup" href="#newsletter">@</a></div>-->
+
+<div id="newsletter" class="content">
+	<span class="close"><a href="#">&times;</a></span>
+			
+		<form class="clearfix" action="http://goodcaesar.createsend.com/t/r/s/jtyuiii/" method="post" id="subForm">
+		<input placeholder="Sign up to keep up to date" type="text" name="cm-jtyuiii-jtyuiii" id="jtyuiii-jtyuiii" />		
+		<input type="submit" value="Sign Me Up" />
+		<div class="error"><p></p></div>
+		</form>			
+	</div><!-- /newsletter -->
+	
+<div id="message-thankyou" class="content">
 	<span class="close">&times;</span>
 	<h2>Thank you for your report. It has been logged in our database and will appear on our map in a few moments.</h2>
-</div>   	   	   	   	
+</div>
 
-<section class="content bribes-list">
-<span class="close">&times;</span>
-</section> 
-
-<section class="content about">
-	<span class="close">&times;</span>
-	<div class="frame">
-
-	   <h2>Sarawak Report's Federal Election Bribe &amp; Abuse Map</h2>
-	   
-	   <p>This time we are operating a fully interactive map that you can add your information to!  So, if for example you have seen BN candidates handing money around longhouses or were in Beluru and disgusted at the sight of James Masing forcing land owners to parade before the cameras holding cheques for dividends, as if they were receiving 'gifts' from BN, then mark the incident down on the map (we already have this time) as an example of election bribery and corruption.  This way we can register BN's election crimes over the next few weeks.</p>
+<div id="howto" class="content">
+	<span class="close"><a href="#">&times;</a></span>
 	
-	   	<p>Rightfully, one day these crimes will catch up with their perpetrators.</p>
-
-		<div class="banners clearfix">
-	  	<ul>
-	  		<li><a href="http://radiofreesarawak.org" title="Radio Free Sarawak">Radio Free Sarawak</a></li>
-	  		<li><a href="http://sarawakreport.org" title="Sarawak Report">Sarawak Report</a></li>
-			<li><a href="http://github.com" title="Coded hosted on Github">GitHub</a></li>					
-			<li><a href="http://mapbox.com" title="Maps hosted by MapBox">MapBox</a></li>			
-			<li><a href="http://goodcaesar.com" title="Created by Good Caesar for Sarawak Report">Good Caesar</a></li>
-	  	</ul>
-	   </div>
-	  	
-
-	</div>
-</section>
-
-<div class="button-holder">
-	<ul class="tab-buttons">
-		<li><a class="browse-btn" href="#">See Reports</a></li>
-		<li><a class="about-btn" href="#">About</a></li>
+	<h3>Use this map to report election related corruption, such as:</h3>
+	
+	<ul class="item-list">
+		<li>Bribes</li>
+		<li>Abuse of power</li>
+		<li>Handouts</li>
+		<li>Voter fraud</li>
+		<li>Voter intimidation</li>
 	</ul>
 	
-	<ul id="jumper">
-		<li>Jump to</li>
-		<li><a id="west" href="#">West Malaysia</a></li>
-		<li class="active"><a id="sarawak" href="#">Sarawak</a></li>
-		<li><a id="sabah" href="#">Sabah</a></li>
+	<p>Click 'Add Report', then click on the map to plot the location and fill in the necessary details.</p>
 	
-	</ul>
-	
-</div>   	   	   	      	   	   
-   	   	   	      	   	   	
+</div>
+
+<ul id="jumper">
+	<li><a id="west" href="#">West Malaysia</a></li>
+	<li class="active"><a id="sarawak" href="#">Sarawak</a></li>
+	<li><a id="sabah" href="#">Sabah</a></li>
+</ul>
+   	   	   	   	
+<section id="browse" class="content">
+	<span class="close"><a href="#">&times;</a></span>	
+	<h2>Reports</h2>
+</section>    	   	   	   	
+   	   	   	   	
+<section id="about" class="content">
+	<span class="close"><a href="#">&times;</a></span>	
+   <h2>Sarawak Report's Federal Election Bribe &amp; Abuse Map</h2>
+   
+   <p>This time we are operating a fully interactive map that you can add your information to!  So, if for example you have seen BN candidates handing money around longhouses or were in Beluru and disgusted at the sight of James Masing forcing land owners to parade before the cameras holding cheques for dividends, as if they were receiving 'gifts' from BN, then mark the incident down on the map (we already have this time) as an example of election bribery and corruption.  This way we can register BN's election crimes over the next few weeks.</p>
+
+   	<p>Rightfully, one day these crimes will catch up with their perpetrators.</p>
+
+	<div class="banners clearfix">
+  	<ul>
+  		<li><a href="http://radiofreesarawak.org" title="Radio Free Sarawak">Radio Free Sarawak</a></li>
+  		<li><a href="http://sarawakreport.org" title="Sarawak Report">Sarawak Report</a></li>
+		<li><a href="http://github.com" title="Coded hosted on Github">GitHub</a></li>					
+		<li><a href="http://mapbox.com" title="Maps hosted by MapBox">MapBox</a></li>			
+		<li><a href="http://goodcaesar.com" title="Created by Good Caesar for Sarawak Report">Good Caesar</a></li>
+  	</ul>	  	
+   </div>
+</section><!--/#about -->
+  	   	   	      	   	   	
 {% include footer.code %}
