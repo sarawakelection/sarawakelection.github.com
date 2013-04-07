@@ -1,11 +1,11 @@
 ---
-permalink: index.html
-url: index.html
+permalink: /iban
+url: /iban
 title: Map
 idd: view
 ---
 
-{% include header.code %}
+{% include header-iban.code %}
 	
 <div id="map"></div>
 
@@ -22,11 +22,11 @@ idd: view
 		              
       <form method='post' target='hidden_iframe' class='well span6' id='ss-form'>
 		
-		<div class="button"><a href="#" id="geolocate">Use my location</a></div>
+		<div class="button"><a href="#" id="geolocate">Giga endur aku ke diatu</a></div>
 			
 		<div class="errorbox-good">
 			<div class="ss-item  ss-text">
-				<div class="ss-form-entry"><label class="ss-q-title" for="entry_7">What happened?
+				<div class="ss-form-entry"><label class="ss-q-title" for="entry_7">Nama utai ti nyadi
 				<span class='ss-required-asterisk'>*</span>
 				</label>
 		
@@ -41,7 +41,7 @@ idd: view
 			<div class="ss-item  ss-text">
 				<div class="ss-form-entry">
 				
-				<label class="ss-q-title" for="entry_9">Where? (Click on the map)</label>
+				<label class="ss-q-title" for="entry_9">Nama utai ti nyadi</label>
 				
 				<input type="text" name="entry.9.single" value="" placeholder="Type the location or click on the map" class="ss-q-short" id="entry_9">
 
@@ -52,7 +52,7 @@ idd: view
         <div class='errorbox-good datetime'>
           <div class='ss-item ss-item-required ss-text'>
             <div class='ss-form-entry'>
-              <label class='ss-q-title' for='entry_0'>When did it happen?
+              <label class='ss-q-title' for='entry_0'>Ni maya iya nyadi?
               <span class='ss-required-asterisk'>*</span>
               </label>
               <label class='ss-q-help' for='entry_0'></label>
@@ -64,7 +64,7 @@ idd: view
 		<div class='errorbox-good'>
 		  <div class='ss-item  ss-paragraph-text'>
 		    <div class='ss-form-entry'>
-		      <label class='ss-q-title' for='entry_8'>Website link <span>(Optional)</span></label>
+		      <label class='ss-q-title' for='entry_8'>Pemaut ngagai laman web</label>
 		      <label class='ss-q-help' for='entry_8'></label>
 		      <input type="text" name="entry.8.single" value="" class="ss-q-short" id="entry_8">
 		    </div>
@@ -74,7 +74,7 @@ idd: view
 		<div class='errorbox-good'>
 		  <div class='ss-item  ss-paragraph-text'>
 		    <div class='ss-form-entry'>
-		      <label class='ss-q-title' for='entry_2'>Description</label>
+		      <label class='ss-q-title' for='entry_2'>Penerang ti silik pasal utai ti nyadi</label>
 		      <label class='ss-q-help' for='entry_2'></label>
 		      <textarea name='entry.2.single' id='entry_2'></textarea>
 		    </div>
@@ -116,7 +116,7 @@ idd: view
         <input type='hidden' name='backupCache' value='' />
         <div class='ss-item ss-navigate'>
           <div class='ss-form-entry'>
-            <input id="sendthis" type='submit' name='submit' value='Submit' />
+            <input id="sendthis" type='submit' name='submit' value='Anjung' />
           </div>
           
         </div>
@@ -145,17 +145,17 @@ idd: view
 <div id="howto" class="content">
 	<span class="close"><a href="#">&times;</a></span>
 	
-	<h3>Use this map to report election related corruption, such as:</h3>
+	<h3>Gunakan peta ini untuk melaporkan jenayah berkaitan pilihanraya umum, seperti:</h3>
 	
 	<ul class="item-list">
-		<li>Bribes</li>
-		<li>Abuse of power</li>
-		<li>Handouts</li>
-		<li>Voter fraud</li>
-		<li>Voter intimidation</li>
+		<li>Rasuah</li>
+		<li>Salahguna kuasa</li>
+		<li>Sogokan</li>
+		<li>Penipuan semasa mengundi</li>
+		<li>Mengancam para pengundi</li>
 	</ul>
 	
-	<p>Click 'Add Report', then click on the map to plot the location and fill in the necessary details.</p>
+	<p>Klik 'Tambah Laporan', kemudian klik pada peta untuk menentukan kedudukan dan seterusnya isikan maklumat yang berkaitan.</p>
 	
 </div>
 
@@ -164,12 +164,12 @@ idd: view
 	<li class="active"><a id="sarawak" href="#">Sarawak</a></li>
 	<li><a id="sabah" href="#">Sabah</a></li>
 </ul>
-
+   	   	 
 <ul id="lang">
-	<li class="active"><a href="/">EN</a></li>
+	<li><a href="/">EN</a></li>
 	<li><a href="/ms">Malay</a></li>
-	<li><a href="/iban">Iban</a></li>
-</ul>
+	<li class="active"><a href="/iban">Iban</a></li>
+</ul>   	   	 
    	   	   	   	
 <section id="browse" class="content">
 	<span class="close"><a href="#">&times;</a></span>	
@@ -178,11 +178,11 @@ idd: view
    	   	   	   	
 <section id="about" class="content">
 	<span class="close"><a href="#">&times;</a></span>	
-   <h2>Sarawak Report's Federal Election Bribe &amp; Abuse Map</h2>
+   <h2>Repot Penyalah Rasuah Rambau Bepilihbesai & Kar Salahguna Kuasa Sarawak Report</h2>
    
-   <p>This time we are operating a fully interactive map that you can add your information to!  So, if for example you have seen BN candidates handing money around longhouses or were in Beluru and disgusted at the sight of James Masing forcing land owners to parade before the cameras holding cheques for dividends, as if they were receiving 'gifts' from BN, then mark the incident down on the map (we already have this time) as an example of election bribery and corruption.  This way we can register BN's election crimes over the next few weeks.</p>
+   <p>Ke sekali tu kami bejalaika sebengkah kar interaktif ti tau dikena kita nambahka penerang! Nya alai, ambi ke banding, enti kita bisi meda pengari BN besadungka duit di sebelah rumah panjai tauka tumpuk pendiau bala pengundi tauka kita kala di menua Beluru lalu berasai malu meda ulah James Masing mejal bala orang ti empu tanah beratur ba mua kamera seraya megai chunto chek dividen enda salah-salah sida nya baka ti nerima 'pemeri' ari BN, kita tau ngelai pengerami nya ba kar (kami udah bisi repot tu) nyadika chunto penyalah rasuah bepilihbesai. Enggau chara tu kitai ulih ngerejista penyalah BN sekumbang bepilihbesai sepemanjai minggu ti deka datai tu nyentuk ke maya ngundi ila.</p>
 
-   	<p>Rightfully, one day these crimes will catch up with their perpetrators.</p>
+   	<p>Bisi maya ila penyalah nya deka mantaika bala orang ti ngereja iya.</p>
 
 	<div class="banners clearfix">
   	<ul>
@@ -195,4 +195,4 @@ idd: view
    </div>
 </section><!--/#about -->
   	   	   	      	   	   	
-{% include footer.code %}
+{% include footer-iban.code %}

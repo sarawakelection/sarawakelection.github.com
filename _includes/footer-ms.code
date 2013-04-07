@@ -1,0 +1,72 @@
+<footer>
+
+  	<ul class="social buttons">
+  		<li><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://election.sarawakreport.org" data-via="sarawak_report">Tweet</a>
+  		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>  </li>
+  		<li><div class="fb-like" data-href="http://election.sarawakreport.org" data-send="true" data-layout="button_count" data-width="450" data-show-faces="false" data-font="verdana"></div></li>
+
+		<li><a href="#about">Mengenai Kami</a></li>
+		<li><a href="#browse">Lihat semua laporan</a></li>
+
+  		<li><a href="http://sarawakreport.org">Sarawak Report</a></li>
+  		<li><a href="mailto:info@sarawakreport.org">info@sarawakreport.org</a></li>
+  		<li>&copy; 2013</li>
+  		  		
+  	</ul>
+  	
+</footer>
+	
+	<script src='http://api.tiles.mapbox.com/mapbox.js/v0.6.7/mapbox.js'></script>	
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script>window.jQuery || document.write('/ext/jquery-1.8.2.min.js"><\/script>')</script>
+    <script src='http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/jquery.validate.min.js'></script>        
+                                
+    {% if page.idd == 'view' or page.idd == 'browse' %}
+        
+    <script>			
+      //script of form  from google
+      (function() {
+        var divs = document.getElementById('ss-form').
+        getElementsByTagName('div');
+        var numDivs = divs.length;
+        for (var j = 0; j < numDivs; j++) {
+          if (divs[j].className == 'errorbox-bad') {
+            divs[j].lastChild.firstChild.lastChild.focus();
+            return;
+          }
+        }
+
+        for (var i = 0; i < numDivs; i++) {
+          var div = divs[i];
+          if (div.className == 'ss-form-entry' &&
+          div.firstChild && div.firstChild.className == 'ss-q-title') {
+            div.lastChild.focus();
+            return;
+          }
+        }
+      })();
+
+    </script>    
+        
+    <script src='https://www.google.com/jsapi'></script>    	
+    <script src='http://code.jquery.com/ui/1.9.0/jquery-ui.js'></script>    
+	<script src='ext/front-map.js'></script>
+	
+	{% endif %}
+                
+    <script type="text/javascript">
+    
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-19709247-6']);
+      _gaq.push(['_trackPageview']);
+    
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    
+    </script>
+    
+  </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <title>{{site.main_title}}</title>
+
+	<script type="text/javascript" src="//use.typekit.net/naa0vdl.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="geo.position"  content="2.371;113.347">
+	<meta name="geo.region"    content="Sarawak">
+	<meta name="revisit-after" content="1 day">
+	        
+    <meta property="og:image" content="http://election.sarawakreport.org/a/og-image.jpg" />
+    <meta property="og:title" content="{{site.main_title}}" />
+    <meta property="og:description" content="Peta Rasuah &amp; Salahguna Kuasa Pilihanraya" />
+    
+    <!-- Tweet cards -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@sarawak_report">
+    <meta name="twitter:creator" content="@goodcaesar">
+    <meta name="twitter:url" content="http://election.sarawakreport.org">
+    <meta name="twitter:title" content="{{site.main_title}}">
+    <meta name="twitter:description" content="Peta Rasuah &amp; Salahguna Kuasa Pilihanraya">
+    <meta name="twitter:image" content="http://election.sarawakreport.org/a/election-mapping-icon.png">
+    
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    
+    <link href='http://api.tiles.mapbox.com/mapbox.js/v0.6.7/mapbox.css' rel='stylesheet' />
+    <link rel='stylesheet' href='http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css' />
+	<link rel='stylesheet' href='css/screen.css' />	
+    <script src="/ext/modernizr-custom.js"></script>
+    
+    <script>
+      var submitted=false;
+    </script>
+        
+  </head>
+  <body>
+  
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=139492312746513";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+  
+	<header class="clearfix">
+		
+		<hgroup>
+			<h1 class="site-name"><a href="index.html">S<span>arawak</span> R<span>eport</span></a></h1>
+		  	<h2>Peta Rasuah &amp; Salahguna Kuasa Pilihanraya</h2>
+		</hgroup>
+		
+		{% if page.idd == 'view' %}
+		
+		<div class="addbribe"><a href="#">Tambah Laporan</a></div>
+		
+		{% endif %}
+
+	</header>
