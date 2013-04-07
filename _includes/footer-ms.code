@@ -50,7 +50,7 @@
         
     <script src='https://www.google.com/jsapi'></script>    	
     <script src='http://code.jquery.com/ui/1.9.0/jquery-ui.js'></script>    
-	<script src='ext/front-map.js'></script>
+	<script src='http://election.sarawakreport.org/ext/front-map.js'></script>
 	
 	{% endif %}
                 

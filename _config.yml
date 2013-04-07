@@ -1,5 +1,5 @@
 pygments: true
-permalink: /:categories/:title
 main_title: Sarawak Report Election Bribe &amp; Abuse Map
 include: [a, c, j]
 auto: true
+permalink: /:categories/:title
