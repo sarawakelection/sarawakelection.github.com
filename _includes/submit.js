@@ -111,7 +111,7 @@ $(function () {
                 'coordinates': [l.lon, l.lat]
             },
                 'properties': {
-                	'image': './a/bribe-marker.png'
+                	'image': 'http://election.sarawakreport.org/a/bribe-marker.png'
             }
         }]).factory(function (f) {
             var mark = document.createElement('div');

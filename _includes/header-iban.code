@@ -9,12 +9,12 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="geo.position"  content="2.371;113.347">
-	<meta name="geo.region"    content="Sarawak">
+	<meta name="geo.region"    content="Sarawak, Malaysia">
 	<meta name="revisit-after" content="1 day">
 	        
     <meta property="og:image" content="http://election.sarawakreport.org/a/og-image.jpg" />
     <meta property="og:title" content="{{site.main_title}}" />
-    <meta property="og:description" content="Mapping election corruption in Sarawak for the upcoming Malaysian General Election. Add your bribe report today!" />
+    <meta property="og:description" content="Kar Rasuah &amp; Salahguna Kuasa Maya Ngundi" />
     
     <!-- Tweet cards -->
     <meta name="twitter:card" content="summary">
@@ -22,14 +22,14 @@
     <meta name="twitter:creator" content="@goodcaesar">
     <meta name="twitter:url" content="http://election.sarawakreport.org">
     <meta name="twitter:title" content="{{site.main_title}}">
-    <meta name="twitter:description" content="Mapping election corruption in Sarawak for the upcoming Malaysian General Election. Add your report today!">
+    <meta name="twitter:description" content="Kar Rasuah &amp; Salahguna Kuasa Maya Ngundi">
     <meta name="twitter:image" content="http://election.sarawakreport.org/a/election-mapping-icon.png">
     
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     
     <link href='http://api.tiles.mapbox.com/mapbox.js/v0.6.7/mapbox.css' rel='stylesheet' />
     <link rel='stylesheet' href='http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css' />
-	<link rel='stylesheet' href='http://election.sarawakreport.org/css/screen.css' />	
+	<link rel='stylesheet' href='../css/screen.css' />	
     <script src="http://election.sarawakreport.org/ext/modernizr-custom.js"></script>
     
     <script>
@@ -52,12 +52,15 @@
 		
 		<hgroup>
 			<h1 class="site-name"><a href="index.html">S<span>arawak</span> R<span>eport</span></a></h1>
-		  	<h2>Kar Rasuah &amp; Salahguna Kuasa Maya Ngundi</h2>
+
+			<h2>Kar Rasuah &amp; Salahguna Kuasa Maya Ngundi
+			<span class="sms">SMS REPORTS TO 0111 939 7878</span></h2>
+
 		</hgroup>
-		
+				
 		{% if page.idd == 'view' %}
 		
-		<div class="addbribe"><a href="#">Add report</a></div>
+		<div class="addbribe"><a href="#">Add Report</a></div>
 		
 		{% endif %}
 
