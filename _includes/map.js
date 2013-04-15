@@ -12,6 +12,7 @@ var data_id = '0AsL-qFOSUlaOdDktQ0JlZU9RaHNZbmJOOFk4T2kwSkE',
     geolocate = document.getElementById('geolocate'),
     addBribeMode = false,
     mouseIsDown = false,
+    browseMode = false,
         
     layer = mapbox.layer().id(map_id),    
 	    point,
@@ -38,6 +39,11 @@ map.ui.hash.add();
 	
 mmg_google_docs_spreadsheet_1(data_id, mapData);
 
+$('#map').click(function(){
+	$('.content').hide();
+	browseMode = false;
+});
+
 // Build map. Fired by mmg_google_docs_spreadsheet after data loaded
 function mapData(f) {
    
@@ -63,19 +69,20 @@ function mapData(f) {
 	// Formatting the popups
     interaction.formatter(function (feature) {
     
-    	if(feature.iscluster) // no popups on clusters
+    	if(feature.iscluster)
     		return;
+		    
+	    if(feature.properties.link) {
+	    	websitelink = '<p><a href="' + feature.properties.link + '">Visit link</a></p>';
+	    } else {
+	    	websitelink = '';
+	    }
+	    
+	    var o = '<h3>' + feature.properties.title + '</h3>' +
+	        '<p>' + feature.properties.description +                        
+	        '<p><strong>Date:</strong> ' + feature.properties.date.replace('Fecha: ', "") + websitelink + '</p>';
+	    return o;
         
-        if(feature.properties.link) {
-        	websitelink = '<p><a href="' + feature.properties.link + '">Visit link</a></p>';
-        } else {
-        	websitelink = '';
-        }
-        
-        var o = '<h3>' + feature.properties.title + '</h3>' +
-            '<p>' + feature.properties.description +                        
-            '<p><strong>Date:</strong> ' + feature.properties.date.replace('Fecha: ', "") + websitelink + '</p>';
-        return o;
     });
 
     //out url for download  data
@@ -83,7 +90,8 @@ function mapData(f) {
     
     // "zoomed" event sometimes happens before markers are placed at high zoom levels. Use timeout
 	map.addCallback('zoomed', function(){
-		setTimeout(cluster, 300);
+		$('.content').hide();
+		setTimeout(cluster, 100);
 	});
 	
 	
@@ -116,13 +124,14 @@ function cluster(){
     var i = 0;
     markers = [];
     $(markerLayer.markers()).each(function(n, m){
+    
     	if(m.element.className !== 'markerHolder') return;
     	m.point = map.locationPoint(m.location);
-    	if(isNaN(m.point.x)) return;
 
     	// clear clusters
     	$(m.element).data('map-index', i);
 		m.data.iscluster = false;
+		m.data.hidden = false;
 		m.clusterdata = {};
 		$(m.element).show();
 
@@ -133,7 +142,7 @@ function cluster(){
     var nearPoints = function(m1, m2){
     	if(isNaN(m1.point.x) || isNaN(m2.point.x))
     		return false;
-		return (Math.abs(m1.point.x - m2.point.x) < 10) && (Math.abs(m1.point.y - m2.point.y) < 10);
+		return (Math.abs(m1.point.x - m2.point.x) < 14) && (Math.abs(m1.point.y - m2.point.y) < 22);
 	}
 	
 	// take potential cluster $c and compare to marker $m 
@@ -141,28 +150,30 @@ function cluster(){
 		
 		$(markers).each(function(k, m){
 		
-			// if same marker or m is itself a cluster, continue
-			if((k == n) || m.data.iscluster) return;		
+			// if previously compared or c already part of a cluster, continue
+			if ( k <= n || c.data.hidden) return;		
 			
 			if(nearPoints(m, c)){
-				if(!c.data.iscluster){
-					c.data.iscluster = true;
-					c.clusterdata = {
-						count:2,
-						latmin: m.location.lat,
-						lonmin: m.location.lon,
-						latmax: m.location.lat,
-						lonmax: m.location.lon
-					}
-				}else{
-					d = c.clusterdata;
-					d.count++;
-					d.latmin = Math.min(d.latmin, m.location.lat);
-					d.lonmin = Math.min(d.lonmin, m.location.lon);
-					d.latmax = Math.max(d.latmax, m.location.lat);
-					d.lonmax = Math.max(d.lonmax, m.location.lon);			
+			
+				var c_c = c.data.iscluster;
+			
+				var comp_c = { // 
+					latmin: ( !c_c ? c.location.lat : c.clusterdata.latmin ),
+					lonmin: ( !c_c ? c.location.lon : c.clusterdata.lonmin ),
+					latmax: ( !c_c ? c.location.lat : c.clusterdata.latmax ),
+					lonmax: ( !c_c ? c.location.lon : c.clusterdata.lonmin )			
 				}
 				
+				var d = {};	// clusterdata							
+				d.latmin = Math.min(comp_c.latmin, m.location.lat );
+				d.lonmin = Math.min(comp_c.lonmin, m.location.lon );
+				d.latmax = Math.max(comp_c.latmax, m.location.lat );
+				d.lonmax = Math.max(comp_c.lonmax, m.location.lon );
+				c.data.ids = c_c ? c.data.ids.concat([ m.data.properties.id ]) :  [c.data.properties.id, m.data.properties.id];
+				
+				c.clusterdata = d;
+				c.data.iscluster = true;
+				m.data.hidden = true;
 				$(m.element).hide();
 			}
 		});
@@ -170,18 +181,40 @@ function cluster(){
 	
 	// zooming function
 	var clusterclick = function(){
-		d = markers[ $(this).data('map-index') ].clusterdata;
-		map.setExtent(new MM.Extent(d.latmax, d.lonmin, d.latmin, d.lonmax));
-		map.zoom(map.zoom()-1);
-		setTimeout(cluster, 500);	
+	
+		d   = markers[ $(this).data('map-index') ].clusterdata;
+		ids = markers[ $(this).data('map-index') ].data.ids;
+		
+        $('#browse .gdoc').each(function(n, el){
+        	if($.inArray($(el).attr('id'), ids) == -1)
+        		$(el).hide();
+        	else
+        		$(el).show();
+        });
+        
+        // use a timeout in case of zoom click
+        lastClickZoom = map.zoom();
+		
+		setTimeout(function(){
+			if(lastClickZoom != map.zoom()){
+				map.setExtent(new MM.Extent(d.latmax, d.lonmin, d.latmin, d.lonmax));
+				map.zoom(map.zoom()-1);
+				setTimeout(cluster, 500);			
+				return;
+			}
+			browseMode = true;
+			$('#browse .num').html('('+ids.length+')');
+			$('#browse').show();
+		}, 300);
+		
 	}
 	
 	$(markers).each(function(n, m){
 		if(m.data.iscluster){
-			m.data.iscluster = true;
+			$(m.element).show();
 			$(m.element).addClass('cluster');
 			$(m.element).append(
-				'<div class="clustercount">'+m.clusterdata.count+'</div>'
+				'<div class="clustercount">'+m.data.ids.length+'</div>'
 			);
 			$(m.element).on('click.cluster', clusterclick);
 			$(m.element).on('touchstart.cluster', clusterclick);
@@ -286,6 +319,7 @@ function testIntent(e) {
         } 
 	, 300);
 }
+
 
 function touchCancel(e) {
 	e.preventDefault();

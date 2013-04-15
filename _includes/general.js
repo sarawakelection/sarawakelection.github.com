@@ -204,7 +204,16 @@ $(function(){
     
     $('.buttons a').click(function () {
 		$('.content').hide();
+		browseMode = false;
 		var target = $(this).attr("href");
+		
+		// breaking the elegance with a hack
+		if(target == '#browse'){
+			browseMode = true;
+			$('#browse .gdoc').show();
+			$('#browse .num').html(features.length);
+  		}
+  		
   		$(target).show();
     });
     

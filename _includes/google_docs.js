@@ -68,7 +68,9 @@ function mmg_google_docs_spreadsheet_1(id, callback) {
         
         $('#count').html(x.feed.entry.length + ' reports received');
         
-        for (var i = 0; i < x.feed.entry.length; i++) {                             
+        for (var i = 0; i < x.feed.entry.length; i++) {
+        
+        	var gdoc_id = 'gdoc-'+i;                         
             var entry = x.feed.entry[i];
             var feature = {
                 geometry: {
@@ -81,7 +83,8 @@ function mmg_google_docs_spreadsheet_1(id, callback) {
                     'description': entry['gsx$description'].$t,  
                     'link': entry['gsx$link'].$t,  
                     'date': 'Date: ' + entry['gsx$date'].$t,
-                    'hour': 'Hour: ' + entry['gsx$time'].$t
+                    'hour': 'Hour: ' + entry['gsx$time'].$t,
+                    'id': gdoc_id
                 }
             };
             
@@ -97,11 +100,11 @@ function mmg_google_docs_spreadsheet_1(id, callback) {
             var description = entry['gsx$description'].$t            
 
 			// Output this as a browsable list
-			content = '<div class="bribe"><div class="inside"><h4>' + entry['gsx$title'].$t + '</h4>'+ '<p>' + '<p><small>' + entry['gsx$date'].$t + '</small></p><p class="desc">'+ description + '</p>' + websitelink + '</div></div>';
+			content = '<div class="bribe gdoc" id="'+gdoc_id+'"><div class="inside"><h4>' + entry['gsx$title'].$t + '</h4>'+ '<p>' + '<p><small>' + entry['gsx$date'].$t + '</small></p><p class="desc">'+ description + '</p>' + websitelink + '</div></div>';
 
             //console.log(content);
 
-			$(content).appendTo('#browse').hide().fadeIn(500);
+			$(content).appendTo('#browse');
 
             for (var y in entry) {
                 if (y === latfield) feature.geometry.coordinates[1] = parseFloat(entry[y].$t);
