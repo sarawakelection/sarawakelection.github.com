@@ -562,8 +562,9 @@ header {
 	}
 	
 #howto {
-	display:none;
+	margin: 6em auto 0 auto;
 	position:relative;
+	display:none;
 	z-index:300;
 }
 
@@ -673,13 +674,9 @@ section#about {
 }		
 
 	.content {
-		border-radius:0.2em;
-		-webkit-border-radius:0.2em;
-		-moz-border-radius:0.2em;
-		max-width:50em;	
-		margin:6em auto;
-		padding:0.5em 2em 0.5em 0.5em;
-		background:rgba(255,255,255,0.9);
+		max-width:28em;			
+		padding:0.5em 2em 0 0.5em;
+		background:rgba(255,255,255,0.95);
 		
 		h2 {
 			margin:0 0 0.5em 0;		
@@ -690,7 +687,10 @@ section#about {
 	
 section#browse.content {
 	overflow:scroll;	
-	max-height:40em;
+	position:absolute;
+	top:0;
+	right:0;
+	height:100%;
 }
 	
 /* Browsable Bribe List */

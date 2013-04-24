@@ -203,7 +203,7 @@ function cluster(){
 				return;
 			}
 			browseMode = true;
-			$('#browse .num').html('('+ids.length+')');
+			$('#browse .num').html(ids.length);
 			$('#browse').show();
 		}, 300);
 		
