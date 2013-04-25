@@ -1,5 +1,5 @@
 pygments: true
-main_title: Sarawak Report Election Bribe &amp; Abuse Map
+main_title: Malaysia Election Bribe &amp; Abuse Map
 include: [a, c, j]
 auto: true
 permalink: /:categories/:title
