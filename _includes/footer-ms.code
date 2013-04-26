@@ -6,7 +6,7 @@
   		<li><div class="fb-like" data-href="http://election.sarawakreport.org" data-send="true" data-layout="button_count" data-width="450" data-show-faces="false" data-font="verdana"></div></li>
 
 		<li><a href="#about">Mengenai Kami</a></li>
-		<li><a href="#browse">Lihat semua laporan</a></li>
+			<li><a href="#browse">Lihat semua laporan</a></li>
 
   		<li><a href="http://sarawakreport.org">Sarawak Report</a></li>
   		<li><a href="mailto:info@sarawakreport.org">info@sarawakreport.org</a></li>
@@ -16,9 +16,6 @@
   	
 </footer>
 	
-	<script src='http://api.tiles.mapbox.com/mapbox.js/v0.6.7/mapbox.js'></script>	
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-	<script>window.jQuery || document.write('/ext/jquery-1.8.2.min.js"><\/script>')</script>
     <script src='http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/jquery.validate.min.js'></script>        
                                 
     {% if page.idd == 'view' or page.idd == 'browse' %}
@@ -40,19 +37,73 @@
           var div = divs[i];
           if (div.className == 'ss-form-entry' &&
           div.firstChild && div.firstChild.className == 'ss-q-title') {
-            div.lastChild.focus();
+            $(div.lastChild).focus();
             return;
           }
         }
       })();
 
+		(function($) {
+			$.QueryString = (function(a) {
+				if (a == "") return {};
+				var b = {};
+				for (var i = 0; i < a.length; ++i)
+				{
+				    var p=a[i].split('=');
+				    if (p.length != 2) continue;
+				    b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+				}
+				return b;
+			})(window.location.search.substr(1).split('&'))
+		})(jQuery);
+
     </script>    
-        
-    <script src='https://www.google.com/jsapi'></script>    	
-    <script src='http://code.jquery.com/ui/1.9.0/jquery-ui.js'></script>    
-	<script src='http://election.sarawakreport.org/ext/front-map.js'></script>
-	
+
 	{% endif %}
+	
+	<script src="/ext/concatenated.js"></script>
+	
+	<script type="text/javascript">
+	
+		var disqus_shortname = 'electionmonitor'; 
+		var disqus_url;
+		var disqus_identifier;
+		
+		(function() {
+		    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		})();
+		
+		function loadDisqus(identifier, url) {
+		
+			console.log('loading ' + url);
+
+			if (window.DISQUS) {
+
+			   //if Disqus exists, call it's reset method with new parameters
+			   DISQUS.reset({
+				  reload: true,
+				  config: function () {
+				  this.page.identifier = identifier;
+				  this.page.url = url;
+				  }
+			   });
+
+			} else {
+
+			   //disqus_identifier = identifier; //set the identifier argument
+			   disqus_url = url; //set the permalink argument
+
+			   //append the Disqus embed script to HTML
+			   var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+			   dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+			   jQuery('head').append(dsq);
+
+			}
+		};
+		
+	</script>
                 
     <script type="text/javascript">
     
@@ -70,3 +121,4 @@
     
   </body>
 </html>
+

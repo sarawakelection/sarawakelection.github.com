@@ -740,8 +740,17 @@ section#about {
 		
 	}
 	
+#disqus_thread {
+	margin-top:2em;
+}	
+	
 section#browse.content {
-	overflow:scroll;	
+	overflow:scroll;
+
+	-webkit-box-shadow: -3px 0px 2px 2px rgba(50, 50, 50, 0.2);
+	box-shadow: -3px 0px 2px 2px rgba(50, 50, 50, 0.2);
+	-moz-box-shadow: -3px 0px 2px 2px rgba(50, 50, 50, 0.2);
+
 	position:absolute;
 	top:0;
 	right:0;

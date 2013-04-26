@@ -60,17 +60,23 @@
 		
 		disqus_url = PRODUCTION_ADDRESS + '?p=' + report.marker.fragment();
 		disqus_identifier = report.marker.fragment() + ' ' + PRODUCTION_ADDRESS + '?p=' + report.marker.fragment();
+ 		
+ 		var encoded_url = encodeURIComponent(disqus_url);
  			
 		html += '<div class="browse-reports">';
 		html += '<div class="bribe gdoc clearfix report-browse report-'+report.index+'">'
-			 + '<div class="inside"><h4>' + report.title + '</h4>' + '<p class="description">' + report.description + '</p>';
+			 + '<div class="inside"><h3>' + report.title + '</h3>' + '<p class="description">' + report.description + '</p>';
 		if(report.link)
 			html += '<p class="link">Link: <a href="' + report.link + '">' + truncateUrl(report.link) + '</a></p>';
 		html += '<p class="date"><small>' + report.date + '</small></p>'
-		
-			 + 'Link to this report: <input type="text" disabled value="' + disqus_url + '" />'
+						
+			+ '<iframe src="//www.facebook.com/plugins/like.php?href='+ encoded_url + '&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=true&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=468344119903335" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:125px; height:21px;" allowTransparency="true"></iframe>'
+			
+			+ '<iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/tweet_button.html?url=' + encoded_url + '&amp;via=sarawak_report&amp;count=horizontal&amp;text='+report.title+'"  style="width:120px; height:25px;"></iframe>'
+						
+			 + '<p>Link: <input type="text" disabled value="' + disqus_url + '" /></p>'
 			 
-			 + 'Disqus <div id="disqus_thread"></div>'
+			 + '<div id="disqus_thread"></div>'
 		
 			 + '</div></div>';	
 			
