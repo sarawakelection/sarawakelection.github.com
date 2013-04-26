@@ -4,8 +4,8 @@
     <meta charset='utf-8' />
     <title>{{site.main_title}}</title>
 
-	<script type="text/javascript" src="//use.typekit.net/naa0vdl.js"></script>
-	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	<!-- <script type="text/javascript" src="//use.typekit.net/naa0vdl.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script> !-->
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="geo.position"  content="2.371;113.347">
@@ -31,10 +31,20 @@
 	
 	<meta name="google-site-verification" content="zme9HB8EuRcscPPucF4wcJDB35v58BTt_kIB8NNH5Zo" />
     
-    <link href='http://api.tiles.mapbox.com/mapbox.js/v0.6.7/mapbox.css' rel='stylesheet' />
-    <link rel='stylesheet' href='http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css' />
-	<link rel='stylesheet' href='css/screen.css' />	
-    <script src="/ext/modernizr-custom.js"></script>
+    <link href='http://api.tiles.mapbox.com/mapbox.js/v1.0.0/mapbox.css' rel='stylesheet' />
+   	<script src='http://api.tiles.mapbox.com/mapbox.js/v1.0.1/mapbox.js'></script>
+    
+	<link rel='stylesheet' href='/css/screen.css' />
+	<link rel='stylesheet' href='http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css' />
+	
+	<script src='https://www.google.com/jsapi'></script>
+	
+	<script type="text/javascript">
+		google.load("jquery", "1");
+		//google.load("jqueryui", "1");
+	</script>
+	
+	<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
     
     <script>
       var submitted=false;
@@ -44,13 +54,13 @@
   <body>
   
   <div id="fb-root"></div>
-  <script>(function(d, s, id) {
+ <!-- <script>(function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) return;
     js = d.createElement(s); js.id = id;
     js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=139492312746513";
     fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));</script>
+  }(document, 'script', 'facebook-jssdk'));</script> !-->
   
 	<header class="clearfix">
 		

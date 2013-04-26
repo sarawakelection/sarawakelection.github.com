@@ -1,6 +1,6 @@
 /* general.js */
 
-$(function(){
+
 
 	$('#betong').click(function(){
 		map.ease.location({
@@ -160,7 +160,7 @@ $(function(){
 	
 	$('.addbribe').click(function(){   
 		
-		listenForNewBribes();
+		Bribes.startListening();
 
 		// fade in an old marker if it's there
 		$('.marker').fadeIn(250);
@@ -171,13 +171,22 @@ $(function(){
     $('span.close').click(function(){
 
     	$('.marker').fadeOut(250);
-    	stopListeningForNewBribes();
+    	Bribes.stopListening();
     	
 		$(this).parent().slideToggle(50);
 		$('.tab-buttons li a').removeClass('one');
 		//$('.introduction').slideToggle(50);
 		return false;
     });
+    
+    function truncateUrl(url){
+    
+    	if(url.length < 50)
+    		return url;
+    		
+    	return url.substr(0, 22) + '...' + url.substr(url.length-22);
+    
+    }
 	
 //	$('a.about-btn').click(function(){  
 //		$(this).toggleClass('one'); 
@@ -290,4 +299,4 @@ $(function(){
       source: sarawakLocations
     });
        		
-});
+

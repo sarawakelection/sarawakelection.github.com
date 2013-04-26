@@ -430,18 +430,7 @@ header {
 		}
    }
    
- .clustercount{
- 	position:absolute;
- 	width:24px;
- 	margin-left:-2px;
- 	padding-top:3px;
- 	height:30px;
- 	color:#444;
- 	text-align:center;
- 	font-size:0.8em;
- 	z-index:2;
- }
- 
+
  #listenerDiv{
 	position: absolute; 
 	top: 0px; 
@@ -451,6 +440,7 @@ header {
 	margin: 0px; 
 	padding: 0px; 
 	z-index: 5;	
+	cursor:pointer;
  }
  
  .markerHolder{
@@ -458,7 +448,15 @@ header {
  	z-index:0;
  	margin:-25px 0 0 -10px;
  	opacity:0.95;
- }
+ 	width:20px;
+ 	height:48px;
+ 	padding-top:2px;
+ 	background: url(http://a.tiles.mapbox.com/v3/marker/pin-s+fff.png) center top no-repeat;
+ 	color:#444;
+ 	text-align:center;
+ 	font-size:0.9em;
+  }
+
  
 	.cluster{
 		z-index:1;
@@ -467,7 +465,7 @@ header {
  .marker-tooltip{
  	margin-top:-20px;
  }
-     
+ 
  #indicate_menu {
    background:white;
    background:rgba(255,255,255,0.90);
@@ -483,8 +481,7 @@ header {
      margin:0;
      }
   
-.zoomin,
-.zoomer {
+.leaflet-control-container{
 	position:absolute;
 	top: 8em;
 	left:0.5em;
@@ -496,9 +493,9 @@ header {
 	border: none;
 }
 
-  .zoomout {
-    top:10.5em;
-  }
+.leaflet-control-attribution{
+	display:none;
+}
   
 .marker {
   width:80px;
@@ -509,6 +506,64 @@ header {
   z-index:1000;
   pointer-events:all;
   }
+
+.leaflet-popup{
+	margin-top:-12px;
+}
+
+.leaflet-popup-content{
+	
+	margin:0;
+	
+	padding-bottom:5px;
+	
+	h3{
+		padding:10px 10px 0 10px;
+	}
+	
+	.tooltip-reports{
+		max-height:300px;
+		overflow-y:auto;
+		padding:0;
+		margin:5px 5px 0 5px;
+		
+		.report-tooltip{
+			padding:7px 5px 5px;
+			margin:0;
+		}
+	}
+	
+	.tooltip-reports.multiple{
+		overflow-y:scroll;
+		
+		.report-tooltip{
+			border-top:1px solid #e6e6e6;
+		}		
+	}
+	
+	
+	.report-tooltip.active{
+		background:#ddd;
+	}
+	
+	p.description{
+		padding-top:7px;
+	}
+	
+	p.date{
+		float:left;
+		opacity:0.6;
+		margin:0;
+		font-size:0.9em;
+	}
+	
+	p.read{
+		float:right;
+		margin:0;
+		font-size:0.9em;
+	}
+
+}
 
 #lastfield{
   display:none;
@@ -727,7 +782,6 @@ section#browse {
 		}
 
 		p {
-			font-size:80%;
 			margin:0 0 0.4em 0;
 
 			small {
@@ -741,7 +795,6 @@ section#browse {
 					color:#5abac8;
 				}
 			}
-
 		}
 
 	}

@@ -16,9 +16,6 @@
   	
 </footer>
 	
-	<script src='http://api.tiles.mapbox.com/mapbox.js/v0.6.7/mapbox.js'></script>	
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-	<script>window.jQuery || document.write('/ext/jquery-1.8.2.min.js"><\/script>')</script>
     <script src='http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/jquery.validate.min.js'></script>        
                                 
     {% if page.idd == 'view' or page.idd == 'browse' %}
@@ -40,19 +37,31 @@
           var div = divs[i];
           if (div.className == 'ss-form-entry' &&
           div.firstChild && div.firstChild.className == 'ss-q-title') {
-            div.lastChild.focus();
+            $(div.lastChild).focus();
             return;
           }
         }
       })();
 
+		(function($) {
+			$.QueryString = (function(a) {
+				if (a == "") return {};
+				var b = {};
+				for (var i = 0; i < a.length; ++i)
+				{
+				    var p=a[i].split('=');
+				    if (p.length != 2) continue;
+				    b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+				}
+				return b;
+			})(window.location.search.substr(1).split('&'))
+		})(jQuery);
+
     </script>    
-        
-    <script src='https://www.google.com/jsapi'></script>    	
-    <script src='http://code.jquery.com/ui/1.9.0/jquery-ui.js'></script>    
-	<script src='ext/front-map.js'></script>
-	
+
 	{% endif %}
+	
+	<script src="/ext/concatenated.js"></script>
                 
     <script type="text/javascript">
     
