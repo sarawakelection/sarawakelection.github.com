@@ -1,14 +1,24 @@
 
 	var GOOGLEDOCS_DATA_ID = '0AsL-qFOSUlaOdDktQ0JlZU9RaHNZbmJOOFk4T2kwSkE';
 	var MAP_ID = 'goodcaesar.map-vwfp7lw5';
-	var PRODUCTION_ADDRESS = 'http://election.sarawakreport.org/';
-	var LATLNG_COMPARE_PRECISION = 2;
+	var PRODUCTION_ADDRESS = 'http://leaflet.sarawakelection.jaqx.lfy.be/'; //'http://election.sarawakreport.org/';
+	var LATLNG_COMPARE_PRECISION = 5;
+	var disqus_url = PRODUCTION_ADDRESS;
+	
+	function roughlyCompareLatLngs(latLngA, latLngB){
+		return (
+			parseFloat(latLngA.lat).toFixed(LATLNG_COMPARE_PRECISION) == parseFloat(latLngB.lat).toFixed(LATLNG_COMPARE_PRECISION) 
+			&& 
+			parseFloat(latLngA.lng).toFixed(LATLNG_COMPARE_PRECISION) == parseFloat(latLngB.lng).toFixed(LATLNG_COMPARE_PRECISION)
+		);	
+	}
 	
 	var ElectionReports = function(){
 	
 		var _ER = this;
 		this.reports = [];
 		this.markers = [];
+		this.loadQuery = false;
 		
 		this.loadReports = function(reports){
 			
@@ -19,14 +29,31 @@
 					new ElectionMarker(report);
 			});
 			
-			_ER.drawFeatures();
-			
 			map.on('zoomend', function(){
 				_ER.drawFeatures();
+				Browser.refreshStatus();
 			});
+			
 			map.on('moveend', function(){
-				 _ER.openPopupAt(map.getCenter());
+				 _ER.openPopupAt(_ER.getCenter());
+				 Browser.refreshStatus();
 			});
+			
+			_ER.drawFeatures();
+			
+			if(_ER.loadQuery){
+				window.location.hash = _ER.loadQuery;
+				var LQ = function(){
+					_ER.openPopupAt(_ER.getCenter(_ER.loadQuery));
+				}
+				map.on('ready', LQ);
+				setTimeout(function(){
+					LQ();
+					_ER.loadQuery = false;
+				});
+				
+			}
+			
 			
 		}
 		
@@ -42,7 +69,7 @@
 				marker.LMarker.closePopup();
 			});
 		
-			// Clustering time
+			// Clustering time ...
 			$(_ER.markers).each(function(n, parent){
 				$(_ER.markers).each(function(k, marker){
 				
@@ -73,25 +100,56 @@
 		        });
 		    });
 		    
-		    // open popup
-		    _ER.openPopupAt(map.getCenter());
+		    // open popup, unless waiting for second hash load
+		    if(!_ER.loadQuery)
+		   		_ER.openPopupAt(_ER.getCenter());
+		}
+		
+		// bizarrely, this is /more accurate/ than map.getCenter()
+		this.getCenter = function(hash){
+			var a = (hash ? hash : window.location.hash).split('/');
+			return {
+				lat: a[1],
+				lng: a[2]
+			};
 		}
 		
 		this.openPopupAt = function(latLng){
 			if(Bribes.listening)
 				return;
-			$(this.markers).each(function(n, marker){
-				if(marker.isRoughlyAt(latLng)){
+			$(_ER.markers).each(function(n, marker){
+				if(roughlyCompareLatLngs(latLng, marker.latLng)){
 					marker.openPopup();
+					window.location.hash = marker.fragment();
+					// this fires only once on page load
+					if(_ER.loadQuery)
+						_ER.read( marker.report.index );
 					return false;
 				}
-			});		
+			});
 		}
 		
 		this.closePopups = function(){
 			$(_ER.markers).each(function(n, marker){
 				marker.LMarker.closePopup();
 			});
+		}
+		
+		this.read = function(r){
+			
+			var reports = [];
+			
+			if(r == void 0){ // undefined
+				reports = this.reports;
+			}else if ($.isArray(r)){
+				$(r).each(function(n, i){
+					reports.push(this.reports[i]);
+				});
+			}else{
+				reports = [ this.reports[r] ];
+			}
+					
+			Browser.open(reports);
 		}
 		
 		var ElectionMarker = function(report){
@@ -110,14 +168,6 @@
 			
 			this.fragment = function(){
 				return map.getZoom() + '/' + this.latLng.lat + '/' + this.latLng.lng;
-			}
-
-			this.isRoughlyAt = function(latLng){
-				return (
-					parseFloat(latLng.lat).toFixed(LATLNG_COMPARE_PRECISION) == parseFloat(this.latLng.lat).toFixed(LATLNG_COMPARE_PRECISION) 
-					&& 
-					parseFloat(latLng.lng).toFixed(LATLNG_COMPARE_PRECISION) == parseFloat(this.latLng.lng).toFixed(LATLNG_COMPARE_PRECISION)
-				);
 			}
 			
 			this.fetchReports = function(){
@@ -162,24 +212,70 @@
 		
 	}
 	
+	
+	var ElectionBrowser = function(){
+	
+		this.latLng = false;
+		this.visible = false;
+		this.multiple = false;
+		
+		this.refreshStatus = function(){
+			if(this.multiple)
+				return;
+			if(this.visible && this.latLng && roughlyCompareLatLngs(this.latLng, Reports.getCenter()))
+				return;
+			this.close();
+		}
+	
+		this.open = function(reports){
+			this.multiple = (reports.length > 1);
+			this.latLng = this.multiple ? false : reports[0].marker.latLng;
+			this.visible = true;
+			$('#browse-inner').html(
+				formatBrowseReports(reports)	
+			);
+			
+			if(disqus_url)
+				loadDisqus(disqus_identifier, disqus_url);		
+			
+			$('#browse').show();
+			if(this.multiple)
+				Reports.closePopups();
+		}
+		
+		this.close = function(){
+			this.visible = false;
+			this.latLng = false;
+			this.multiple = false;
+			$('#browse').hide();		
+		}
+	}
 
 	
 	// set up map ahead of ajax call
 	
 	var Reports = new ElectionReports();
+	window.Reports = Reports;
+	
+	var Browser = new ElectionBrowser();
+	window.Browser = Browser;
 	
 	var map = L.mapbox.map('map', MAP_ID)
 		.setView([2.371, 113.347], 8);
 		
+	window.map = map;
+		
 	var markerLayer = L.mapbox.markerLayer(MAP_ID);
 
 	map.addLayer(markerLayer);
-	
-	if($.QueryString.p)
-		window.location.hash = $.QueryString.p;
 		
-	new L.Hash(map);
+	var Hash = new L.Hash(map);
 	
+	if($.QueryString.p){
+		window.location.hash = $.QueryString.p;
+		Reports.loadQuery = $.QueryString.p;
+		console.log(Reports.getCenter( $.QueryString.p ) );
+	}
 
 	// fetch data from gdocs
 

@@ -88,24 +88,18 @@
     });
         
     $('#sabah').click(function(){
-    	map.ease.location({
-    	    lat: 5.587287818739588,
-    	    lon: 117.13179003906242
-    	}).zoom(9).optimal();
+    	window.location.hash = [8, '5.58728', '117.13179'].join('/')
+    	return false;
     });   
     
     $('#west').click(function(){
-    	map.ease.location({
-    	    lat: 4.006763448257865,
-    	    lon: 102.15791732084676
-    	}).zoom(8).optimal();
+    	window.location.hash = [8, '4.00676', '102.15791'].join('/')
+    	return false;
     }); 
     
     $('#sarawak').click(function(){
-    	map.ease.location({
-    	    lat: 2.371,
-    	    lon: 113.347
-    	}).zoom(8).optimal();
+    	window.location.hash = [8, '2.371', '113.347'].join('/');
+    	return false;
     });    
             
     $("#subForm").validate({
@@ -159,12 +153,7 @@
     });    
 	
 	$('.addbribe').click(function(){   
-		
 		Bribes.startListening();
-
-		// fade in an old marker if it's there
-		$('.marker').fadeIn(250);
-		
 		$('.submit-map').slideToggle(50);
 	});
 	
@@ -218,9 +207,7 @@
 		
 		// breaking the elegance with a hack
 		if(target == '#browse'){
-			browseMode = true;
-			$('#browse .gdoc').show();
-			$('#browse .num').html(features.length);
+			Reports.read();
   		}
   		
   		$(target).show();

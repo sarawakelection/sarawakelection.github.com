@@ -42,7 +42,7 @@
 		formatHash: function(map) {
 			var center = map.getCenter(),
 			    zoom = map.getZoom(),
-			    precision = Math.max(0, Math.ceil(Math.log(zoom) / Math.LN2));
+			    precision = 5; //Math.max(0, Math.ceil(Math.log(zoom) / Math.LN2));
 
 			return "#" + [zoom,
 				center.lat.toFixed(precision),
