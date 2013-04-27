@@ -58,8 +58,8 @@
 		
 		var report = reports[0];
 		
-		disqus_url = PRODUCTION_ADDRESS + '?p=' + report.marker.fragment();
-		disqus_identifier = report.marker.fragment() + ' ' + PRODUCTION_ADDRESS + '?p=' + report.marker.fragment();
+		disqus_url = PRODUCTION_ADDRESS + '?p=' + report.marker.shareUrl();
+		disqus_identifier = report.marker.fragment() + ' ' + PRODUCTION_ADDRESS + '?p=' + report.marker.shareUrl();
  		
  		var encoded_url = encodeURIComponent(disqus_url);
  			

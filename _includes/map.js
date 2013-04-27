@@ -6,11 +6,11 @@
 	var disqus_url = PRODUCTION_ADDRESS;
 	var main_title = 'Malaysia Election Bribe & Abuse Map';
 	
-	function roughlyCompareLatLngs(latLngA, latLngB){
+	function roughlyCompareLatLngs(latLngA, latLngB, prec){
 		return (
-			parseFloat(latLngA.lat).toFixed(LATLNG_COMPARE_PRECISION) == parseFloat(latLngB.lat).toFixed(LATLNG_COMPARE_PRECISION) 
+			parseFloat(latLngA.lat).toFixed(prec) == parseFloat(latLngB.lat).toFixed(prec) 
 			&& 
-			parseFloat(latLngA.lng).toFixed(LATLNG_COMPARE_PRECISION) == parseFloat(latLngB.lng).toFixed(LATLNG_COMPARE_PRECISION)
+			parseFloat(latLngA.lng).toFixed(prec) == parseFloat(latLngB.lng).toFixed(prec)
 		);	
 	}
 	
@@ -36,7 +36,7 @@
 			});
 			
 			map.on('moveend', function(){
-				 _ER.openPopupAt(_ER.getCenter());
+				 //_ER.openPopupAt(_ER.getCenter());
 				 Browser.refreshStatus();
 			});
 			
@@ -45,14 +45,13 @@
 			if(_ER.loadQuery){
 				window.location.hash = _ER.loadQuery;
 				var LQ = function(){
-					_ER.openPopupAt(_ER.getCenter(_ER.loadQuery));
+					_ER.openPopupAt(_ER.getCenter(_ER.loadQuery), LATLNG_COMPARE_PRECISION);
 				}
 				map.on('ready', LQ);
-				setTimeout(function(){
+				setTimeout(function(){ // once more for luck
 					LQ();
 					_ER.loadQuery = false;
 				});
-				
 			}
 			
 			
@@ -74,7 +73,7 @@
 			$(_ER.markers).each(function(n, parent){
 				$(_ER.markers).each(function(k, marker){
 				
-					// if previously compared or c already part of a cluster, continue
+					// if previously compared or marker is already in a cluster, continue
 					if ( k <= n || marker.parent) return;
 					
 					if(parent.fetchPoint().distanceTo(marker.fetchPoint()) < 25){ // leaflet rocks
@@ -115,11 +114,16 @@
 			};
 		}
 		
-		this.openPopupAt = function(latLng){
+		this.openPopupAt = function(latLng, prec){
+		
 			if(Bribes.listening)
 				return;
+				
+			if(!prec)
+				prec = 2;
+				
 			$(_ER.markers).each(function(n, marker){
-				if(roughlyCompareLatLngs(latLng, marker.latLng)){
+				if(roughlyCompareLatLngs(latLng, marker.latLng, prec)){
 					marker.openPopup();
 					window.location.hash = marker.fragment();
 					// this fires only once on page load
@@ -171,6 +175,10 @@
 				return map.getZoom() + '/' + this.latLng.lat + '/' + this.latLng.lng;
 			}
 			
+			this.shareUrl = function(){
+				return '8/' + this.latLng.lat + '/' + this.latLng.lng;
+			}
+			
 			this.fetchReports = function(){
 				if(!this.cluster) return [this.report];
 				var reports = [];
@@ -183,7 +191,7 @@
 			this.openPopup = function(){
 				var m = this.parent ? this.parent : this;
 				m.LMarker.openPopup();
-				if(this.parent)
+				if(this.parent || this.cluster)
 					$('.report-tooltip.report-'+this.report.index).addClass('active');
 			}
 
@@ -198,13 +206,16 @@
 			this.element = this.LMarker._icon;		
 
 			$(this.element).on('click.marker', function(){
-				window.location.hash = _EM.fragment();
+				//window.location.hash = _EM.fragment();
+				map.setView(_EM.latLng, map.getZoom());
 				_EM.LMarker.openPopup()
 			});
 			
 			$(this.element).on('dblclick.marker', function(){
-				map.zoomIn(2);
-				_EM.LMarker.closePopup();
+			//	window.location.hash = _EM.fragment();
+				//_EM.LMarker.closePopup();
+				map.setView(_EM.latLng, map.getZoom()+2);
+				
 			});
 			
 			_ER.markers.push(this);
@@ -223,7 +234,7 @@
 		this.refreshStatus = function(){
 			if(this.multiple)
 				return;
-			if(this.visible && this.latLng && roughlyCompareLatLngs(this.latLng, Reports.getCenter()))
+			if(this.visible && this.latLng && roughlyCompareLatLngs(this.latLng, Reports.getCenter(), 4))
 				return;
 			this.close();
 		}
@@ -290,7 +301,7 @@
 	if($.QueryString.p){
 		window.location.hash = $.QueryString.p;
 		Reports.loadQuery = $.QueryString.p;
-		console.log(Reports.getCenter( $.QueryString.p ) );		
+		//console.log(Reports.getCenter( $.QueryString.p ) );		
 	}
 
 	// fetch data from gdocs
