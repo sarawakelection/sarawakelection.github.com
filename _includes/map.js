@@ -1,7 +1,7 @@
 
 	var GOOGLEDOCS_DATA_ID = '0AsL-qFOSUlaOdDktQ0JlZU9RaHNZbmJOOFk4T2kwSkE';
 	var MAP_ID = 'goodcaesar.map-vwfp7lw5';
-	var PRODUCTION_ADDRESS = 'http://dev.goodcaesar.com/'; //'http://election.sarawakreport.org/';
+	var PRODUCTION_ADDRESS = 'http://election.sarawakreport.org/'; //'http://election.sarawakreport.org/';
 	var LATLNG_COMPARE_PRECISION = 5;
 	var disqus_url = PRODUCTION_ADDRESS;
 	
