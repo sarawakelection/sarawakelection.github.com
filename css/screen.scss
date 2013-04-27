@@ -514,11 +514,12 @@ header {
 .leaflet-popup-content{
 	
 	margin:0;
-	
-	padding-bottom:5px;
+
+	padding-bottom:0.5em;	
 	
 	h3{
-		padding:10px 10px 0 10px;
+		text-transform:uppercase;
+		padding:0.5em 0.5em 0 0.5em;
 	}
 	
 	.tooltip-reports{
@@ -561,7 +562,22 @@ header {
 		float:right;
 		margin:0;
 		font-size:0.9em;
+		
+		a {
+			padding:0.2em;
+			border-radius:0.1em;
+			color:#fff;
+			background:#ab711d;
+			
+			&:hover {
+				background:#5abac8;
+				color:#fff;
+			}
+			
+		}
+		
 	}
+	
 
 }
 
@@ -1110,8 +1126,10 @@ screen and (max-width: 600px)  {
 /* Submit */
 
 #message-thankyou {
+	margin:0 auto;
+	width:16em;
 	display:none;
-	z-index:100;
+	z-index:200;
 	position:relative;
 }
 

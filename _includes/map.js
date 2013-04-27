@@ -4,6 +4,7 @@
 	var PRODUCTION_ADDRESS = 'http://election.sarawakreport.org/'; //'http://election.sarawakreport.org/';
 	var LATLNG_COMPARE_PRECISION = 5;
 	var disqus_url = PRODUCTION_ADDRESS;
+	var main_title = 'Malaysia Election Bribe & Abuse Map';
 	
 	function roughlyCompareLatLngs(latLngA, latLngB){
 		return (
@@ -231,9 +232,21 @@
 			this.multiple = (reports.length > 1);
 			this.latLng = this.multiple ? false : reports[0].marker.latLng;
 			this.visible = true;
+			
+			//console.log(reports[0].title);
+			//console.log('test');
+			
 			$('#browse-inner').html(
 				formatBrowseReports(reports)	
 			);
+			
+			// Dynamically set page title
+			
+			document.title = reports[0].title + ' | ' + main_title;		
+			
+			// Set meta description & title from bribe for facebook
+			$('meta[property="og:title"]').attr('content',reports[0].title ); 
+			$('meta[property="og:description"]').attr('content',reports[0].description );	
 			
 			if(disqus_url)
 				loadDisqus(disqus_identifier, disqus_url);		
@@ -244,6 +257,9 @@
 		}
 		
 		this.close = function(){
+		
+			document.title =  main_title;		
+			
 			this.visible = false;
 			this.latLng = false;
 			this.multiple = false;
@@ -274,7 +290,7 @@
 	if($.QueryString.p){
 		window.location.hash = $.QueryString.p;
 		Reports.loadQuery = $.QueryString.p;
-		console.log(Reports.getCenter( $.QueryString.p ) );
+		console.log(Reports.getCenter( $.QueryString.p ) );		
 	}
 
 	// fetch data from gdocs
