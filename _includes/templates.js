@@ -62,6 +62,9 @@
 		disqus_identifier = report.marker.fragment() + ' ' + PRODUCTION_ADDRESS + '?p=' + report.marker.fragment();
  		
  		var encoded_url = encodeURIComponent(disqus_url);
+
+ 		$('meta[property="og:title"]').attr('content',report.title ); 
+ 		$('meta[property="og:description"]').attr('content',report.description );
  			
 		html += '<div class="browse-reports">';
 		html += '<div class="bribe gdoc clearfix report-browse report-'+report.index+'">'
