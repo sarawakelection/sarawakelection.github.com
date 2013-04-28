@@ -1304,6 +1304,20 @@ screen and (max-width: 600px)  {
 	color:#fff;
 }
 
+a.facebook-share-button{
+	background:url(/a/facebook-share-button.png) top left no-repeat;
+	padding:2px 4px 2px 68px;
+	width: 24px;
+	height: 14px;
+	font-weight:bold;
+	font-size:0.76em;
+	text-align:center;
+	display:block;
+	float:left;
+	margin:0 7px 0 0;
+}
+
+
 /* Contact */
 
 form#contact {
@@ -1403,8 +1417,8 @@ form#contact {
 			margin: 1em 0;
 		}
 		
-	}	
-
+	}
+	
 /* Footer */			
 		
 footer {

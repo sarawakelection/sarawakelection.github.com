@@ -207,7 +207,7 @@
 
 			$(this.element).on('click.marker', function(){
 				//window.location.hash = _EM.fragment();
-				map.setView(_EM.latLng, map.getZoom());
+				map.panTo(_EM.latLng);
 				_EM.LMarker.openPopup()
 			});
 			
@@ -257,7 +257,9 @@
 			
 			// Set meta description & title from bribe for facebook
 			$('meta[property="og:title"]').attr('content',reports[0].title ); 
-			$('meta[property="og:description"]').attr('content',reports[0].description );	
+			$('meta[property="og:description"]').attr('content',reports[0].description );
+			
+			new Facebook().fetchShareCount(reports[0]);
 			
 			if(disqus_url)
 				loadDisqus(disqus_identifier, disqus_url);		
@@ -319,7 +321,8 @@
 		    },
 		    success: function(x) { 
 				var reports = [];
-				for (var i=0; i<x.feed.entry.length; i++){              
+			
+				for (var i = 0; i < x.feed.entry.length; i++){              
 					var entry = x.feed.entry[i],
 						report = { index: i }
 				    for (var y in entry){

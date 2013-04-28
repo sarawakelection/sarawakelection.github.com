@@ -59,9 +59,12 @@
 		var report = reports[0];
 		
 		disqus_url = PRODUCTION_ADDRESS + '?p=' + report.marker.shareUrl();
-		disqus_identifier = report.marker.fragment() + ' ' + PRODUCTION_ADDRESS + '?p=' + report.marker.shareUrl();
+		disqus_identifier = report.marker.shareUrl() + ' ' + PRODUCTION_ADDRESS + '?p=' + report.marker.shareUrl();
  		
- 		var encoded_url = encodeURIComponent(disqus_url);
+ 		var encoded_url    = encodeURIComponent(disqus_url);
+ 		var encoded_title  = encodeURIComponent(report.title);
+ 		var encoded_body   = encodeURIComponent(report.description);
+ 		var encoded_image  = encodeURIComponent(PRODUCTION_ADDRESS + '/a/og-image.jpg');
  			
 		html += '<div class="browse-reports">';
 		html += '<div class="bribe gdoc clearfix report-browse report-'+report.index+'">'
@@ -70,8 +73,9 @@
 			html += '<p class="link">Link: <a href="' + report.link + '">' + truncateUrl(report.link) + '</a></p>';
 		html += '<p class="date"><small>' + report.date + '</small></p>'
 						
-		+ '<iframe src="//www.facebook.com/plugins/like.php?href='+ encoded_url + '&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=true&amp;font&amp;title=' + report.title + '&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=468344119903335" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:125px; height:21px;" allowTransparency="true"></iframe>'
-				
+			 + '<a title="Share on Facebook" id="share-facebook-' + report.index + '" class="facebook-share-button" href="http://www.facebook.com/sharer.php?s=100&p[title]=' + encoded_title + '&p[summary]=' + encoded_body + '&p[url]=' + encoded_url + '&p[images][0]=' + encoded_image + '" '
+			 + 'target="_blank" onclick="return !window.open(this.href, \'Facebook\', \'width=640,height=300\')">-</a>'
+			
 			+ '<iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/tweet_button.html?url=' + encoded_url + '&amp;via=sarawak_report&amp;count=horizontal&amp;text='+report.title+'"  style="width:120px; height:25px;"></iframe>'
 						
 			 + '<p>Link: <input type="text" disabled value="' + disqus_url + '" /></p>'

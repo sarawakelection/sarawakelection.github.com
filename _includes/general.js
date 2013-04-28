@@ -285,5 +285,30 @@
     $( "#entry_9" ).autocomplete({
       source: sarawakLocations
     });
-       		
+    
+    var Facebook = function(){
+    
+    	var _FB = this;
+    	
+    	this.fetchShareCount = function(report){
+    	
+    		if(report.facebookShares == void 0){
+				
+				$.ajax({
+					url : 'http://graph.facebook.com/?id=' + encodeURIComponent( PRODUCTION_ADDRESS + '?p=' + report.marker.shareUrl() ),
+					type: 'GET',
+					 success: function(x){
+					 	report.facebookShares = x.shares | 0;
+					 	_FB.callback(report);
+					 }
+				});
+    			return;
+    		}
+    		this.callback(report);
+    	}
+    	
+    	this.callback = function(report){
+    		$('a#share-facebook-'+report.index).html(report.facebookShares);
+    	}
+    }
 
