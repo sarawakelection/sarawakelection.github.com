@@ -145,7 +145,7 @@
 			var reports = [];
 			
 			if(r == void 0){ // undefined
-				reports = this.reports;
+				reports = this.reports.slice();
 			}else if ($.isArray(r)){
 				$(r).each(function(n, i){
 					reports.push(this.reports[i]);
@@ -185,12 +185,13 @@
 				$(this.cluster).each(function(n,m){
 					reports.push(m.report);
 				});
-				return reports;
+				return reports.reverse();
 			}
 			
 			this.openPopup = function(){
 				var m = this.parent ? this.parent : this;
 				m.LMarker.openPopup();
+				$('.report-tooltip').removeClass('active');
 				if(this.parent || this.cluster)
 					$('.report-tooltip.report-'+this.report.index).addClass('active');
 			}
@@ -240,29 +241,40 @@
 		}
 	
 		this.open = function(reports){
+			
+			var theReport = reports.slice().pop();
+			reports.reverse(); // most recent first
+			
 			this.multiple = (reports.length > 1);
-			this.latLng = this.multiple ? false : reports[0].marker.latLng;
+			this.latLng = this.multiple ? false : theReport.marker.latLng;
 			this.visible = true;
-			
-			//console.log(reports[0].title);
-			//console.log('test');
-			
+
 			$('#browse-inner').html(
 				formatBrowseReports(reports)	
 			);
 			
 			// Dynamically set page title
-			
-			document.title = reports[0].title + ' | ' + main_title;		
+			document.title = theReport.title + ' | ' + main_title;		
 			
 			// Set meta description & title from bribe for facebook
-			$('meta[property="og:title"]').attr('content',reports[0].title ); 
-			$('meta[property="og:description"]').attr('content',reports[0].description );
+			$('meta[property="og:title"]').attr('content', theReport.title ); 
+			$('meta[property="og:description"]').attr('content', theReport.description );
 			
-			new Facebook().fetchShareCount(reports[0]);
+			if(disqus_url){
+				loadDisqus(disqus_identifier, disqus_url);	
+				new Facebook().fetchShareCount(theReport);	
+			}
 			
-			if(disqus_url)
-				loadDisqus(disqus_identifier, disqus_url);		
+			if(this.multiple){
+				$('.gdoc.report-browse').on('click', function(){
+					var index = parseInt($(this).attr('id').split('-').pop());
+					var marker = Reports.reports[index].marker;
+					if(marker){
+						map.panTo(marker.latLng);
+						marker.openPopup();
+					}
+				});
+			}
 			
 			$('#browse').show();
 			if(this.multiple)

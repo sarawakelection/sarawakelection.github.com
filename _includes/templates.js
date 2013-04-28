@@ -42,7 +42,7 @@
 				 + '<div class="browse-reports multiple">';
 				 
 			$(reports).each(function(n, report){
-				html += '<div class="bribe gdoc clearfix browse-tooltip report-'+report.index+'">'
+				html += '<div class="bribe gdoc clearfix report-browse report-'+report.index+'" id="browse-report-' + report.index + '">'
 					 + '<div class="inside"><h4>' + report.title + '</h4>' + '<p class="description">' + report.description + '</p>';
 				if(report.link)
 					html += '<p class="link">Link: <a href="' + report.link + '">' + truncateUrl(report.link) + '</a></p>';
@@ -63,7 +63,7 @@
  		
  		var encoded_url    = encodeURIComponent(disqus_url);
  		var encoded_title  = encodeURIComponent(report.title);
- 		var encoded_body   = encodeURIComponent(report.description);
+ 		var encoded_body   = encodeURIComponent(report.description.substr(0, 300)); // max facebook share summary length
  		var encoded_image  = encodeURIComponent(PRODUCTION_ADDRESS + '/a/og-image.jpg');
  			
 		html += '<div class="browse-reports">';
@@ -81,10 +81,8 @@
 			 + '<p>Link: <input type="text" disabled value="' + disqus_url + '" /></p>'
 			 
 			 + '<div id="disqus_thread"></div>'
-		
-			 + '</div></div>';	
-			
-		html += '</div>';
+			 + '</div></div>'	
+			 + '</div>';
 			
 		return html;
 	

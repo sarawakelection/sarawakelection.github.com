@@ -304,6 +304,7 @@
 				});
     			return;
     		}
+    		
     		this.callback(report);
     	}
     	
