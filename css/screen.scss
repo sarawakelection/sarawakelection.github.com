@@ -194,9 +194,9 @@ header {
  		z-index:100;
 		margin: 0 0 0 0;
 		float: left;
-		font-size: 3em;
+		font-size: 3.5em;
 		line-height:1;
-		letter-spacing:-2px;
+		letter-spacing:-6px;
 		font-family: "adelle",helvetica,arial,sans-serif;
 		
 		a {
@@ -542,7 +542,6 @@ header {
 		}		
 	}
 	
-	
 	.report-tooltip.active{
 		background:#ddd;
 	}
@@ -553,7 +552,7 @@ header {
 	
 	p.date{
 		float:left;
-		opacity:0.6;
+		opacity:0.65;
 		margin:0;
 		font-size:0.9em;
 	}
@@ -633,9 +632,11 @@ header {
 	}
 	
 #howto {
+	padding:0.5em;
 	margin: 6em auto 0 auto;
 	position:relative;
 	display:none;
+	width:40em;
 	z-index:300;
 }
 
@@ -742,6 +743,7 @@ section#about {
 	display:none;
 	position:relative;
 	z-index:800;
+	margin: 0 auto;
 }		
 
 	.content {
@@ -915,7 +917,7 @@ section#browse {
 			a {
 				display:inline-block;
 				text-indent:-999em;
-				margin: 0 1em;
+				margin: 1em;
 				background-color: rgba(255,255,255,0.5);
 			}
 		}

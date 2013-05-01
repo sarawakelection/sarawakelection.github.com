@@ -10,7 +10,7 @@
 			$(reports).each(function(n, report){
 				html += '<div class="bribe gdoc clearfix report-tooltip report-'+report.index+'">'
 					+ '<div class="inside"><h4>' + report.title + '</h4>' + '<p class="date"><small>' + report.date + '</small></p>'
-					+ '<p class="read"><a href="javascript:Reports.read(' + report.index + ')">Read more</a></p></div></div>';
+					+ '<p class="read"><a href="javascript:Reports.read(' + report.index + ')">Read this</a></p></div></div>';
 			});
 		}else{
 			html += '<div class="tooltip-reports">';

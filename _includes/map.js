@@ -275,7 +275,7 @@
 					}
 				});
 			}
-			
+						
 			$('#browse').show();
 			if(this.multiple)
 				Reports.closePopups();
@@ -300,9 +300,12 @@
 	
 	var Browser = new ElectionBrowser();
 	window.Browser = Browser;
-	
+
+	//	var map = L.mapbox.map('map', MAP_ID)
+	//		.setView([2.371, 113.347], 8);
+
 	var map = L.mapbox.map('map', MAP_ID)
-		.setView([2.371, 113.347], 8);
+		.setView([3.57921, 108.39111], 6);
 		
 	window.map = map;
 		
