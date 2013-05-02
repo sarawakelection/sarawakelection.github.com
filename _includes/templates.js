@@ -47,8 +47,15 @@
 				 + '<div class="browse-reports multiple">';
 				 
 			$(reports).each(function(n, report){
-				html += '<div class="bribe gdoc clearfix report-browse report-'+report.index+'" id="browse-report-' + report.index + '">'
-					 + '<div class="inside"><h4>' + report.title + '</h4>' + '<p class="description">' + report.description + '</p>';
+				html += '<div class="bribe gdoc clearfix report-browse report-'+report.index+'" id="browse-report-' + report.index + '"><div class="inside">';
+				
+				html += '<h4>' + report.title + '</h4>';
+				
+				if(report.image)
+					html += '<a href="' + report.image + '" target="_blank"><image src="' + imageThumbnail(report.image, 'm') + '" /></a>';
+				
+				html +=  '<p class="description">' + report.description + '</p>';
+				
 				if(report.link)
 					html += '<p class="link">Link: <a href="' + report.link + '">' + truncateUrl(report.link) + '</a></p>';
 				html += '<p class="date"><small>' + report.date + '</small></p>'
@@ -72,12 +79,12 @@
  		var encoded_image  = encodeURIComponent(PRODUCTION_ADDRESS + '/a/og-image.jpg');
  			
 		html += '<div class="browse-reports">';
-		html += '<div class="bribe gdoc clearfix report-browse report-'+report.index+'">';
+		html += '<div class="bribe gdoc clearfix report-browse report-'+report.index+'"><div class="inside">';
 		
 		if(report.image)
-			html += '<image src="' + imageThumbnail(report.image, 'm') + " />";
+			html += '<a href="' + report.image + '" target="_blank"><image src="' + imageThumbnail(report.image, 'm') + '" /></a>';
 		
-		html += '<div class="inside"><h3>' + report.title + '</h3>' + '<p class="description">' + report.description + '</p>';
+		html += '<h3>' + report.title + '</h3>' + '<p class="description">' + report.description + '</p>';
 		if(report.link)
 			html += '<p class="link">Link: <a href="' + report.link + '">' + truncateUrl(report.link) + '</a></p>';
 		html += '<p class="date"><small>' + report.date + '</small></p>'
