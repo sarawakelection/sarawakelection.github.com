@@ -15,12 +15,17 @@
 		}else{
 			html += '<div class="tooltip-reports">';
 			var report = reports[0];
-			html += '<div class="bribe gdoc clearfix report-tooltip report-'+report.index+'" id="report-'+report.index+'">'
-				+ '<div class="inside"><h4>' + report.title + '</h4>' + '<p class="description">' + report.description + '</p>';
+			html += '<div class="bribe gdoc clearfix report-tooltip report-'+report.index+'" id="report-'+report.index+'">';
+			
+			if(report.image)
+				html += '<image src="' + imageThumbnail(report.image, 't') + " />";
+			
+			html += '<div class="inside"><h4>' + report.title + '</h4>' + '<p class="description">' + report.description + '</p>';
+			
 			if(report.link)
 				html += '<p class="link">Link: <a href="' + report.link + '">' + truncateUrl(report.link) + '</a></p>';
-			html += '<p class="date"><small>' + report.date + '</small></p>'
-				+ '<p class="read"><a href="javascript:Reports.read(' + report.index + ')">Comment &amp; Share</a></p></div></div>';			
+			html += '<p class="date clearfix"><small>' + report.date + '</small></p>'
+				+ '<p class="read clearfix"><a href="javascript:Reports.read(' + report.index + ')">Comment &amp; Share</a></p></div></div>';			
 		}
 		
 		html += '</div>'
@@ -67,8 +72,12 @@
  		var encoded_image  = encodeURIComponent(PRODUCTION_ADDRESS + '/a/og-image.jpg');
  			
 		html += '<div class="browse-reports">';
-		html += '<div class="bribe gdoc clearfix report-browse report-'+report.index+'">'
-			 + '<div class="inside"><h3>' + report.title + '</h3>' + '<p class="description">' + report.description + '</p>';
+		html += '<div class="bribe gdoc clearfix report-browse report-'+report.index+'">';
+		
+		if(report.image)
+			html += '<image src="' + imageThumbnail(report.image, 'm') + " />";
+		
+		html += '<div class="inside"><h3>' + report.title + '</h3>' + '<p class="description">' + report.description + '</p>';
 		if(report.link)
 			html += '<p class="link">Link: <a href="' + report.link + '">' + truncateUrl(report.link) + '</a></p>';
 		html += '<p class="date"><small>' + report.date + '</small></p>'

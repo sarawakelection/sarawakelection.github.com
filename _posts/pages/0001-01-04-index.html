@@ -60,6 +60,25 @@ idd: view
             </div>
           </div>
         </div>
+        
+        <div class='errorbox-good upload-image'>
+          <div class='ss-item ss-item-required ss-text'>
+            <div class='ss-form-entry'>
+              <label class='ss-q-title' for='entry_10'>Image?</label>
+              <label class='ss-q-help' for='entry_10'></label>
+              <div id="image-form">
+		          <div id="upload-image">Drag images here (or use button below)
+		          	<input type="file" onchange="window.uploadImage(this.files[0])" />
+		          </div>
+		          <input id="image-value" type='hidden' name='entry.10.single' value='' id='entry_10' />
+              </div>
+              <div id="image-show" style="display:none; text-align:center">
+              	<img /><br />
+              	[<a id="image-reset" href="javascript: imageReset();">Remove image</a>]
+              </div>
+            </div>
+          </div>
+        </div>
 
 		<div class='errorbox-good'>
 		  <div class='ss-item  ss-paragraph-text'>

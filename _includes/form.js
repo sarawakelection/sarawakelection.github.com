@@ -32,6 +32,55 @@
     });
     
     //setTimeout(function(){ $('#map .introduction').fadeOut('fast'); }, 5000);	    
+    
+        /* Drag'n drop stuff */
+   	$('#upload-image').on('dragover', function(e) {e.preventDefault()});
+    $('#upload-image').on('drop', function(e) {
+		var dt = e.dataTransfer || (e.originalEvent && e.originalEvent.dataTransfer);
+		var files = e.target.files || (dt && dt.files); 
+    	e.preventDefault(); 
+    	uploadImage(files[0]); 
+   });
+    
+    window.uploadImage = function(file) {
+
+        /* Is the file an image? */
+        if (!file || !file.type.match(/image.*/)) return;
+
+        /* Lets build a FormData object*/
+        var fd = new FormData(); // I wrote about it: https://hacks.mozilla.org/2011/01/how-to-develop-a-html5-image-uploader/
+        fd.append("image", file); // Append the file
+
+        var xhr = new XMLHttpRequest(); // Create the XHR (Cross-Domain XHR FTW!!!) Thank you sooooo much imgur.com
+        // Get your own client id: http://api.imgur.com/
+      
+        xhr.open("POST", "https://api.imgur.com/3/upload.json"); // Boooom!
+  		xhr.setRequestHeader('Authorization', 'Client-ID c069caa8d9d70d6');
+        xhr.onload = function() {
+        	var href = JSON.parse(xhr.responseText).data.link;
+            $("#image-value").attr('value', href);
+            $("#image-show img").attr('src', imageThumbnail(href, 't'));
+            $("#image-show").show();
+            $("#image-form").hide();
+        }
+        // Ok, I don't handle the errors. An exercice for the reader.
+
+        /* And now, we send the formdata */
+        xhr.send(fd);
+    }
+    
+    window.imageThumbnail = function(imgur, type){
+    	var ext = imgur.split('.').pop();
+    	return imgur.substr(0, imgur.length - ext.length - 1) + type + '.' + ext;
+    }
+    
+    window.imageReset = function(){
+        $("#image-show").hide();
+        $("#image-form").show(); 
+        $("#image-value").attr('value', '');
+        $("#image-show img").attr('src', '');
+        return false;	
+    }
 
 	$("#ss-form").validate({
 		rules: {
