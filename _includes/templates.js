@@ -76,7 +76,7 @@
  		var encoded_url    = encodeURIComponent(disqus_url);
  		var encoded_title  = encodeURIComponent(report.title);
  		var encoded_body   = encodeURIComponent(report.description.substr(0, 300)); // max facebook share summary length
- 		var encoded_image  = encodeURIComponent(PRODUCTION_ADDRESS + '/a/og-image.jpg');
+ 		var encoded_image  = report.image ? encodeURIComponent( imageThumbnail(report.image, 'l') ) : encodeURIComponent(PRODUCTION_ADDRESS + '/a/og-image.jpg');
  			
 		html += '<div class="browse-reports">';
 		html += '<div class="bribe gdoc clearfix report-browse report-'+report.index+'"><div class="inside">';
@@ -92,7 +92,7 @@
 			 + '<a title="Share on Facebook" id="share-facebook-' + report.index + '" class="facebook-share-button" href="http://www.facebook.com/sharer.php?s=100&p[title]=' + encoded_title + '&p[summary]=' + encoded_body + '&p[url]=' + encoded_url + '&p[images][0]=' + encoded_image + '" '
 			 + 'target="_blank" onclick="return !window.open(this.href, \'Facebook\', \'width=640,height=300\')">-</a>'
 			
-			+ '<iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/tweet_button.html?url=' + encoded_url + '&amp;via=sarawak_report&amp;count=horizontal&amp;text='+report.title+'"  style="width:120px; height:25px;"></iframe>'
+			+ '<iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/tweet_button.html?url=' + encoded_url + '&amp;via=sarawak_report&amp;count=horizontal&amp;text='+encoded_title+'"  style="width:120px; height:25px;"></iframe>'
 						
 			 + '<p>Link: <input type="text" disabled value="' + disqus_url + '" /></p>'
 			 
